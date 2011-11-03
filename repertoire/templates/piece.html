@@ -1,0 +1,22 @@
+{% load feincms_tags %}
+{% include 'site_base.html' %}
+
+<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
+
+{% block main_content %}
+    <h1>New Works</h1>
+    <div class="row">
+        <div class="column grid_3">Liza Grossman</div>
+        <div class="column grid_6">
+            {% feincms_render_content %}
+            {% feincms_render_region feincms_page "yellow_overview" request %}
+        </div>
+    </div>
+
+
+{% feincms_render_region feincms_page "white_details" request %}
+{% endblock %}
+
+{% block sidebar %}
+{% feincms_render_region feincms_page "black_sidebar" request %}
+{% endblock %}

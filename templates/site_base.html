@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
+    <title></title>
+</head>
+<body>
+
+<div class="row">
+    <div class="column grid_3" id="logo"></div>
+    <div class="column grid_7" id="navigation">
+        {% block navigation %}
+        {% endblock %}
+    </div>
+    <div class="column grid_2" id="search bar"></div>
+</div>
+
+<div class="row">
+    <div class="column grid_9" id="main_content">
+        {% block main_content %}
+        {% endblock %}
+    </div>
+    <div class="column grid_3" id="sidebar">
+        {% block sidebar %}
+        {% endblock %}
+    </div></div>
+
+<div class="row">
+    <div class="column grid_12" id="footer">
+        {% block footer %}
+        {% endblock %}
+    </div></div>
+
+</body>
+</html>

@@ -3,3 +3,5 @@ local_settings.py
 *.sqlite3
 *.dev
 .DS_Store
+.idea
+
