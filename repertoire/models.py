@@ -12,7 +12,8 @@ Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
 Page.register_templates({
     'title': _('Upcoming'),
-    'path': 'piece.html',
+    #TODO (julian) Needs to work on more than my computer
+    'path': '/Users/julian/projects/cyo/repertoire/templates/piece.html',
     'regions': (
         ('yellow_overview', _('Overview')),
         ('white_details', _('Details')),
@@ -43,11 +44,13 @@ class ConcertInfo(models.Model):
     address1 = models.CharField(max_length=50)
     address2 = models.CharField(max_length=50, blank=True, null=True)
     city = models.CharField(max_length=50, blank=True, null=True)
-    state = us.models.USStateField(blank=True, null=True)
-    zipcode = us.models.USPostalCodeField(blank=True, null=True)
+    #TODO (julian) these modules are not imported
+    #state = us.models.USStateField(blank=True, null=True)
+    #zipcode = us.models.USPostalCodeField(blank=True, null=True)
 
     type_of_concert = models.CharField(max_length=50, choices=CONCERT_TYPES)
-    songlist = models.ManyToManyField(AllSongs)
+    #TODO (julian) an error is thrown when defining this
+    #songlist = models.ManyToManyField(AllSongs)
     soloist1 = models.CharField(max_length=50, blank=True, null=True)
     soloist2 = models.CharField(max_length=50, blank=True, null=True)
     guest = models.CharField(max_length=50, blank=True, null=True)
@@ -59,7 +62,8 @@ class ConcertInfo(models.Model):
         return
     
 class AllSongs(models.Model):
-    performance = models.ManyToManyField(ConcertInfo)
+    #TODO (julian) Check that this is defined right
+    #performance = models.ManyToManyField(ConcertInfo)
     title = models.CharField(max_length=50)
     composer = models.CharField(max_length=50)
     premiered_by = models.CharField(max_length=50, blank=True, null=True)
