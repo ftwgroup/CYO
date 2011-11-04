@@ -6,13 +6,19 @@
 {% block main_content %}
     <h1>New Works</h1>
     <div class="row">
-        <div class="column grid_3">Liza Grossman</div>
+        <div class="column grid_3" id="LizaGrossman"></div>
+            <div class="row">
+                <div class="column grid_3" id="image"></div>
+            </div>
+            <div class="row">
+                <div class ="column grid_3" id="time"</div>
+            </div>
         <div class="column grid_6">
             {% feincms_render_content %}
             {% feincms_render_region feincms_page "yellow_overview" request %}
         </div>
     </div>
-
+{% endblock %}
 
 {% feincms_render_region feincms_page "white_details" request %}
 {% endblock %}

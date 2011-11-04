@@ -32,6 +32,12 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
 
 #TODO (Ipsheeta) read http://www.feinheit.ch/media/labs/feincms/contenttypes.html#design-considerations-for-content-types
 
+CONCERT_TYPES = (
+    ('NW', 'New Works'),
+    ('MI', 'Music in Industry'),
+    ('RO', 'Rock the Orchestra'),
+)
+
 class ConcertInfo(models.Model):
     date_time = models.DateTimeField('Date and Time')
     address1 = models.CharField(max_length=50)
@@ -40,10 +46,26 @@ class ConcertInfo(models.Model):
     state = us.models.USStateField(blank=True, null=True)
     zipcode = us.models.USPostalCodeField(blank=True, null=True)
 
-    title = models.CharField()
+    type_of_concert = models.CharField(max_length=50, choices=CONCERT_TYPES)
+    songlist = models.ManyToManyField(AllSongs)
+    soloist1 = models.CharField(max_length=50, blank=True, null=True)
+    soloist2 = models.CharField(max_length=50, blank=True, null=True)
+    guest = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         abstract = True
 
-    def render(self, **kwargs):
+    def render(self, *args, **kwargs):
+        return
+    
+class AllSongs(models.Model):
+    performance = models.ManyToManyField(ConcertInfo)
+    title = models.CharField(max_length=50)
+    composer = models.CharField(max_length=50)
+    premiered_by = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+    def render(self, *args, **kwargs):
         return
