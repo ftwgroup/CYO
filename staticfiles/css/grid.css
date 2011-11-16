@@ -16,11 +16,13 @@
 .grid_12 { width:940px; }
 
 /* These are arbitrarily sized grid widths so that the site's frame is accurate to the designer's spacing and sizing, especially for slider images */
-.grid_A { width:1000px; } /* page-wrap */
-.grid_B { width:250px; } /* logo/image padding */
-.grid_C { width:750px; } /* navigation */
-.grid_D { width:738px; } /* slider image, home page */
-.grid_E { width:242px; } /* side bar width */
+.grid_1000 { width:1000px; } /* page-wrap */
+.grid_250 { width:210px; } /* logo/image padding */
+.grid_750 { width:710px; } /* navigation */
+.grid_738 { width:698px; } /* slider image, home page */
+.grid_242 { width:202px; } /* side bar width */
+.grid_60 { width:60px; } /* test small width */
+/* TODO (Ipsheeta): adjust 750 for navigation to exclude search bar */
 
 .column {
 	margin: 0 10px;
