@@ -48,7 +48,7 @@ form {
 }
 
 input.box {
-    width: 80px;
+    width: 100px;
     font-family: Font1, Gadget, sans-serif;
     font-size: 13.75px;
     color: #666;
@@ -65,6 +65,7 @@ input.box {
 	font-size: 13.75px;
     color: #666666;
 }
+
 div#navigation li {
     width: auto;
     float: left;
@@ -73,9 +74,13 @@ div#navigation li {
     list-style: none;
 }
 
+#main_content {
+    background: url("/static/images/content_01.jpg") no-repeat;
+    height: 486px;
+}
+
 #sidebar {
     background: url("/static/images/season.png") no-repeat;
-    backgroun-position: 10px 7px;
 }
 
 #footer {
