@@ -11,17 +11,15 @@ from feincms.module.page.models import Page
 from feincms.content.richtext.models import RichTextContent
 from feincms.content.image.models import ImageContent
 from feincms.content.medialibrary.v2 import MediaFileContent
-from feincms import settings
 
 import os.path
-from settings import PROJECT_ROOT
 
 Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
 Page.register_templates({
     'title': _('Upcoming'),
     #TODO (ipsheeta) is this going to work on everyone's computer now?
-    'path': (os.path.join(PROJECT_ROOT, 'repertoire/templates/piece.html')),
+    'path': 'piece.html',
     'regions': (
         ('yellow_overview', _('Overview')),
         ('white_details', _('Details')),

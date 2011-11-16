@@ -8,9 +8,9 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'cyo.views.home', name='home'),
     # url(r'^cyo/', include('cyo.foo.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('feincms.urls')),
 
-    url(r'', include('feincms.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

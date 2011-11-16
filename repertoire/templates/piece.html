@@ -1,5 +1,6 @@
+{% extends 'site_base.html' %}
 {% load feincms_tags %}
-{% include 'site_base.html' %}
+
 
 <!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
 
@@ -14,7 +15,6 @@
                 <div class ="column grid_3" id="time"></div>
             </div>
         <div class="column grid_6">
-            {% feincms_render_content %}
             {% feincms_render_region feincms_page "yellow_overview" request %}
         </div>
     </div>
