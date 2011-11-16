@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/concert_info.css" />
+    <title></title>
+</head>
+<body>
+
+{% load feincms_tags %}
+
+<div id="concert">
+    {% block concert %}
+        <h3>Upcoming</h3>
+            {% feincms_render_content content.ConcertInfo.headline %}
+            {% feincms_render_content content.ConcertInfo.songs %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

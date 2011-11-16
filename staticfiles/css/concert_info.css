@@ -1,0 +1,54 @@
+
+@font-face {font-family: Font1; src: url("/static/fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
+@font-face {font-family: Font2; src: url("/static/fonts/ARIALNB.ttf")}
+
+body {
+    background-color: yellow;
+}
+
+h3 {
+  /*  margin-bottom: 20px; */
+    font-family: Impact, Arial, sans-serif;
+    font-size: 38px;
+    font-weight: bold;
+    color: white;
+}
+/*
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+.hover-yellow:hover {
+    color: yellow;
+}
+
+#logo {
+    background: url("/static/images/Header.png") no-repeat;
+    height: 100px;
+}
+
+#navigation {
+    height: 100px;
+    font-family: Font1, Gadget, sans-serif;
+	font-size: 13.75px;
+    color: #666666;
+}
+
+#sidebar {
+    background: url("/static/images/season.png") no-repeat;
+    backgroun-position: 10px 7px;
+}
+
+#footer {
+    height: 100px;
+    font-family: Font1, Gadget, sans-serif;
+    font-size: 13.75px;
+    color: #666666;
+}
+
+div#footer li {
+    float: left;
+    list-style: none;
+}
+*/
