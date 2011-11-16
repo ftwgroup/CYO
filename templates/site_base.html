@@ -1,3 +1,4 @@
+{% load applicationcontent_tags feincms_tags feincms_page_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,7 +13,12 @@
     <div class="column grid_250" id="logo">logo</div>
     <div class="column grid_750" id="navigation">
         {% block navigation %}
-            navigation
+            {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
+            <ul>
+            {% for p in sublevel %}
+                <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
+            {% endfor %}
+            </ul>
         {% endblock %}
     </div>
   <!--  <div class="column grid_60" id="search bar"></div>-->
