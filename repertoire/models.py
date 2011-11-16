@@ -45,6 +45,12 @@ CONCERT_TYPES = (
     ('RO', 'Rock the Orchestra'),
 )
 
+DEBUT_STATUS = (
+    ('US', 'US Premiere'),
+    ('WP', 'World Premiere'),
+    ('OW', 'Original Work'),
+)
+
 class Song(models.Model):
     """
     Song class for the song database. Includes the :class: 'feincms.models.ExtensionMixin'
@@ -72,11 +78,13 @@ class ConcertInfo(models.Model):
 
     headline = models.CharField(max_length=100)
     type_of_concert = models.CharField(max_length=50, choices=CONCERT_TYPES)
+    debut_status = models.CharField(max_length=50, choices=DEBUT_STATUS)
     #TODO (ipsheeta) still an error?
     songs = models.ManyToManyField(Song)
     soloist1 = models.CharField(max_length=50, blank=True, null=True)
     soloist2 = models.CharField(max_length=50, blank=True, null=True)
     guest = models.CharField(max_length=50, blank=True, null=True)
+    long_description = models.TextField(max_length=1000)
 
     #TODO (Ipsheeta) is this sufficient?
     def __unicode__(self):
@@ -95,6 +103,11 @@ class ContentWithConcertInfo(models.Model):
         ctx = {'content', self}
         ctx.update(kwargs)
 
+#TODO (ipsheeta) forms.media?
+    def media(self):
+        return forms.Media(
+            css={'all': ('/static/css/concert_info.css',),},
+        )
         #TODO (julian) Needs a template file
         return render_to_string('concert_info.html', ctx)
 
