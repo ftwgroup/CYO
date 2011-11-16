@@ -2,6 +2,10 @@
 @font-face {font-family: Font1; src: url("/static/fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
 @font-face {font-family: Font2; src: url("/static/fonts/ARIALNB.ttf")}
 
+* {
+    padding: 0;
+}
+
 body {
     background-color: black;
 }
@@ -14,13 +18,40 @@ h1 {
     color: #3CF;
 }
 
+h4 {
+    font-weight: lighter;
+    margin-bottom: -15px;
+    font-family: Font2, Arial, sans-serif;
+    font-size: 14px;
+    color: #3CF;
+}
+
+p {
+    line-height: 18px;
+    font-family: Font2, Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+}
+
 a {
     color: #666;
     text-decoration: none;
 }
 
+form {
+    margin-top: 55px;
+    float: right;
+}
+
 .hover-yellow:hover {
     color: yellow;
+}
+
+input.box {
+    width: 80px;
+    font-family: Font1, Gadget, sans-serif;
+    font-size: 13.75px;
+    color: #666;
 }
 
 #logo {
@@ -33,6 +64,13 @@ a {
     font-family: Font1, Gadget, sans-serif;
 	font-size: 13.75px;
     color: #666666;
+}
+div#navigation li {
+    width: auto;
+    float: left;
+    margin-top: 60px;
+    color: #666;
+    list-style: none;
 }
 
 #sidebar {

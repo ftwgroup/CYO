@@ -23,7 +23,7 @@ Page.register_templates({
     'regions': (
         ('yellow_overview', _('Overview')),
         ('white_details', _('Details')),
-        ('black_sidebar', _('Sidebar')),
+        ('black_sidebar', _('Sidebar'), 'inherited'),
     ),
 })
 

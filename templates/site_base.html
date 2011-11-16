@@ -16,8 +16,11 @@
             {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
             <ul>
             {% for p in sublevel %}
-                <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
+                <li><a href="{{ p.get_absolute_url }}" class="hover-yellow">{{ p.title }}</a></li>
             {% endfor %}
+                <form name="input" action="some_link" method="post">
+                    <input type="text" class="box" name="some_name" value="Search" />
+                </form>
             </ul>
         {% endblock %}
     </div>
@@ -27,7 +30,7 @@
 <div class="row">
     <div class="column grid_738" id="main_content">
         {% block main_content %}
-            main content
+            <img src="{{ STATIC_URL }}images/content_01.jpg" />
         {% endblock %}
     </div>
     <div class="column grid_242" id="sidebar">
