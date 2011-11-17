@@ -5,8 +5,23 @@
 <div id="concert">
     {% block concert %}
         <h3>Upcoming</h3>
-
             <p>{{ content.concert.headline }}</p>
+            <p>{{ content.concert.long_description }}</p>
     {% endblock %}
 </div>
 
+
+<div id="concert2">
+    {% block concert2 %}
+        <h3>Upcoming</h3>
+            <b>
+                <p>{{ content.concert.debut_status }}</p>
+            </b>
+        <!-- TODO: (ipsheeta) make sure these objects from the class AllSongs are pulled correctly -->
+            <p>{{ content.concert.songs.title }}</p>
+            <p>{{ content.concert.songs.composer }}</p>
+            <p>{{ content.concert.songs.premiered_by }}</p>
+            <p>{{ content.concert.soloist1 }}</p>
+            <p>{{ content.concert.soloist2 }}</p>
+    {% endblock %}
+</div>
