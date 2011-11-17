@@ -25,7 +25,15 @@ Page.register_templates({
         ('white_details', _('Details')),
         ('black_sidebar', _('Sidebar'), 'inherited'),
     ),
-})
+    },
+    {
+    'title': _('Home Page'),
+    'path': 'home.html',
+    'regions': (
+        ('main', _('Main Content Area')),
+        ('sidebar', _('Side Bar'),)
+    ),
+    })
 
 Page.create_content_type(RichTextContent)
 Page.create_content_type(ImageContent, POSITION_CHOICES=(
@@ -99,3 +107,18 @@ class ContentWithConcertInfo(models.Model):
         return render_to_string('concert_info.html', ctx)
 
 Page.create_content_type(ContentWithConcertInfo)
+
+class Slider(models.Model):
+    """
+    This content type creates a slider
+    """
+    images = models.CharField(max_length=50)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        ctx = {'content', self}
+        ctx.update(kwargs)
+
+        return render_to_string('slider.html', ctx)
