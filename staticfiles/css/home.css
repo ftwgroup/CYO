@@ -1,0 +1,46 @@
+/* TODO (julian) please update the font sizes */
+.feature_box {
+    height: 212px;
+    width: 239px;
+    margin-top: 274px;1
+}
+.feature_header{
+    background: #FFDB01; /* #FFDB01 */
+    height: 24px; /* 24px */
+    width: auto;
+    padding-top: 6px;
+}
+.feature_footer {
+    background: #1A1A1A;
+    padding-top: 3px;
+    height: 86px;
+}
+div.feature_header p {
+    font-size: 22px;
+    font-family: Arial, sans-serif;
+    color: black;
+    padding-left: 20px;
+    margin:  0;
+}
+div.feature_footer p{
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding-left: 20px;
+    margin:  0;
+}
+div.feature_footer p:first-child {
+    color: #FFDB01;
+    font-weight: bold;
+    font-size: 15px;
+}
+div#feature_boxes ul {
+    margin:  0;
+}
+
+div#feature_boxes li {
+    list-style: none;
+    float: left;
+    /*margin-right: 5px;
+    margin-top: 274px;*/
+}

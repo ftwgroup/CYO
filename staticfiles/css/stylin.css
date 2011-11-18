@@ -1,6 +1,5 @@
 
 @font-face {font-family: Font1; src: url("/static/fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
-@font-face {font-family: Font2; src: url("/static/fonts/ARIALNB.ttf")}
 
 * {
     padding: 0;
@@ -27,8 +26,8 @@ h4 {
 }
 
 p {
-    line-height: 18px;
-    font-family: Font2, Arial, sans-serif;
+    line-height: 16px;
+    font-family: Arial, sans-serif;
     font-size: 14px;
     color: white;
 }
@@ -75,7 +74,7 @@ div#navigation li {
 }
 
 #main_content {
-    background: url("/static/images/content_01.jpg") no-repeat;
+    background: url("/static/images/slider1.jpg") no-repeat;
     height: 486px;
 }
 
