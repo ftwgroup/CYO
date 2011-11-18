@@ -4,6 +4,7 @@
     width: 239px;
     position: relative;
     top: -40px;
+    z-index: 20;
 }
 .feature_header {
     background: #FFDB01; /* #FFDB01 */
