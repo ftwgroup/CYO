@@ -1,0 +1,74 @@
+{% extends "site_base.html" %}
+{% load feincms_page_tags feincms_tags %}
+
+{% block extra_head %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.slideshow').cycle({
+            fx: 'fade'
+        });
+    });
+    </script>
+
+{% endblock %}
+
+{% block main_content %}
+    <div class="slideshow">
+        <img src="{{ STATIC_URL }}images/slider1.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider2.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider3.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider4.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider5.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider6.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider7.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider8.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider9.jpg" alt="" />
+    </div>
+    <div id="feature_boxes">
+        <ul>
+            <li><div class="feature_box">
+                <div class="feature_header">
+                    <p>Feature Boxes</p>
+                </div>
+                <img src="{{ STATIC_URL }}images/Featurebox2.jpg" alt="" />
+                <div class="feature_footer">
+                    <p>December 2011</p>
+                    <br />
+                    <p>New Works Title Here!</p>
+                    <p>TICKETS <span style="color: #FFDB01;"> @ </span></p>
+                </div>
+
+            </div></li>
+            <li><div class="feature_box" style="margin-left: 10px; margin-right: 10px;">
+                <div class="feature_header">
+                    <p>Feature Boxes</p>
+                </div>
+                <img src="{{ STATIC_URL }}images/Featurebox3.jpg" alt="" />
+                <div class="feature_footer">
+                    <p>March 2012</p>
+                    <br />
+                    <p>Tunes for Toons Two!</p>
+                    <p>TICKETS <span style="color: #FFDB01;"> > </span></p>
+                </div>
+            </div></li>
+            <li><div class="feature_box">
+                <div class="feature_header">
+                    <p>Feature Boxes</p>
+                </div>
+                <img src="{{ STATIC_URL }}images/Featurebox1.jpg" alt="" />
+                <div class="feature_footer">
+                    <p>Jefferson Starship</p>
+                    <br />
+                    <p>Last June, CYO shared the Nautica stage with Jefferson Starship.
+                        <span style="color: #FFDB01;"> > </span>
+                    </p>
+                </div>
+            </div></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

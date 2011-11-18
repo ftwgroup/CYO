@@ -2,9 +2,10 @@
 .feature_box {
     height: 212px;
     width: 239px;
-    margin-top: 274px;1
+    position: relative;
+    top: -40px;
 }
-.feature_header{
+.feature_header {
     background: #FFDB01; /* #FFDB01 */
     height: 24px; /* 24px */
     width: auto;
@@ -13,7 +14,7 @@
 .feature_footer {
     background: #1A1A1A;
     padding-top: 3px;
-    height: 86px;
+    height: 106px;
 }
 div.feature_header p {
     font-size: 22px;

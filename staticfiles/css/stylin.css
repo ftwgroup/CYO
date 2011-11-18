@@ -74,7 +74,7 @@ div#navigation li {
 }
 
 #main_content {
-    background: url("/static/images/slider1.jpg") no-repeat;
+    /*background: url("/static/images/slider1.jpg") no-repeat;*/
     height: 486px;
 }
 

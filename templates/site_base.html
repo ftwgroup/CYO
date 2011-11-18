@@ -7,7 +7,11 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylin.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/home.css" />
-    <title></title>
+
+    {#{{ feincms_page.content.media }}#}
+    {% block extra_head %}
+    {% endblock %}
+    <title>{{ feincms_page.title }}</title>
 
 </head>
 <body>
@@ -35,7 +39,7 @@
 <div class="row">
     <div class="column grid_738" id="main_content">
         {% block main_content %}
-            <!--<h1 style="margin-top: 100px; margin-left: 200px;">Main Content</h1>-->
+            <div class="slideshow"><img src="{{ STATIC_URL }}images/slider2.jpg" /></div>
             <div id="feature_boxes">
                 <ul>
                     <li><div class="feature_box">
