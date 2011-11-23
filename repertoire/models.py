@@ -110,14 +110,15 @@ class ContentWithConcertInfo(models.Model):
     def render(self, **kwargs):
         ctx = {'content', self}
         ctx.update(kwargs)
+        
+        #TODO (julian) Needs a template file
+        return render_to_string('concert_info.html', {'content':self})
 
-#TODO (ipsheeta) forms.media?
+    @property
     def media(self):
         return forms.Media(
             css={'all': ('/static/css/concert_info.css',),},
         )
-        #TODO (julian) Needs a template file
-        return render_to_string('concert_info.html', ctx)
 
 Page.create_content_type(ContentWithConcertInfo)
 

@@ -13,6 +13,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+INTERNAL_IPS = ('127.0.0.1',)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -98,11 +100,13 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -111,6 +115,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.csrf',
     'django.core.context_processors.static',
     'django.core.context_processors.media',
+    'django.core.context_processors.debug',
 )
 
 ROOT_URLCONF = 'cyo.urls'
@@ -136,8 +141,9 @@ INSTALLED_APPS = (
     'feincms',
     'feincms.module.page',
     'feincms.module.medialibrary',
+    'debug_toolbar',
 
-    'repertoire'
+    'repertoire',
 )
 
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
