@@ -2,10 +2,13 @@
 @font-face {font-family: Font1; src: url("/static/fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
 @font-face {font-family: Font2; src: url("/static/fonts/ARIALNB.ttf")}
 
-body {
+#concert {
     background-color: yellow;
 }
 
+#concert2 {
+    background-color: yellow;
+}
 h3 {
   /*  margin-bottom: 20px; */
     font-family: Impact, Arial, sans-serif;

@@ -4,6 +4,30 @@
 
 <!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
 <!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
+{% block extra_head %}
+{% endblock %}
+
+{% block main_content %}
+    <div style="float: right;">
+    <ul>
+        <li>NEW WORKS</li>
+        <li>MUSIC AND IT'S INDUSTRY</li>
+        <li>ROCK THE ORCHESTRA</li>
+    </ul>
+    </div>
+    <div class="row">
+        <div class="column grid_738" id="yellow">
+            {% feincms_render_region feincms_page "yellow_overview" request %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column grid_738" id="white">
+            {% feincms_render_region feincms_page "white_details" request %}
+        </div>
+    </div>
+{% endblock %}
+
 
 {% block sidebar %}
     <h1>17</h1>
