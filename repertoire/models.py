@@ -98,11 +98,36 @@ class ConcertInfo(models.Model):
     def __unicode__(self):
         return self.headline
 
-class ContentWithConcertInfo(models.Model):
+#class ContentWithConcertInfo(models.Model):
+#    """
+#    This is the content type for the concert info
+#    """
+#    concert = models.ForeignKey(ConcertInfo, verbose_name=_('concert info'))
+#
+#    class Meta:
+#        abstract = True
+#
+#    def render(self, **kwargs):
+#        ctx = {'content', self}
+#        ctx.update(kwargs)
+#
+#        #TODO (julian) Needs a template file
+#        return render_to_string('concert_info.html', {'content':self})
+#
+#    @property
+#    def media(self):
+#        return forms.Media(
+#            css={'all': ('/static/css/concert_info.css',),},
+#        )
+#
+#Page.create_content_type(ContentWithConcertInfo)
+
+class ConcertPageContent(models.Model):
     """
-    This is the content type for the concert info
+    This is the text boxes for the yellow concert page info
     """
-    concert = models.ForeignKey(ConcertInfo, verbose_name=_('concert info'))
+# TODO: (ipsheeta) for now just using a text field...hoping to add a richtext for each section (yellow, white, sidebar)
+    content = models.TextField()
 
     class Meta:
         abstract = True
@@ -110,17 +135,15 @@ class ContentWithConcertInfo(models.Model):
     def render(self, **kwargs):
         ctx = {'content', self}
         ctx.update(kwargs)
+        return render_to_string('concert_page.html', {'content':self})
         
-        #TODO (julian) Needs a template file
-        return render_to_string('concert_info.html', {'content':self})
-
     @property
     def media(self):
         return forms.Media(
-            css={'all': ('/static/css/concert_info.css',),},
+            css={'all': ('/static/css/concert_page.css',),},
         )
 
-Page.create_content_type(ContentWithConcertInfo)
+Page.create_content_type(ConcertPageContent)
 
 class Slider(models.Model):
     """
