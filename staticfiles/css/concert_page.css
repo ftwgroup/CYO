@@ -2,13 +2,6 @@
 @font-face {font-family: Font1; src: url("/static/fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
 @font-face {font-family: Font2; src: url("/static/fonts/ARIALNB.ttf")}
 
-#concert {
-    background-color: yellow;
-}
-
-#concert2 {
-    background-color: yellow;
-}
 h3 {
   /*  margin-bottom: 20px; */
     font-family: Impact, Arial, sans-serif;
@@ -16,42 +9,41 @@ h3 {
     font-weight: bold;
     color: white;
 }
-/*
-a {
-    color: #666;
-    text-decoration: none;
-}
 
-.hover-yellow:hover {
-    color: yellow;
+.concert_tabs {
+    background: #FFDB01;
 }
-
-#logo {
-    background: url("/static/images/Header.png") no-repeat;
-    height: 100px;
+.concert_tabs ul {
+    margin:  0;
 }
-
-#navigation {
-    height: 100px;
-    font-family: Font1, Gadget, sans-serif;
-	font-size: 13.75px;
-    color: #666666;
-}
-
-#sidebar {
-    background: url("/static/images/season.png") no-repeat;
-    backgroun-position: 10px 7px;
-}
-
-#footer {
-    height: 100px;
-    font-family: Font1, Gadget, sans-serif;
-    font-size: 13.75px;
-    color: #666666;
-}
-
-div#footer li {
-    float: left;
+.concert_tabs li {
+    font-family: Arial Narrow, san-serif;
+    font-weight: bold;
     list-style: none;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right-color: white;
+    border-right-style: solid;
+    border-right-width: 1px;
 }
-*/
+#concert_title {
+    color: black;
+    font-family: Arial Narrow, san-serif;
+    font-weight: lighter;
+}
+
+#concert {
+    background-color: #FFDB01;
+}
+
+div#concert p {
+    color: black;
+}
+
+#concert2 {
+    background-color: yellow;
+}
+

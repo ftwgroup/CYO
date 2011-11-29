@@ -5,18 +5,23 @@
 <!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
 <!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
 {% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/concert_page.css" />
+    {{ feincms_page.content.media }}
 {% endblock %}
 
 {% block main_content %}
-    <div style="float: right;">
+    <div class="concert_tabs" style="float: right;">
     <ul>
         <li>NEW WORKS</li>
         <li>MUSIC AND IT'S INDUSTRY</li>
         <li>ROCK THE ORCHESTRA</li>
     </ul>
     </div>
+    <h1 id="concert_title">{{ feincms_page.title }}</h1>
+    <!-- (julian) to make this div render right we need to divs of the appropriate width -->
     <div class="row">
-        <div class="column grid_738" id="yellow">
+        <div class="column grid_730" id="concert">
+            <div class="liza"><p style="color: white;"><b>LIZA GROSSMAN</b>, music director <span style="color: #FFDB01; font-weight: bold;">></span></p></div>
             {% feincms_render_region feincms_page "yellow_overview" request %}
         </div>
     </div>

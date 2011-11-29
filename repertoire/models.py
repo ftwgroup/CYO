@@ -5,6 +5,8 @@ from django.contrib.localflavor.us.models import USStateField, USPostalCodeField
 from django.db import models
 from django.template.loader import render_to_string
 
+from django import forms
+
 from django.utils.translation import ugettext_lazy as _
 
 from feincms.module.page.models import Page
@@ -140,7 +142,7 @@ class ConcertPageContent(models.Model):
     @property
     def media(self):
         return forms.Media(
-            css={'all': ('/static/css/concert_page.css',),},
+            css={'all': ('css/concert_page.css',),},
         )
 
 Page.create_content_type(ConcertPageContent)
