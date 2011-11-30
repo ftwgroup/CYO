@@ -20,9 +20,11 @@
     <h1 id="concert_title">{{ feincms_page.title }}</h1>
     <!-- (julian) to make this div render right we need to divs of the appropriate width -->
     <div class="row">
-        <div class="column grid_730" id="concert">
-            <div class="liza"><p style="color: white;"><b>LIZA GROSSMAN</b>, music director <span style="color: #FFDB01; font-weight: bold;">></span></p></div>
-            {% feincms_render_region feincms_page "yellow_overview" request %}
+        <div class="column grid_728" id="concert">
+            <div style="width: 270px;">
+                <div class="liza"><p style="color: white;"><b>LIZA GROSSMAN</b>, music director <span style="color: #FFDB01; font-weight: bold; font-size: 20px;">></span></p></div>
+            </div>
+                {% feincms_render_region feincms_page "yellow_overview" request %}
         </div>
     </div>
 
