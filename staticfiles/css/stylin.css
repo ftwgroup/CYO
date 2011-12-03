@@ -86,11 +86,11 @@ div#navigation li {
 #main_content {
     /*background: url("/static/images/slider1.jpg") no-repeat;*/
     height: 486px;
-    background: white;
+    background: black;
 }
 
 #sidebar {
-    background: url("/static/images/season.png") no-repeat;
+    background: url("/static/images/Season.png") no-repeat;
 }
 
 #footer {

@@ -37,7 +37,7 @@
 </div>
 
 <div class="row">
-    <div class="column grid_738" id="main_content">
+    <div class="column grid_738" id="main_content" style="{% block style %}{% endblock %}">
         {% block main_content %}
             <div class="slideshow"><img src="{{ STATIC_URL }}images/slider2.jpg" /></div>
             <div id="feature_boxes">
