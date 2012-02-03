@@ -144,7 +144,6 @@ INSTALLED_APPS = (
     'feincms.module.medialibrary',
     'south',
 
-
     'repertoire',
 )
 
