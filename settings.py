@@ -142,14 +142,21 @@ INSTALLED_APPS = (
     'feincms',
     'feincms.module.page',
     'feincms.module.medialibrary',
+    'south',
 
 
     'repertoire',
 )
 
-FEINCMS_TREE_EDITROR_INCLUDE_ANCESTORS = True
+FEINCMS_TREE_EDITOR_INCLUDE_ANCESTORS = True
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
     'TINYMCE_JS_URL': STATIC_URL+'/js/tiny_mce.js',
+}
+
+DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
+
+SOUTH_MIGRATION_MODULES = {
+    'page': 'cyo.migrate.page',
 }
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -170,6 +177,11 @@ LOGGING = {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
-        },
-    }
+            },
+        }
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
