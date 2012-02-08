@@ -1,13 +1,12 @@
 {% load applicationcontent_tags feincms_tags feincms_page_tags %}
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylin.css" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/home.css" />
-
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/restylin.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     {{ feincms_page.content.media }}
     {% block extra_head %}
     {% endblock %}
@@ -19,19 +18,20 @@
 
 
 <div class="row">
-    <div class="column grid_250" id="logo">logo</div>
+    <div class="column grid_250" id="logo"></div>
     <div class="column grid_750" id="navigation">
-        {% block navigation %}
+        <navigation>{% block navigation %}
             {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
             <ul>
                 {% for p in sublevel %}
-                    <li><a href="{{ p.get_absolute_url }}" class="hover-yellow">{{ p.title }}</a></li>
+                    <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
                 {% endfor %}
                 <form name="input" action="some_link" method="post">
                     <input type="text" class="box" name="some_name" value="Search" />
                 </form>
             </ul>
         {% endblock %}
+        </navigation>
     </div>
     <!--  <div class="column grid_60" id="search bar"></div>-->
 </div>
@@ -85,19 +85,27 @@
         {% endblock %}
     </div>
     <div class="column grid_242" id="sidebar">
-        {% block sidebar %}
-            sidebar
+        {%  block sidebar-common %}
+            <h2>season<span id="season-number">17</span></h2>
+        <div class="row">
+            <div class="column grid_242" id="sidebar_details">
         {% endblock %}
-    </div></div>
+        {% block sidebar %}
+            {% feincms_render_region feincms_page "black_sidebar" request %}
+        {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="column grid_1000" id="footer">
         {% block footer %}
             <ul>
-                <li>©2011-2012 Contemporsry Youth Orchestra |</li>
-                <li>(216) 321-3525 |</li>
-                <li><a href="#" class="hover-yellow">Contact</a> |</li>
-                <li><a href="#" class="hover-yellow">Search</a> |</li>
+                <li>©2011-2012 Contemporary Youth Orchestra |&nbsp;</li>
+                <li>(216) 321-3525 |&nbsp;</li>
+                <li><a href="#" class="hover-yellow">Contact</a> |&nbsp;</li>
+                <li><a href="#" class="hover-yellow">Search</a></li>
             </ul>
         {% endblock %}
     </div></div>

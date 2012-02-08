@@ -18,41 +18,24 @@ import os.path
 
 Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
-Page.register_templates(
-        {
-        'title': _('Concert Page'),
-        'path': 'concert_page.html',
-        'regions': (
-            ('yellow_overview', _('Overview')),
-            ('white_details', _('Details')),
-            ('black_sidebar', _('Sidebar'), 'inherited'),
-            ),
-        },
-        {
-        'title': _('Aricle Page'),
-        'path': 'article.html',
-        'regions': (
-            ('content', _('content')),
-            ('sidebar', _('Side Bar'),)
-            ),
-        },
-        {
-        'title': _('Home Page'),
-        'path': 'home.html',
-        'regions': (
-            ('main', _('Main Content Area')),
-            ('sidebar', _('Side Bar'),)
-        ),
-        },
-        {
-        'title': _('Bio Page'),
-        'path': 'bio_page.html',
-        'regions': (
-            ('white_details', _('Details')),
-            ('black_sidebar', _('Sidebar'), 'inherited'),
-            ),
-        }
-)
+Page.register_templates({
+    'title': _('Upcoming'),
+    #TODO (ipsheeta) is this going to work on everyone's computer now?
+    'path': 'piece.html',
+    'regions': (
+        ('yellow_overview', _('Overview')),
+        ('white_details', _('Details')),
+        ('black_sidebar', _('Sidebar'), 'inherited'),
+    ),
+    },
+    {
+    'title': _('Home Page'),
+    'path': 'home.html',
+    'regions': (
+        ('main', _('Main Content Area')),
+        ('sidebar', _('Side Bar'),)
+    ),
+    })
 
 Page.create_content_type(RichTextContent)
 Page.create_content_type(ImageContent, POSITION_CHOICES=(
