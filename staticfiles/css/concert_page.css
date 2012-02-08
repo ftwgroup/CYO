@@ -1,50 +1,77 @@
+/* Development CSS sheet by Stephen for CYO concert info*/
 
-@font-face {font-family: Font1; src: url("/static/fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
-@font-face {font-family: Font2; src: url("/static/fonts/ARIALNB.ttf")}
-
-h3 {
-  /*  margin-bottom: 20px; */
-    font-family: Impact, Arial, sans-serif;
-    font-size: 38px;
-    font-weight: bold;
-    color: white;
+.yellowbox{
+    font-weight:100;
+    color: #333;
 }
-
-.concert_tabs {
-    background: #FFDB01;
+.yellowbox div h2{
+    font-family:'Open Sans Condensed', sans-serif;
+    margin: .1em 0 0 0;
+    font-weight: 600;
+    color: #fff;
+    font-size: 2em;
 }
-.concert_tabs ul {
-    margin:  0;
+.yellowbox div h3{
+    margin: .1em 0 1em 0;
+    font-size: 1em;
+    color: #000;
 }
-.concert_tabs li {
-    font-family: Arial Narrow, san-serif;
-    font-weight: bold;
-    list-style: none;
+.yellowbox img{
+    width: 80%;
+    border: none;
+}
+div.concert_leftCol{
+    width: 250px;
     float: left;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-right-color: white;
-    border-right-style: solid;
-    border-right-width: 1px;
+    text-align:center;
 }
-#concert_title {
-    color: black;
-    font-family: Arial Narrow, san-serif;
+div.event-details{
+    margin: 0 auto;
+    padding: .7em;
+}
+div.concert_rightCol{
+    padding: 0 2em 0 0;
+    float:right;
+    text-align: left;
+    width: 450px;
+}
+div.artist_plate {
+   min-width: 170px;
+   max-width: 95%;
+   background: #231f20;
+   padding: .3em 20px;
+   margin: 0 0 1em 0;
+   float: left;
+}
+.yellowbox div ul{
+    text-align: left;
+    list-style: none;
+    width:80%;
+    margin: 1em auto;
+}
+
+div.artist_plate p {
+    font-family: 'Tahoma', sans-serif;
+    text-align: right;
+    color: #FFDB01;
+    font-size: .9em;
+}
+span.artist_name, span.artist_title{
+    white-space: nowrap;
+    color: #fff;
+}
+span.artist_name{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+span.artist_title{
     font-weight: lighter;
+    text-transform: lowercase;
+    margin: 0 .2em 0 0;
+}
+div#concert_container{
+    background: #FFDB01;
+    min-height:200px;
 }
 
-#concert {
-    background-color: #FFDB01;
-}
-
-div#concert p {
-    color: black;
-    padding-left: 20px;
-}
-
-#concert2 {
-    background-color: yellow;
-}
-
+/* the 'black' color the designers used 231f20

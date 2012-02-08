@@ -1,0 +1,160 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+#season-number {
+    font-family: 'Tahoma', sans-serif;
+    font-size: 2.1em;
+    font-weight: bold;
+    border-top: #3cf solid 4px;
+    width: 1.4em;
+    text-align: center;
+    padding: 0;
+}
+#sidebar {
+   color: #fff;
+   font-size: .9em;
+}
+#sidebar h2, #sidebar h3, #sidebar h4{
+    margin: 1em 0 .2em 0;
+}
+#sidebar h2, #sidebar h3{
+    color: #3CF;
+}
+#sidebar h4{
+    color: #FFDB01;
+}
+#sidebar h2{
+    font-size: 1.4em;
+}
+#sidebar h2, #season-number{
+    display: block;
+}
+#sidebar h3, #sidebar h4{
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+#navigation {
+    padding: 0;
+    text-align:left;
+}
+#navigation ul li:last-child a{
+    margin-right:0;
+}
+#navigation ul li:first-child a{
+    margin-left:0;
+}
+navigation a{
+    display: block;
+    width: auto;
+    margin: 0 .6em;
+    text-transform: uppercase;
+    font-family: 'Impact',sans-serif;
+}
+navigation a:hover {
+    color: #FFDB01;
+}
+input.box {
+    width: 120px;
+    color: #666;
+    border:0;
+    padding: .2em .2em .1em .2em;
+    float: right;
+    margin: 55px 0 0 0;
+}
+
+#logo {
+    background: url("/static/images/logo.png") no-repeat;
+    height: 100px;
+}
+
+#navigation {
+    height: 100px;
+    font-family: Font1, Gadget, sans-serif;
+    font-size: 13.75px;
+    color: #666666;
+}
+
+div#navigation li {
+    width: auto;
+    float: left;
+    margin-top: 60px;
+    color: #666;
+    list-style: none;
+}
+
+#footer {
+    height: 100px;
+    font-family: Font1, Gadget, sans-serif;
+    font-size: 13.75px;
+    color: #666666;
+    margin: 20px;
+}
+
+div#footer li {
+    float: left;
+    list-style: none;
+}
+
+.article-thumbnail{
+    width: 240px;
+    margin: 0 0 .5em .5em;
+    float: right;
+}
+.whitebox{
+    width: 698px;
+    padding: 0 20px 1em 20px;
+    color: #555;
+}
+.whitebox p{
+    margin: 0 0 .6em 0;
+    font-size: .9em;
+    display: inline;
+}
+.whitebox h2{
+    color: #111;
+    font-weight: normal;
+    margin: 0 0 .7em 0;
+}
+.whitebox h3{
+    color: #333;
+    font-weight: bold;
+    margin: 1em 0 .1em 0;
+}
+.whitebox table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #eee;
+}
+tr.over{
+    background: #222;
+    color: #eee;
+}
+.alt{
+    background: #ccc;
+}
+.whitebox table tbody tr td{
+    width: 30%;
+    vertical-align: top;
+    margin: .5em 0;
+    padding: .5em 1em;
+}
+.whitebox table tbody tr td ul{
+    list-style-type: none;
+    font-size: .9em;
+}
+
+.concert_tabs {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    background: #FFDB01;
+    float:right;
+}
+
+.concert_tabs li {
+    font-weight: bold;
+    list-style: none;
+    float: left;
+    padding: .5em 1em;
+    border: #fff solid 1px;
+}
