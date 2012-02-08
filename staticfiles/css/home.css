@@ -1,48 +1,46 @@
-/* TODO (julian) please update the font sizes */
-.feature_box {
-    height: 212px;
+#main_content {
+    min-height: 200px;
+}
+#feature-boxes{
+    width: inherit;
+}
+#feature-boxes div:first-child {
+    margin-left:0;
+}
+#feature-boxes div:last-child {
+    margin-right:0;
+}
+#feature-boxes div {
+    min-height: 240px;
     width: 239px;
     position: relative;
     top: -40px;
     z-index: 20;
-}
-.feature_header {
-    background: #FFDB01; /* #FFDB01 */
-    height: 24px; /* 24px */
-    width: auto;
-    padding-top: 6px;
-}
-.feature_footer {
     background: #1A1A1A;
-    padding-top: 3px;
-    height: 106px;
+    float:left;
+    margin: 0 5px;
 }
-div.feature_header p {
-    font-size: 22px;
-    font-family: Arial, sans-serif;
-    color: black;
-    padding-left: 20px;
-    margin:  0;
+#feature-boxes div h2{
+    background: #FFDB01;
+    padding: .2em .5em;
+    font-size: 1.2em;
 }
-div.feature_footer p{
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    padding-left: 20px;
-    margin:  0;
+#feature-boxes ul{
+    list-style: none;
+    margin:.5em;
 }
-div.feature_footer p:first-child {
-    color: #FFDB01;
-    font-weight: bold;
-    font-size: 15px;
+#feature-boxes div img{
+    width: 100%;
 }
-div#feature_boxes ul {
-    margin:  0;
+#feature-boxes div ul li:last-child {
+    color: white;
 }
 
-div#feature_boxes li {
-    list-style: none;
-    float: left;
-    /*margin-right: 5px;
-    margin-top: 274px;*/
+#feature-boxes div ul li:first-child {
+    color: #FFDB01;
+    font-weight: bold;
+}
+.ticket-button{
+    margin: .2em .5em;
+    vertical-align: baseline;
 }

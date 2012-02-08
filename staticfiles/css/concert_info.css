@@ -1,6 +1,6 @@
 
-@font-face {font-family: Font1; src: url("/static/fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
-@font-face {font-family: Font2; src: url("/static/fonts/ARIALNB.ttf")}
+@font-face {font-family: Font1; src: url("{{ STATIC_URL }}fonts/UniversLTStd-BoldCn.otf")} /* This doesnt display right maybe change to ttf */
+@font-face {font-family: Font2; src: url("{{ STATIC_URL }}fonts/ARIALNB.ttf")}
 
 #concert {
     background-color: yellow;

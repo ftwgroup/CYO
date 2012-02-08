@@ -1,0 +1,65 @@
+{% extends 'site_base.html' %}
+{% load feincms_tags %}
+
+<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
+<!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bio_page.css" />
+    {{ feincms_page.content.media }}
+{% endblock %}
+
+{% block style %}background: white;{% endblock %}
+
+{% block main_content %}
+    <div class="concert_tabs">
+        <ul>
+            <li>New Works</li>
+            <li>Music and Its Industry</li>
+            <li>Rock the Orchestra</li>
+        </ul>
+    </div>
+    <h1>{{ feincms_page.title }}</h1>
+    <div class="row">
+        <div class="column grid_738 whitebox">
+            {% feincms_render_region feincms_page "white_details" request %}
+            <h2>Musical Director, Conductor, Educator</h2>
+            <span><img src="{{ STATIC_URL }}images/dev_article_thumb.png" class="article-thumbnail">
+                <h3>Bam!</h3><p>It’s one of Liza’s favorite words.
+                And totally representative of the impact she makes on her
+                orchestras and her audiences. Her energy is radiant and infectious
+                and she gives it freely to every student in her orchestras. She is
+                the founding Music Director of the Contemporary Youth Orchestra,
+                conducting faculty at Interlochen Center for the Arts and co-founder
+                of the Interlochen Arts Camp Junior Advanced String Institute. She
+                also serves as guest conductor for youth orchestras across the
+                country.</p>
+                <h3>Boots</h3>
+                <p>Liza often wears fabulous rocker boots when she’s on the podium
+                conducting her musicians, especially during her Rock the Orchestra
+                series with rock stars like of Styx, Jefferson Starship, Ray Manzarek,
+                Graham Nash, Jon Anderson and Pat Benatar. And she has worked
+                some pretty big stages.</p>
+                <h3>Stages</h3>
+                <p>Blossom Music Center. Severance Hall. Nautica Stage. Interlochen.
+                Liza has conducted major artists performing major works on these
+                stages and more, including 18 world-premiere concertos performed
+                by members of the Cleveland Orchestra, nationally recognized
+                musicians and prominent jazz artists. She has conducted more
+                than 90 orchestral world premieres, all with the composers present,
+                including Bernard Rands, Robert Ward and Joan Tower.</p>
+                <h3>Reviews</h3>
+                <p>STRAD magazine called Liza “a master of tutelage...” That’s an
+                understatement. Her student musicians are the real beneficiaries of her skill with the
+                stick and the score. They don’t just get excited to perform. They
+                learn; they grow; they flourish.</p>
+
+ </span>
+        </div>
+    </div>
+{% endblock %}
+{% block sidebar %}
+    <h3>New Works</h3>If you're looking or Mozart, you're in the wrong place. Every season CYO performs New Works and explores new
+    composers and genres.
+    <h4>Media</h4>Here's a youtube video!
+{% endblock %}
