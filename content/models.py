@@ -60,3 +60,15 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('ArticleImage', _('Article Image')),
     #TODO (Ipsheeta) define type choices
 ))
+
+class ConcertDetails(models.Model):
+    location = models.TextField()
+    concert_datetime = models.DateTimeField()
+    concert_ticket_url = models.URLField()
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/concert_detail.html', {'concert': self})
+
