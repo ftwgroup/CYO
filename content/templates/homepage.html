@@ -1,0 +1,65 @@
+{% extends "site_base.html" %}
+{% load feincms_page_tags feincms_tags %}
+<!-- TODO (julian) needs to be made into a content type/ django app -->
+<!-- TODO (julian) point the headers at the appropriate distro of the source -->
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/home.css" />
+    <script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.slideshow').cycle({
+                fx: 'fade'
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block homepage_content %}
+    <div class="slideshow">
+        <img src="{{ STATIC_URL }}images/slider1.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider2.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider3.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider4.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider5.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider6.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider7.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider8.jpg" alt="" />
+        <img src="{{ STATIC_URL }}images/slider9.jpg" alt="" />
+    </div>
+    <div id="feature-boxes">
+        <div>
+            <h2>New Works</h2>
+            <img src="{{ STATIC_URL }}images/Featurebox1.jpg" alt="" />
+            <ul>
+                <li>December 2011</li>
+                <li>New Works Title Here!</li>
+            </ul>
+            <button class="ticket-button">Get Tickets!</button>
+        </div>
+        <div>
+            <h2>Music and Its Industry</h2>
+            <img src="{{ STATIC_URL }}images/Featurebox2.jpg" alt="" />
+            <ul>
+                <li>March 2012</li>
+                <li>Tunes for Toons Two!</li>
+            </ul>
+            <button class="ticket-button">Get Tickets!</button>
+        </div>
+        <div>
+            <h2>Rock the Orchestra</h2>
+            <img src="{{ STATIC_URL }}images/Featurebox3.jpg" alt="" />
+            <ul>
+                <li>Jefferson Starship</li>
+                <li>Last June, CYO shared the Nautica stage with Jefferson Starship.</li>
+            </ul>
+            <button class="ticket-button">Get Tickets!</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <h3>Welcome!</h3> If you're looking for Mozart of Beethoven, you're int he wrong place.
+    <h3>Here, we make new music.</h3>
+    Often we create it from the ground up. We put our heads and hands and hearts into it. And we share it with excitement, energy and joy.
+    <h3>Take a look around, and you'll enjoy our site!</h3>
+{% endblock %}
