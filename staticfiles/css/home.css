@@ -4,13 +4,13 @@
 #feature-boxes{
     width: inherit;
 }
-#feature-boxes div:first-child {
+#feature-boxes > div:first-child {
     margin-left:0;
 }
-#feature-boxes div:last-child {
+#feature-boxes > div:last-child {
     margin-right:0;
 }
-#feature-boxes div {
+#feature-boxes > div {
     min-height: 240px;
     width: 239px;
     position: relative;
@@ -27,7 +27,7 @@
 }
 #feature-boxes ul{
     list-style: none;
-    margin:.5em;
+    margin: .5em;
 }
 #feature-boxes div img{
     width: 100%;

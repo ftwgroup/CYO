@@ -3,85 +3,41 @@
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
+    <title>{{ feincms_page.title }}</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/restylin.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    {{ feincms_page.content.media }}
     {% block extra_head %}
     {% endblock %}
-    <title>{{ feincms_page.title }}</title>
-
+    {{ feincms_page.content.media }}
 </head>
 <body>
-
-
 
 <div class="row">
     <div class="column grid_250" id="logo"></div>
     <div class="column grid_750" id="navigation">
-        <navigation>{% block navigation %}
-            {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
-            <ul>
-                {% for p in sublevel %}
-                    <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
-                {% endfor %}
-                <form name="input" action="some_link" method="post">
-                    <input type="text" class="box" name="some_name" value="Search" />
-                </form>
-            </ul>
-        {% endblock %}
+        <navigation>
+            {% block navigation %}
+                {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
+                    <ul>
+                        {% for p in sublevel %}
+                            <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+            {% endblock %}
         </navigation>
+        {% block search_box %}
+            <form name="input" action="some_link" method="post">
+                <input type="text" class="box" name="some_name" value="Search" />
+            </form>
+        {% endblock %}
     </div>
-    <!--  <div class="column grid_60" id="search bar"></div>-->
 </div>
 
 <div class="row">
     <div class="column grid_738" id="main_content" style="{% block style %}{% endblock %}">
         {% block main_content %}
-            <div class="slideshow"><img src="{{ STATIC_URL }}images/slider2.jpg" /></div>
-            <div id="feature_boxes">
-                <ul>
-                    <li><div class="feature_box">
-                        <div class="feature_header">
-                            <p>Feature Boxes</p>
-                        </div>
-                        <img src="{{ STATIC_URL }}images/Featurebox2.jpg" alt="" />
-                        <div class="feature_footer">
-                            <p>December 2011</p>
-                            <br />
-                            <p>New Works Title Here!</p>
-                            <p>TICKETS <span style="color: #FFDB01;"> @ </span></p>
-                        </div>
-
-                    </div></li>
-                    <li><div class="feature_box" style="margin-left: 10px; margin-right: 10px;">
-                        <div class="feature_header">
-                            <p>Feature Boxes</p>
-                        </div>
-                        <img src="{{ STATIC_URL }}images/Featurebox3.jpg" alt="" />
-                        <div class="feature_footer">
-                            <p>March 2012</p>
-                            <br />
-                            <p>Tunes for Toons Two!</p>
-                            <p>TICKETS <span style="color: #FFDB01;"> > </span></p>
-                        </div>
-                    </div></li>
-                    <li><div class="feature_box">
-                        <div class="feature_header">
-                            <p>Feature Boxes</p>
-                        </div>
-                        <img src="{{ STATIC_URL }}images/Featurebox1.jpg" alt="" />
-                        <div class="feature_footer">
-                            <p>Jefferson Starship</p>
-                            <br />
-                            <p>Last June, CYO shared the Nautica stage with Jefferson Starship.
-                                <span style="color: #FFDB01;"> > </span>
-                            </p>
-                        </div>
-                    </div></li>
-                </ul>
-            </div>
         {% endblock %}
     </div>
     <div class="column grid_242" id="sidebar">
@@ -91,7 +47,7 @@
             <div class="column grid_242" id="sidebar_details">
         {% endblock %}
         {% block sidebar %}
-            {% feincms_render_region feincms_page "black_sidebar" request %}
+            {% feincms_render_region feincms_page "sidebar" request %}
         {% endblock %}
             </div>
         </div>
