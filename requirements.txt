@@ -3,4 +3,11 @@ FeinCMS==1.5.0.pre1
 PIL==1.1.7
 django-debug-toolbar==0.9.4
 django-mptt==0.5.2
+wsgiref==0.1.2Django==1.3.1
+FeinCMS==1.5.0.pre1
+PIL==1.1.7
+South==0.7.3
+django-debug-toolbar==0.9.4
+django-haystack==1.2.6
+django-mptt==0.5.2
 wsgiref==0.1.2
