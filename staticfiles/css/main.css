@@ -1,5 +1,58 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
+/*Redefinitions start */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #231f20;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    margin: 40px .2em 0 20px;
+    font-size: 2.5em;
+    width: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+    font-weight: lighter;
+    display: block;
+}
+h2{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 2em;
+    display: block;
+}
+h3{
+    font-size: 1.5em;
+    display: block;
+}
+h4 {
+    font-size: 1em;
+    display: block;
+}
+p {
+    line-height: 1.5em;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+button {
+    padding: .5em 1em .5em 1em;
+    font-weight: 800;
+    color: #FFDB01;
+    background: #222;
+    border: none;
+}
+/*end Redefinitions*/
+
+
+
 #season-number {
     font-family: 'Tahoma', sans-serif;
     font-size: 2.1em;
@@ -82,11 +135,8 @@ div#navigation li {
 }
 
 #footer {
-    height: 100px;
-    font-family: Font1, Gadget, sans-serif;
-    font-size: 13.75px;
-    color: #666666;
-    margin: 20px;
+    color: #666;
+    margin: 20px 20px 40px 20px;
 }
 
 div#footer li {
@@ -101,13 +151,16 @@ div#footer li {
 }
 .whitebox{
     width: 698px;
-    padding: 0 20px 1em 20px;
+    padding: 0 20px 40px 20px;
     color: #555;
 }
 .whitebox p{
     margin: 0 0 .6em 0;
     font-size: .9em;
     display: inline;
+}
+.whitebox > span{
+    float:left;
 }
 .whitebox h2{
     color: #111;
