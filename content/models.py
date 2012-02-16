@@ -25,7 +25,7 @@ Page.register_templates(
         'regions': (
             ('upcoming', _('Upcoming')),
             ('content', _('Content')),
-            ('black_sidebar', _('Sidebar'), 'inherited'),
+            ('concert_sidebar', _('Series Side bar'), 'inherited'),
             ),
         },
         {

@@ -17,6 +17,7 @@
 
 {% block style %}background: white;{% endblock %}
 {% block main_content %}
+    <!--TODO make links -->
     <div class="concert_tabs">
         <ul>
             <li>New Works</li>
@@ -42,17 +43,12 @@
                 </div>
             </div>
             <div class="concert_rightCol">
-            <h2>Season 17</h2>
-                <h3>CYO meets Circus and Vaudeville!</h3>
+            <h2>{{ feincms_page.content_subtitle }}</h2>
                 <span class="yellowBox" id="season-description">
-                    The Bindlestiff Family Circus joins forces with CYO to explore the music that accompanies trapeze
-                    artists, clowns, contortionists, tightrope walkers, and all the acts you'll find in a circus. The
-                    circus is one of the few remaining performing arts groups that still tours with live musicians. This
-                    installment in this series will exemplify what it takes to be a circus musician. And it's a tough 
-                    gig. 
+                    {% feincms_render_region feincms_page "upcoming" request %}
                 </span>
             </div>
-            {% feincms_render_region feincms_page "yellow_overview" request %}
+
             <!--
             TODO (stephen) [within yellow overview, create two divs (styles already accounted for)
             -->
@@ -61,26 +57,10 @@
 
     <div class="row">
         <div class="column grid_738 whitebox">
-            {% feincms_render_region feincms_page "white_details" request %}
-            <h2>Past Performances</h2>
-            <p>asfdsafdsfsdf</p>
-            <table class="zebra">
-                <tr><td>Season 16</td><td>Jefferson Starship</td><td><ul class="concert-archive-links"><li>Concert Program</li><li>Photos</li><li>Videos</li></ul></td></tr>
-                <tr><td>Season 15</td><td>Macy Laughlin</td><td><ul class="concert-archive-links"><li>Concert Program</li><li>Photos</li><li>Videos</li></ul></td></tr>
-                <tr><td>Season 14</td><td>Rocky Asparagine</td><td><ul class="concert-archive-links"><li>Concert Program</li><li>Photos</li><li>Videos</li></ul></td></tr>
-                <tr><td>Season 13</td><td>Sheldolf Winkle</td><td><ul class="concert-archive-links"><li>Concert Program</li><li>Photos</li><li>Videos</li></ul></td></tr>
-                <tr><td>Season 12</td><td>Dom Jaradipta</td><td><ul class="concert-archive-links"><li>Concert Program</li><li>Photos</li><li>Videos</li></ul></td></tr>
-            </table>
+            {% feincms_render_region feincms_page "content" request %}
         </div>
     </div>
 {% endblock %}
 {% block sidebar %}
-    <h3>New Works</h3>
-    If you're looking or Mozart, you're in the wrong place. Every season CYO performs New Works and explores new
-    composers and genres. We make Contemporary music. We learn all about it, from the composers who create it. CYO
-    pursues this with relentless energy and excitement. New works are learned and performed every season.
-    This makes CYO a different kind of musical experience, all about creating and learning how the music of today
-    is created, prepared and performed. This season is no different. Concert One, traditionally our New Works performance, features a
-    U.S. premiere, a world premiere with former Cleveland Orchestra clarinetist, and University of Michigan professor Dan Gilbert, is awesome.
-
+    {% feincms_render_region feincms_page "concert_sidebar" request %}
 {% endblock %}
