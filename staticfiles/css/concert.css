@@ -17,11 +17,11 @@
     color: #000;
 }
 .yellowbox img{
-    width: 80%;
+    width: 90%;
     border: none;
 }
 div.concert_leftCol{
-    width: 250px;
+    width: 230px;
     float: left;
     text-align:center;
 }
@@ -36,12 +36,12 @@ div.concert_rightCol{
     width: 450px;
 }
 div.artist_plate {
-   min-width: 170px;
-   max-width: 95%;
+   width: inherit;
    background: #231f20;
-   padding: .3em 20px;
-   margin: 0 0 1em 0;
+   padding: .3em .4em .3em 0;
+   margin: 0 1em 1em 0;
    float: left;
+   text-align:right;
 }
 .yellowbox div ul{
     text-align: left;
@@ -61,13 +61,13 @@ span.artist_name, span.artist_title{
     color: #fff;
 }
 span.artist_name{
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
 }
 span.artist_title{
     font-weight: lighter;
     text-transform: lowercase;
-    margin: 0 .2em 0 0;
+    margin: 0 .5em 0 0;
 }
 div#concert_container{
     background: #FFDB01;

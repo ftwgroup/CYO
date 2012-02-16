@@ -148,7 +148,7 @@ FEINCMS_TREE_EDITOR_INCLUDE_ANCESTORS = True
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
     'TINYMCE_JS_URL': STATIC_URL+'/js/tiny_mce/tiny_mce.js',
 }
-
+# TODO setup styling for wysiwyg editor i.e. paragraph, header and subheader
 DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 
 SOUTH_MIGRATION_MODULES = {
