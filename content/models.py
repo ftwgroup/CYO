@@ -20,36 +20,37 @@ Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
 Page.register_templates(
         {
-        'title': _('Concert Page'),
+        'title': 'Concert Page',
         'path': 'concert_page.html',
         'regions': (
-            ('upcoming', _('Upcoming')),
-            ('content', _('Content')),
-            ('concert_sidebar', _('Series Side bar'), 'inherited'),
+            ('concert_details', 'Concert Details'),
+            ('concert_abstract', 'Concert Abstract'),
+            ('content', 'Content'),
+            ('concert_sidebar', 'Series Side bar', 'inherited'),
             ),
         },
         {
-        'title': _('Article Page'),
+        'title': 'Article Page',
         'path': 'article.html',
         'regions': (
-            ('content', _('Content')),
-            ('sidebar', _('Side Bar'),)
+            ('content', 'Content'),
+            ('sidebar', 'Side Bar', 'inherited')
             ),
         },
         {
-        'title': _('Homepage'),
+        'title': 'Homepage',
         'path': 'home.html',
         'regions': (
-            ('homepage_content', _('Homepage Content')),
-            ('sidebar', _('Side Bar'),)
+            ('homepage_content', 'Homepage Content'),
+            ('sidebar', 'Side Bar')
         ),
         },
         {
-        'title': _('Bio Page'),
+        'title': 'Bio Page',
         'path': 'bio_page.html',
         'regions': (
-            ('content', _('Content')),
-            ('sidebar', _('Sidebar'), 'inherited'),
+            ('content', 'Content'),
+            ('sidebar', 'Sidebar', 'inherited'),
             ),
         }
 )
@@ -57,10 +58,12 @@ Page.register_templates(
 Page.create_content_type(RichTextContent)
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
-    ('ArticleImage', _('Article Image')),
+    ('ArticleImage', 'Article Image'),
+    ('ConcertThumbnail', 'Concert Poster Image'),
     #TODO (Ipsheeta) define type choices
 ))
 
+# TODO (julian) depending on how future conversations with CYO goes, we may refactor
 class ConcertDetails(models.Model):
     location = models.TextField()
     concert_datetime = models.DateTimeField()
@@ -72,3 +75,4 @@ class ConcertDetails(models.Model):
     def render(self, **kwargs):
         return render_to_string('content/concert_detail.html', {'concert': self})
 
+Page.create_content_type(ConcertDetails)

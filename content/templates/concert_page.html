@@ -33,19 +33,14 @@
                 <div class="artist_plate">
                     <p><span class="artist_name">Liza Grossman</span>, <span class="artist_title">music director</span> &gt;</p>
                 </div>
-                <div class="event-details"><img src="{{ STATIC_URL }}images/dev_article_thumb.png">
-                <ul>
-                    <li>March 11, 2012</li>
-                    <li>9:00pm</li>
-                    <li>Cleveland, Ohio</li>
-                </ul>
-                    <button id="ticket-button" value="find-tickets">Tickets</button>
+                <div class="event-details">
+               {% feincms_render_region feincms_page "concert_details" request %}
                 </div>
             </div>
             <div class="concert_rightCol">
             <h2>{{ feincms_page.content_subtitle }}</h2>
                 <span class="yellowBox" id="season-description">
-                    {% feincms_render_region feincms_page "upcoming" request %}
+                    {% feincms_render_region feincms_page "concert_abstract" request %}
                 </span>
             </div>
 
