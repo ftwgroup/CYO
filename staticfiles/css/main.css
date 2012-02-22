@@ -156,9 +156,14 @@ div#footer li {
 }
 
 .article-thumbnail{
-    width: 240px;
-    margin: 0 0 .5em .5em;
-    float: right;
+    width: 220px;
+    margin: 0 10px 10px 0;
+    float:left;
+}
+.article-thumbnail image img{
+    width: 100%;
+    margin: 0;
+    border:0;
 }
 .whitebox{
     width: 698px;
@@ -226,4 +231,8 @@ tr.over{
     float: left;
     padding: .5em 1em;
     border: #fff solid 1px;
+}
+.split-right{
+    width: 360px;
+    float:right;
 }
