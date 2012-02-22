@@ -44,10 +44,16 @@ a {
 }
 button {
     padding: .5em 1em .5em 1em;
-    font-weight: 800;
-    color: #FFDB01;
+    font-weight: bold;
+    color: #fff;
     background: #222;
     border: none;
+}
+button a {
+    color: #fff;
+}
+button a:hover {
+    color: #FFDB01;
 }
 /*end Redefinitions*/
 
@@ -139,6 +145,11 @@ div#navigation li {
     margin: 20px 20px 40px 20px;
 }
 
+#footer img{
+    border:0;
+    margin:0 4px;
+}
+
 div#footer li {
     float: left;
     list-style: none;
@@ -195,7 +206,12 @@ tr.over{
     list-style-type: none;
     font-size: .9em;
 }
-
+.concert_tabs a {
+    color:#333;
+}
+.concert_tabs a:hover {
+    color:#999;
+}
 .concert_tabs {
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
