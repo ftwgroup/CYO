@@ -30,31 +30,30 @@
     </div>
     <div id="feature-boxes">
                 <div>
-                    <h2>New Works</h2>
+                    <h2><a href="/new-works">New Works</a></h2>
                     <img src="{{ STATIC_URL }}images/Featurebox1.jpg" alt="" />
                     <ul>
                         <li>December 2011</li>
                         <li>New Works Title Here!</li>
                     </ul>
-                    <button class="ticket-button">Get Tickets!</button>
-                    </div>
+                    <a href="#"><button class="ticket-button">Get Tickets!</button></a>                    </div>
                 <div>
-                    <h2>Music and Its Industry</h2>
+                    <h2><a href="/music-and-its-industry">Music and Its Industry</a></h2>
                     <img src="{{ STATIC_URL }}images/Featurebox2.jpg" alt="" />
                     <ul>
                         <li>March 2012</li>
                         <li>Tunes for Toons Two!</li>
                     </ul>
-                    <button class="ticket-button">Get Tickets!</button>
+                    <a href="#"><button class="ticket-button">Get Tickets!</button></a>
                 </div>
                 <div class="feature_box">
-                    <h2>Rock the Orchestra</h2>
+                    <h2><a href="/rock-the-orchestra">Rock the Orchestra</a></h2>
                     <img src="{{ STATIC_URL }}images/Featurebox3.jpg" alt="" />
                     <ul>
                         <li>Jefferson Starship</li>
                         <li>Last June, CYO shared the Nautica stage with Jefferson Starship.</li>
                     </ul>
-                    <button class="ticket-button">Get Tickets!</button>
+                    <a href="#"><button class="ticket-button">Get Tickets!</button></a>
                 </div>
     </div>
 {% endblock %}
@@ -65,3 +64,4 @@
      Often we create it from the ground up. We put our heads and hands and hearts into it. And we share it with excitement, energy and joy.
     <h3>Take a look around, and you'll enjoy our site!</h3>
 {% endblock %}
+{% block extend-footer %}<span id="homepage-extend">CYO resides at <a href="http://www.csuohio.edu/" target="_blank"> Cleveland State University</a></span>{% endblock %}

@@ -1,4 +1,4 @@
-/* Development CSS sheet by Stephen for CYO concert info*/
+/* CSS sheet by Stephen for CYO concert info*/
 
 .yellowbox{
     font-weight:100;
@@ -17,29 +17,30 @@
     color: #000;
 }
 .yellowbox img{
-    width: 90%;
+    width: 95%;
     border: none;
 }
 div.concert_leftCol{
     width: 230px;
     float: left;
+    padding-bottom: 1em;
     text-align:center;
 }
 div.event-details{
     margin: 0 auto;
-    padding: .7em;
+    padding: 12px .7em;
 }
 div.concert_rightCol{
-    padding: 0 2em 0 0;
+    padding: 0 24px 0 0;
     float:right;
     text-align: left;
     width: 450px;
 }
 div.artist_plate {
-   width: inherit;
+   width: 100%;
    background: #231f20;
-   padding: .3em .4em .3em 0;
-   margin: 0 1em 1em 0;
+   padding: .3em 5px .3em 0;
+   margin: 0 0 1em 0;
    float: left;
    text-align:right;
 }
@@ -55,19 +56,24 @@ div.artist_plate p {
     text-align: right;
     color: #FFDB01;
     font-size: .9em;
+    margin:0;
 }
+.yellowbox p {
+    line-height: 1.2em;
+}
+
 span.artist_name, span.artist_title{
     white-space: nowrap;
     color: #fff;
 }
 span.artist_name{
-    font-weight: 600;
+    font-weight: bold;
     text-transform: uppercase;
 }
 span.artist_title{
     font-weight: lighter;
     text-transform: lowercase;
-    margin: 0 .5em 0 0;
+    margin: 0 0 0 0;
 }
 div#concert_container{
     background: #FFDB01;
