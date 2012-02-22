@@ -4,6 +4,12 @@
 #feature-boxes{
     width: inherit;
 }
+#feature-boxes a{
+    color:#111;
+}
+#feature-boxes a:hover{
+    color:#777;
+}
 #feature-boxes > div:first-child {
     margin-left:0;
 }
@@ -43,4 +49,12 @@
 .ticket-button{
     margin: .2em .5em;
     vertical-align: baseline;
+}
+span#homepage-extend{
+    background:#111;
+    float:right;
+    margin-right:60px;
+}
+#homepage-extend a{
+    color:white;
 }

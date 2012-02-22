@@ -20,9 +20,9 @@
     <!--TODO make links -->
     <div class="concert_tabs">
         <ul>
-            <li>New Works</li>
-            <li>Music and Its Industry</li>
-            <li>Rock the Orchestra</li>
+            <li><a href="/new-works">New Works</a></li>
+            <li><a href="/music-and-its-industry">Music and Its Industry</a></li>
+            <li><a href="/rock-the-orchestra">Rock the Orchestra</a></li>
         </ul>
     </div>
     <h1>{{ feincms_page.title }}</h1>
@@ -30,12 +30,8 @@
     <div class="row">
         <div class="column grid_728 yellowbox" id="concert_container">
             <div class="concert_leftCol">
-                <div class="artist_plate">
-                    <p><span class="artist_name">Liza Grossman</span>, <span class="artist_title">music director</span> &gt;</p>
-                </div>
-                <div class="event-details">
-               {% feincms_render_region feincms_page "concert_details" request %}
-                </div>
+                {% feincms_render_region feincms_page "ConcertThumbnail" request %}
+                {% feincms_render_region feincms_page "concert_details" request %}
             </div>
             <div class="concert_rightCol">
             <h2>{{ feincms_page.content_subtitle }}</h2>
@@ -43,10 +39,6 @@
                     {% feincms_render_region feincms_page "concert_abstract" request %}
                 </span>
             </div>
-
-            <!--
-            TODO (stephen) [within yellow overview, create two divs (styles already accounted for)
-            -->
         </div>
     </div>
 

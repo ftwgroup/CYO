@@ -4,7 +4,6 @@
 <head>
     <meta charset='utf-8'>
     <title>{{ feincms_page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/restylin.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -13,9 +12,8 @@
     {{ feincms_page.content.media }}
 </head>
 <body>
-
 <div class="row">
-    <div class="column grid_250" id="logo"></div>
+    <a href="/"><div class="column grid_250" id="logo"></div></a>
     <div class="column grid_750" id="navigation">
         <navigation>
             {% block navigation %}
@@ -62,8 +60,12 @@
                 <li>(216) 321-3525 |&nbsp;</li>
                 <li><a href="#" class="hover-yellow">Contact</a> |&nbsp;</li>
                 <li><a href="#" class="hover-yellow">Search</a></li>
+                <li><a href="#" class="hover-yellow"><a href="http://facebook.com"><img src="{{ STATIC_URL }}images/social_facebook.png"></a></li>
+                <li><a href="#" class="hover-yellow"><a href="http://twitter.com"><img src="{{ STATIC_URL }}images/social_twitter.png"></a></li>
+                <li><a href="#" class="hover-yellow"><a href="http://youtube.com"><img src="{{ STATIC_URL }}images/social_youtube.png"></a></li>
             </ul>
         {% endblock %}
+    {% block extend-footer %}{%  endblock %}
     </div></div>
 
 </body>

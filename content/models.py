@@ -20,6 +20,14 @@ Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
 Page.register_templates(
         {
+        'title': 'Generic Page',
+        'path': 'generic.html',
+        'regions': (
+            ('content', 'Content'),
+            ('sidebar', 'Side Bar', 'inherited')
+            ),
+        },
+        {
         'title': 'Concert Page',
         'path': 'concert_page.html',
         'regions': (
@@ -30,11 +38,12 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Article Page',
-        'path': 'article.html',
+        'title': 'Concert Archive Page',
+        'path': 'concert_archive_page.html',
         'regions': (
             ('content', 'Content'),
-            ('sidebar', 'Side Bar', 'inherited')
+            ('archive', 'Series Archive', 'inherited'),
+            ('concert_sidebar', 'Series Side bar', 'inherited'),
             ),
         },
         {
@@ -64,10 +73,14 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
 ))
 
 # TODO (julian) depending on how future conversations with CYO goes, we may refactor
+
+
 class ConcertDetails(models.Model):
     location = models.TextField()
     concert_datetime = models.DateTimeField()
     concert_ticket_url = models.URLField()
+    featured_artist_name = models.CharField(max_length=32)
+    featured_artist_role = models.CharField(max_length=32)
 
     class Meta:
         abstract = True
@@ -75,4 +88,12 @@ class ConcertDetails(models.Model):
     def render(self, **kwargs):
         return render_to_string('content/concert_detail.html', {'concert': self})
 
+class ConcertArchiveDetails(models.Model):
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/concert_archive_detail.html', {'archived_concert': self})
+
 Page.create_content_type(ConcertDetails)
+Page.create_content_type(ConcertArchiveDetails)
