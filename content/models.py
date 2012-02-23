@@ -34,7 +34,7 @@ Page.register_templates(
             ('concert_details', 'Concert Details'),
             ('concert_abstract', 'Concert Abstract'),
             ('content', 'Content'),
-            ('concert_sidebar', 'Series Side bar', 'inherited'),
+            ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
         {
@@ -43,7 +43,7 @@ Page.register_templates(
         'regions': (
             ('content', 'Content'),
             ('archive', 'Series Archive', 'inherited'),
-            ('concert_sidebar', 'Series Side bar', 'inherited'),
+            ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
         {
@@ -51,7 +51,7 @@ Page.register_templates(
         'path': 'home.html',
         'regions': (
             ('homepage_content', 'Homepage Content'),
-            ('sidebar', 'Side Bar')
+            ('sidebar', '(Home) Side Bar Sections')
         ),
         },
         {
@@ -60,7 +60,7 @@ Page.register_templates(
         'regions': (
             ('content', 'Content'),
             ('images', 'Bio Images'),
-            ('sidebar', 'Sidebar', 'inherited'),
+            ('sidebar', '(Bio) Sidebar Sections', 'inherited'),
             ),
         }
 )

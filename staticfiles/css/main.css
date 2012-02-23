@@ -61,35 +61,39 @@ button a:hover {
 
 #season-number {
     font-family: 'Tahoma', sans-serif;
-    font-size: 2.1em;
+    font-size: 36px;
     font-weight: bold;
     border-top: #3cf solid 4px;
-    width: 1.4em;
     text-align: center;
     padding: 0;
+    color: #3CF;
 }
 #sidebar {
    color: #fff;
    font-size: .9em;
 }
-#sidebar h2, #sidebar h3, #sidebar h4{
-    margin: 1em 0 .2em 0;
-}
-#sidebar h2, #sidebar h3{
+#sidebar #season{
+    display:block;
     color: #3CF;
-}
-#sidebar h4{
-    color: #FFDB01;
+    margin: 0 0 5px 0;
 }
 #sidebar h2{
     font-size: 1.4em;
-}
-#sidebar h2, #season-number{
-    display: block;
-}
-#sidebar h3, #sidebar h4{
-    font-size: 1.1em;
+    color: #ffdb01;
     text-transform: uppercase;
+}
+
+#sidebar-details h3{
+    font-size: 1.1em;
+    color: #3CF;
+    font-weight:bold;
+    border-top: #fff dotted thin;
+    margin: 1em 0 .5em 0;
+    padding: .2em 0 0 0;
+}
+#sidebar-details h3:hover{
+    color: #ffdb01;
+    cursor: pointer;
 }
 #navigation {
     padding: 0;

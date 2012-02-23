@@ -79,5 +79,8 @@ div#concert_container{
     background: #FFDB01;
     min-height:200px;
 }
+div.image .caption, div.image .copyright{
+    display:none;
+}
 
 /* the 'black' color the designers used 231f20
