@@ -88,7 +88,7 @@ class Migration(SchemaMigration):
             'redirect_to': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
             'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150', 'db_index': 'True'}),
-            'template_key': ('django.db.models.fields.CharField', [], {'default': "'concert_page.html'", 'max_length': '255'}),
+            'template_key': ('django.db.models.fields.CharField', [], {'default': "'concert_info.html'", 'max_length': '255'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
         },

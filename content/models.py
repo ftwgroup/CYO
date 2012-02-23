@@ -29,7 +29,7 @@ Page.register_templates(
         },
         {
         'title': 'Concert Page',
-        'path': 'concert_page.html',
+        'path': 'concert_info.html',
         'regions': (
             ('concert_details', 'Concert Details'),
             ('concert_abstract', 'Concert Abstract'),
@@ -39,10 +39,10 @@ Page.register_templates(
         },
         {
         'title': 'Concert Archive Page',
-        'path': 'concert_archive_page.html',
+        'path': 'concert_archive.html',
         'regions': (
             ('content', 'Content'),
-            ('archive', 'Series Archive', 'inherited'),
+            ('archive_detail_table', 'Series Archive Table', 'inherited'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
