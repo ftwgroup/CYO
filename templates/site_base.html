@@ -40,10 +40,10 @@
     </div>
     <div class="column grid_242" id="sidebar">
         {%  block sidebar-common %}
-            <h2>season<span id="season-number">17</span></h2>
+            <span id="season">season</span><span id="season-number">17</span></h2>
         <div class="row">
-            <div class="column grid_242" id="sidebar_details">
         {% endblock %}
+             <div class="column grid_242" id="sidebar-details">
         {% block sidebar %}
             {% feincms_render_region feincms_page "sidebar" request %}
         {% endblock %}
