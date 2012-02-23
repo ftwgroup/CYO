@@ -59,6 +59,7 @@ Page.register_templates(
         'path': 'bio_page.html',
         'regions': (
             ('content', 'Content'),
+            ('images', 'Bio Images'),
             ('sidebar', 'Sidebar', 'inherited'),
             ),
         }

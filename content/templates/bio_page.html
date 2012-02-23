@@ -2,7 +2,6 @@
 {% load feincms_tags %}
 <!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
 {% block extra_head %}
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bio_page.css" />
     {{ feincms_page.content.media }}
 {% endblock %}
 
@@ -12,7 +11,8 @@
     <div class="row">
         <div class="column grid_738 whitebox">
             <h2>{{ feincms_page.content_subtitle }}</h2>
-            {% feincms_render_region feincms_page "content" request %}
+            <div class="article-thumbnail">{% feincms_render_region feincms_page "images" request %}</div>
+            <div class="split-right">{% feincms_render_region feincms_page "content" request %}</div>
         </div>
     </div>
 {% endblock %}
