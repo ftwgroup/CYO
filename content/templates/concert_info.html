@@ -1,29 +1,48 @@
-
-
+{% extends 'site_base.html' %}
 {% load feincms_tags %}
 
-<div id="concert">
-    {% block concert %}
-        <h3>Upcoming</h3>
-{#            {% feincms_render_region feincms_page "yellow_overview" request %} #}
+<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
+<!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/concert.css" />
+    <script src="{{ STATIC_URL }}js/concert.js"></script>
+    {{ feincms_page.content.media }}
+{% endblock %}
 
-        <b>
-                <p>{{ content.concert.headline }}</p>
-            </b>
-            <p>{{ content.concert.long_description }}</p>
-    {% endblock %}
-</div>
+{% block style %}background: white;{% endblock %}
+{% block main_content %}
+    <!--TODO make links -->
+    <div class="concert_tabs">
+        <ul>
+            <li><a href="/new-works">New Works</a></li>
+            <li><a href="/music-and-its-industry">Music and Its Industry</a></li>
+            <li><a href="/rock-the-orchestra">Rock the Orchestra</a></li>
+        </ul>
+    </div>
+    <h1>{{ feincms_page.title }}</h1>
+    <!-- TODO (julian) to make this div render right we need to divs of the appropriate width -->
+    <div class="row">
+        <div class="column grid_728 yellowbox" id="concert_container">
+            <div class="concert_leftCol">
+                {% feincms_render_region feincms_page "ConcertThumbnail" request %}
+                {% feincms_render_region feincms_page "concert_details" request %}
+            </div>
+            <div class="concert_rightCol">
+            <h2>{{ feincms_page.content_subtitle }}</h2>
+                <span class="yellowBox" id="season-description">
+                    {% feincms_render_region feincms_page "concert_abstract" request %}
+                </span>
+            </div>
+        </div>
+    </div>
 
-{##}
-{#<div id="concert2">#}
-{#            <b>#}
-{#                <p>{{ content.concert.debut_status }}</p>#}
-{#            </b>#}
-{#        <!-- TODO: (ipsheeta) make sure these objects from the class AllSongs are pulled correctly -->#}
-{#            <p>{{ content.concert.songs.title }}</p>#}
-{#            <p>{{ content.concert.songs.composer }}</p>#}
-{#            <p>{{ content.concert.songs.premiered_by }}</p>#}
-{#            <p>{{ content.concert.soloist1 }}</p>#}
-{#            <p>{{ content.concert.soloist2 }}</p>#}
-{#</div>#}
+    <div class="row">
+        <div class="column grid_738 whitebox">
+            {% feincms_render_region feincms_page "content" request %}
+        </div>
+    </div>
+{% endblock %}
+{% block sidebar %}
+    {% feincms_render_region feincms_page "concert_sidebar" request %}
+{% endblock %}

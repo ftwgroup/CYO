@@ -1,16 +1,6 @@
-{% extends 'site_base.html' %}
+{% extends 'conert_info.html' %}
 {% load feincms_tags %}
 
-<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
-<!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
-
-{% block extra_head %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/concert.css" />
-    <script src="{{ STATIC_URL }}js/concert.js"></script>
-    {{ feincms_page.content.media }}
-{% endblock %}
-
-{% block style %}background: white;{% endblock %}
 {% block main_content %}
     <!--TODO make links -->
     <div class="concert_tabs">
@@ -29,7 +19,7 @@
                 {% feincms_render_region feincms_page "concert_details" request %}
             </div>
             <div class="concert_rightCol">
-            <h2>{{ feincms_page.content_subtitle }}</h2>
+                <h2>{{ feincms_page.content_subtitle }}</h2>
                 <span class="yellowBox" id="season-description">
                     {% feincms_render_region feincms_page "concert_abstract" request %}
                 </span>
@@ -39,10 +29,7 @@
 
     <div class="row">
         <div class="column grid_738 whitebox">
-            {% feincms_render_region feincms_page "content" request %}
+            {% feincms_render_region feincms_page "archive_detail_table" request %}
         </div>
     </div>
-{% endblock %}
-{% block sidebar %}
-    {% feincms_render_region feincms_page "concert_sidebar" request %}
 {% endblock %}
