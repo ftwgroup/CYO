@@ -42,7 +42,7 @@
         {%  block sidebar-common %}
             <span id="season">season</span><span id="season-number">17</span></h2>
         <div class="row">
-               {% feincms_navigation of feincms_page as sublevel level=2,depth=1 %}
+        {% feincms_navigation of feincms_page as sublevel level=2,depth=2 %}
         {% endblock %}
              <div class="column grid_242" id="sidebar-details">
         {% block sidebar %}
