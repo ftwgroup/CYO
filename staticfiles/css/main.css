@@ -58,6 +58,8 @@ button a:hover {
 /*end Redefinitions*/
 
 
+#main-content{
+}
 
 #season-number {
     font-family: 'Tahoma', sans-serif;
@@ -81,20 +83,38 @@ button a:hover {
     font-size: 1.4em;
     color: #ffdb01;
     text-transform: uppercase;
+    margin:1em 0 0 0;
 }
-
+#sidebar-details a > li{
+    background:#111;
+    width: 100%;
+    margin: 2px 0;
+    color: #eee;
+    padding:.3em .2em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight:bold;
+    font-size:1.2em;
+}
+#sidebar-details a > li:hover{
+    background:#333;
+}
 #sidebar-details h3{
     font-size: 1.1em;
     color: #3CF;
     font-weight:bold;
-    border-top: #fff dotted thin;
     margin: 1em 0 .5em 0;
     padding: .2em 0 0 0;
 }
-#sidebar-details h3:hover{
+#sidebar-bios h3{
+    border-top: #fff dotted thin;
+}
+#sidebar-bios h3:hover{
     color: #ffdb01;
     cursor: pointer;
 }
+div#sidebar-bios p{
+     margin: 0 0 0 .5em;
+ }
 #navigation {
     padding: 0;
     text-align:left;
@@ -240,6 +260,12 @@ tr.over{
     width: 360px;
     float:right;
 }
-div#sidebar-bios p{
-     margin: 0 0 0 .5em;
- }
+
+ span#footer-extend{
+    background:#111;
+    float:right;
+    margin-right:60px;
+}
+#footer-extend a{
+    color:white;
+}

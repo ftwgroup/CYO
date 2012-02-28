@@ -28,6 +28,15 @@ Page.register_templates(
             ),
         },
         {
+        'title': 'Bio Page',
+        'path': 'bio_page.html',
+        'regions': (
+            ('content', 'Content'),
+            ('images', 'Bio Images'),
+            ('sidebar', '(Bio) Sidebar Sections', 'inherited'),
+            ),
+        },
+        {
         'title': 'Concert Page',
         'path': 'concert_info.html',
         'regions': (
@@ -50,19 +59,11 @@ Page.register_templates(
         'title': 'Homepage',
         'path': 'home.html',
         'regions': (
+            ('rotator_images', 'Rotator Images'),
             ('homepage_content', 'Homepage Content'),
             ('sidebar', '(Home) Side Bar Sections')
-        ),
+           ),
         },
-        {
-        'title': 'Bio Page',
-        'path': 'bio_page.html',
-        'regions': (
-            ('content', 'Content'),
-            ('images', 'Bio Images'),
-            ('sidebar', '(Bio) Sidebar Sections', 'inherited'),
-            ),
-        }
 )
 
 Page.create_content_type(RichTextContent)
@@ -74,7 +75,6 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
 ))
 
 # TODO (julian) depending on how future conversations with CYO goes, we may refactor
-
 
 class ConcertDetails(models.Model):
     location = models.TextField()

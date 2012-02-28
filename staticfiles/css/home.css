@@ -50,11 +50,3 @@
     margin: .2em .5em;
     vertical-align: baseline;
 }
-span#homepage-extend{
-    background:#111;
-    float:right;
-    margin-right:60px;
-}
-#homepage-extend a{
-    color:white;
-}

@@ -1,0 +1,261 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+/*Redefinitions start */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #231f20;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    margin: 40px .2em 0 20px;
+    font-size: 2.5em;
+    width: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+    font-weight: lighter;
+    display: block;
+}
+h2{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 2em;
+    display: block;
+}
+h3{
+    font-size: 1.5em;
+    display: block;
+}
+h4 {
+    font-size: 1em;
+    display: block;
+}
+p {
+    line-height: 1.5em;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+button {
+    padding: .5em 1em .5em 1em;
+    font-weight: bold;
+    color: #fff;
+    background: #222;
+    border: none;
+}
+button a {
+    color: #fff;
+}
+button a:hover {
+    color: #FFDB01;
+}
+/*end Redefinitions*/
+
+
+
+#season-number {
+    font-family: 'Tahoma', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    border-top: #3cf solid 4px;
+    text-align: center;
+    padding: 0;
+    color: #3CF;
+}
+#sidebar {
+   color: #fff;
+   font-size: .9em;
+}
+#sidebar #season{
+    display:block;
+    color: #3CF;
+    margin: 0 0 5px 0;
+}
+#sidebar h2{
+    font-size: 1.4em;
+    color: #ffdb01;
+    text-transform: uppercase;
+}
+
+#sidebar-details h3{
+    font-size: 1.1em;
+    color: #3CF;
+    font-weight:bold;
+    border-top: #fff dotted thin;
+    margin: 1em 0 .5em 0;
+    padding: .2em 0 0 0;
+}
+
+#sidebar-details h3:hover{
+    color: #ffdb01;
+    cursor: pointer;
+}
+
+div#sidebar li{
+     width: 100%;
+     background: #111;
+     color:#fff;
+     text-transform:uppercase;
+     font-weight:bold;
+     font-size:1.2em;
+     margin: 2px;
+     padding: .1em .5em;
+     font-family: 'Open Sans Condensed', sans-serif;
+}
+div#sidebar li:hover{
+     background: #FFDB01;
+     text-transform:uppercase;
+}
+#sidebar-details p
+#navigation {
+    padding: 0;
+    text-align:left;
+}
+#navigation ul li:last-child a{
+    margin-right:0;
+}
+#navigation ul li:first-child a{
+    margin-left:0;
+}
+navigation a{
+    display: block;
+    width: auto;
+    margin: 0 .6em;
+    text-transform: uppercase;
+    font-family: 'Impact',sans-serif;
+}
+navigation a:hover {
+    color: #FFDB01;
+}
+input.box {
+    width: 120px;
+    color: #666;
+    border:0;
+    padding: .2em .2em .1em .2em;
+    float: right;
+    margin: 55px 0 0 0;
+}
+
+#logo {
+    background: url("/static/images/logo.png") no-repeat;
+    height: 100px;
+}
+
+#navigation {
+    height: 100px;
+    font-family: Font1, Gadget, sans-serif;
+    font-size: 13.75px;
+    color: #666666;
+}
+
+div#navigation li {
+    width: auto;
+    float: left;
+    margin-top: 60px;
+    color: #666;
+    list-style: none;
+}
+
+#footer {
+    color: #666;
+    margin: 20px 20px 40px 20px;
+}
+
+#footer img{
+    border:0;
+    margin:0 4px;
+}
+
+div#footer li {
+    float: left;
+    list-style: none;
+}
+
+.article-thumbnail{
+    width: 220px;
+    margin: 0 10px 10px 0;
+    float:left;
+}
+.article-thumbnail image img{
+    width: 100%;
+    margin: 0;
+    border:0;
+}
+.whitebox{
+    width: 698px;
+    padding: 0 20px 40px 20px;
+    color: #555;
+}
+.whitebox p{
+    margin: 0 0 .6em 0;
+    font-size: .9em;
+    display: inline;
+}
+.whitebox > span{
+    float:left;
+}
+.whitebox h2{
+    color: #111;
+    font-weight: normal;
+    margin: 0 0 .7em 0;
+}
+.whitebox h3{
+    color: #333;
+    font-weight: bold;
+    margin: 1em 0 .1em 0;
+}
+.whitebox table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #eee;
+}
+tr.over{
+    background: #222;
+    color: #eee;
+}
+.alt{
+    background: #ccc;
+}
+.whitebox table tbody tr td{
+    width: 30%;
+    vertical-align: top;
+    margin: .5em 0;
+    padding: .5em 1em;
+}
+.whitebox table tbody tr td ul{
+    list-style-type: none;
+    font-size: .9em;
+}
+.concert_tabs a {
+    color:#333;
+}
+.concert_tabs a:hover {
+    color:#999;
+}
+.concert_tabs {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    background: #FFDB01;
+    float:right;
+}
+
+.concert_tabs li {
+    font-weight: bold;
+    list-style: none;
+    float: left;
+    padding: .5em 1em;
+    border: #fff solid 1px;
+}
+.split-right{
+    width: 360px;
+    float:right;
+}
+
