@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'feincms.module.medialibrary',
     'south',
     'content',
+    'auditions',
 )
 
 FEINCMS_TREE_EDITOR_INCLUDE_ANCESTORS = True
@@ -154,6 +155,7 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 SOUTH_MIGRATION_MODULES = {
     'page': 'cyo.migrate.page',
 }
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.

@@ -1,0 +1,31 @@
+{% extends "site_base.html" %}
+
+{% load feincms_tags %}
+<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
+<!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bio_page.css" />
+    <style>
+        .whitebox p {
+        display: block;
+    }
+    </style>
+    {{ feincms_page.content.media }}
+{% endblock %}
+
+{% block style %}background: white;{% endblock %}
+{% block main_content %}
+    <h1>Audition Sign Up Form</h1>
+    <div class="row">
+        <div class="column grid_738 whitebox">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block sidebar %}
+    {#{% feincms_render_region feincms_page "sidebar" request %}#}
+{% endblock %}
