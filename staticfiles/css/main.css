@@ -273,7 +273,9 @@ tr.over{
     color:white;
 }
 
-a.current{
-    font-weight:bold;
+a.current-page{
     color:#fff;
+}
+#sidebar-details .current-subpage > li{
+    background: #1b1b1b;
 }
