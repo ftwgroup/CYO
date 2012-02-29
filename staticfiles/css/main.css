@@ -47,7 +47,10 @@ button {
     font-weight: bold;
     color: #fff;
     background: #222;
-    border: none;
+    border-top: 1px solid #555;
+    border-right: 1px solid #333;
+    border-bottom: 1px solid #111;
+    border-left: 1px solid #333;
 }
 button a {
     color: #fff;
@@ -180,7 +183,7 @@ div#footer li {
 }
 
 .article-thumbnail{
-    width: 220px;
+    width: 180px;
     margin: 0 10px 10px 0;
     float:left;
 }
@@ -268,4 +271,9 @@ tr.over{
 }
 #footer-extend a{
     color:white;
+}
+
+a.current{
+    font-weight:bold;
+    color:#fff;
 }

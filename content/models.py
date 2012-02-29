@@ -40,7 +40,7 @@ Page.register_templates(
         'title': 'Concert Page',
         'path': 'concert_info.html',
         'regions': (
-            ('concert_details', 'Concert Details'),
+            ('concert_details', 'Concert Details', 'inherited'),
             ('concert_abstract', 'Concert Abstract'),
             ('content', 'Content'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
@@ -80,6 +80,7 @@ class ConcertDetails(models.Model):
     location = models.TextField()
     concert_datetime = models.DateTimeField()
     concert_ticket_url = models.URLField()
+    concert_abstract_text = models.TextField()
     featured_artist_name = models.CharField(max_length=32)
     featured_artist_role = models.CharField(max_length=32)
 
@@ -87,7 +88,7 @@ class ConcertDetails(models.Model):
         abstract = True
 
     def render(self, **kwargs):
-        return render_to_string('content/concert_detail.html', {'concert': self})
+        return render_to_string('content/concert_detail.html', {'concertdetails': self})
 
 class ConcertArchiveDetails(models.Model):
     class Meta:
