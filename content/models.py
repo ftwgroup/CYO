@@ -80,7 +80,7 @@ class ConcertDetails(models.Model):
     location = models.TextField()
     concert_datetime = models.DateTimeField()
     concert_ticket_url = models.URLField()
-    concert_abstract_text = models.TextField()
+    #concert_abstract_text = models.TextField()
     featured_artist_name = models.CharField(max_length=32)
     featured_artist_role = models.CharField(max_length=32)
 
