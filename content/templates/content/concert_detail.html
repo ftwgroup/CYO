@@ -1,13 +1,13 @@
     <div class="artist_plate">
-        <p><span class="artist_name">{{ concert.featured_artist_name }}</span>, <span class="artist_title">{{ concert.featured_artist_role }}</span> &gt;</p>
+        <p><span class="artist_name">{{ concertdetails.featured_artist_name }}</span>, <span class="artist_title">{{ concertdetails.featured_artist_role }}</span>&nbsp;&gt;</p>
     </div>
     <div class="event-details">
         <ul>
-            <li>{{ concert.concert_datetime.date }}</li>
-            <li>{{ concert.concert_datetime.time }}</li>
-            <li>{{ concert.location }}</li>
+            <li>{{ concertdetails.concert_datetime.date }}</li>
+            <li>{{ concertdetails.concert_datetime.time }}</li>
+            <li>{{ concertdetails.location }}</li>
         </ul>
-        <button id="ticket-button" value="find-tickets">
-            <a href="{{ concert.concert_ticket_url }}">Tickets</a>
+        <button id="ticket-button" value="get-tickets">
+            <a href="{{ concertdetails.concert_ticket_url }}">Get Tickets</a>
         </button>
     </div>
