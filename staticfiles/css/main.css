@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    margin: 40px .2em 0 20px;
+    margin: 40px 0 0 20px;
     font-size: 2.5em;
     width: 100%;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -42,12 +42,18 @@ a {
     color: #666;
     text-decoration: none;
 }
+a:hover {
+   color: #ffdb01;
+}
 button {
     padding: .5em 1em .5em 1em;
     font-weight: bold;
     color: #fff;
     background: #222;
-    border: none;
+    border-top: 1px solid #555;
+    border-right: 1px solid #333;
+    border-bottom: 1px solid #111;
+    border-left: 1px solid #333;
 }
 button a {
     color: #fff;
@@ -58,7 +64,9 @@ button a:hover {
 /*end Redefinitions*/
 
 
-
+#main-content{
+}
+/* sidebar stuff */
 #season-number {
     font-family: 'Tahoma', sans-serif;
     font-size: 36px;
@@ -72,6 +80,13 @@ button a:hover {
    color: #fff;
    font-size: .9em;
 }
+#sidebar h3 a {
+   color: #3CF;
+   background:#111;
+}
+#sidebar h3 a:hover, #sidebar a:hover{
+   color: #ffdb01;
+}
 #sidebar #season{
     display:block;
     color: #3CF;
@@ -81,19 +96,65 @@ button a:hover {
     font-size: 1.4em;
     color: #ffdb01;
     text-transform: uppercase;
+    margin:1em 0 0 0;
 }
-
+#sidebar-details a > li{
+    background:#111;
+    width: 100%;
+    margin: 2px 0;
+    color: #eee;
+    padding:.3em .2em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight:bold;
+    font-size:1.2em;
+}
+#sidebar-details a > li:hover{
+    background:#333;
+}
 #sidebar-details h3{
     font-size: 1.1em;
     color: #3CF;
     font-weight:bold;
-    border-top: #fff dotted thin;
     margin: 1em 0 .5em 0;
     padding: .2em 0 0 0;
 }
-#sidebar-details h3:hover{
+#sidebar-bios h3{
+    border-top: #fff dotted thin;
+}
+#sidebar-bios h3:hover{
     color: #ffdb01;
     cursor: pointer;
+}
+div#sidebar-bios p{
+     margin: 0 0 0 .5em;
+ }
+ #sidebar li{
+    list-style:none;
+}
+ 
+/*end sidebar items*/
+/*header items*/
+input.box {
+    width: 120px;
+    color: #666;
+    border:0;
+    padding: .2em .2em .1em .2em;
+    float: right;
+    margin: 55px 0 0 0;
+}
+
+#logo {
+    background: url("/static/images/logo.png") no-repeat;
+    height: 100px;
+}
+/*enditems header*/
+
+/*navigation items*/
+#navigation {
+    height: 100px;
+    font-family: Font1, Gadget, sans-serif;
+    font-size: 13.75px;
+    color: #666666;
 }
 #navigation {
     padding: 0;
@@ -115,27 +176,6 @@ navigation a{
 navigation a:hover {
     color: #FFDB01;
 }
-input.box {
-    width: 120px;
-    color: #666;
-    border:0;
-    padding: .2em .2em .1em .2em;
-    float: right;
-    margin: 55px 0 0 0;
-}
-
-#logo {
-    background: url("/static/images/logo.png") no-repeat;
-    height: 100px;
-}
-
-#navigation {
-    height: 100px;
-    font-family: Font1, Gadget, sans-serif;
-    font-size: 13.75px;
-    color: #666666;
-}
-
 div#navigation li {
     width: auto;
     float: left;
@@ -143,7 +183,49 @@ div#navigation li {
     color: #666;
     list-style: none;
 }
+/*enditems navigation */
 
+/*footer items*/
+#footer {
+    color: #666;
+    margin: 20px 20px 40px 20px;
+}
+
+#footer img{
+    border:0;
+    margin:0 4px;
+}
+
+div#footer li {
+    float: left;
+    list-style: none;
+}
+span#footer-extend{
+    background:#111;
+    float:right;
+    margin-right:60px;
+}
+#footer-extend a{
+    color:white;
+}
+#footer-extend a:hover{
+    color:#FFDB01;
+}
+/*end footer items*/
+
+.article-thumbnail{
+    width: 180px;
+    margin: 0 10px 10px 0;
+    float:left;
+}
+.article-thumbnail image img{
+    width: 100%;
+    margin: 0;
+    border:0;
+}
+
+
+/*footer items*/
 #footer {
     color: #666;
     margin: 20px 20px 40px 20px;
@@ -159,8 +241,20 @@ div#footer li {
     list-style: none;
 }
 
+span#footer-extend{
+    background:#111;
+    float:right;
+    margin-right:60px;
+}
+#footer-extend a{
+    color:white;
+}
+
+/*enditems footer */
+/*Content items*/
+
 .article-thumbnail{
-    width: 220px;
+    width: 180px;
     margin: 0 10px 10px 0;
     float:left;
 }
@@ -174,10 +268,21 @@ div#footer li {
     padding: 0 20px 40px 20px;
     color: #555;
 }
+.whitebox a{
+    background:#ddd;
+    font-weight:bold;
+    color: #cc3;
+}
+.whitebox a{
+    color: #555;
+}
 .whitebox p{
-    margin: 0 0 .6em 0;
+    margin: .6em 0 0 0;
     font-size: .9em;
     display: inline;
+}
+.whitebox p:first-child{
+    margin-top:1.5em;
 }
 .whitebox > span{
     float:left;
@@ -185,7 +290,10 @@ div#footer li {
 .whitebox h2{
     color: #111;
     font-weight: normal;
-    margin: 0 0 .7em 0;
+    margin: .7em 0 0 0;
+}
+.whitebox h2:first-child{
+    margin: 0;
 }
 .whitebox h3{
     color: #333;
@@ -240,6 +348,13 @@ tr.over{
     width: 360px;
     float:right;
 }
-div#sidebar-bios p{
-     margin: 0 0 0 .5em;
- }
+
+/*enditems Content*/
+
+
+a.current-page{
+    color:#fff;
+}
+#sidebar-details .current-subpage > li{
+    background: #1b1b1b;
+}
