@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    margin: 40px .2em 0 20px;
+    margin: 40px 0 0 0;
     font-size: 2.5em;
     width: 100%;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -198,7 +198,7 @@ div#footer li {
     color: #555;
 }
 .whitebox p{
-    margin: 0 0 .6em 0;
+    margin: .6em 0 0 0;
     font-size: .9em;
     display: inline;
 }
@@ -208,7 +208,7 @@ div#footer li {
 .whitebox h2{
     color: #111;
     font-weight: normal;
-    margin: 0 0 .7em 0;
+    margin: .7em 0 0 0;
 }
 .whitebox h3{
     color: #333;
