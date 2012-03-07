@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    margin: 40px 0 0 0;
+    margin: 40px 0 0 20px;
     font-size: 2.5em;
     width: 100%;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -42,6 +42,9 @@ a {
     color: #666;
     text-decoration: none;
 }
+a:hover {
+   color: #ffdb01;
+}
 button {
     padding: .5em 1em .5em 1em;
     font-weight: bold;
@@ -63,7 +66,7 @@ button a:hover {
 
 #main-content{
 }
-
+/* sidebar stuff */
 #season-number {
     font-family: 'Tahoma', sans-serif;
     font-size: 36px;
@@ -76,6 +79,13 @@ button a:hover {
 #sidebar {
    color: #fff;
    font-size: .9em;
+}
+#sidebar h3 a {
+   color: #3CF;
+   background:#111;
+}
+#sidebar h3 a:hover, #sidebar a:hover{
+   color: #ffdb01;
 }
 #sidebar #season{
     display:block;
@@ -118,6 +128,34 @@ button a:hover {
 div#sidebar-bios p{
      margin: 0 0 0 .5em;
  }
+ #sidebar li{
+    list-style:none;
+}
+ 
+/*end sidebar items*/
+/*header items*/
+input.box {
+    width: 120px;
+    color: #666;
+    border:0;
+    padding: .2em .2em .1em .2em;
+    float: right;
+    margin: 55px 0 0 0;
+}
+
+#logo {
+    background: url("/static/images/logo.png") no-repeat;
+    height: 100px;
+}
+/*enditems header*/
+
+/*navigation items*/
+#navigation {
+    height: 100px;
+    font-family: Font1, Gadget, sans-serif;
+    font-size: 13.75px;
+    color: #666666;
+}
 #navigation {
     padding: 0;
     text-align:left;
@@ -138,27 +176,6 @@ navigation a{
 navigation a:hover {
     color: #FFDB01;
 }
-input.box {
-    width: 120px;
-    color: #666;
-    border:0;
-    padding: .2em .2em .1em .2em;
-    float: right;
-    margin: 55px 0 0 0;
-}
-
-#logo {
-    background: url("/static/images/logo.png") no-repeat;
-    height: 100px;
-}
-
-#navigation {
-    height: 100px;
-    font-family: Font1, Gadget, sans-serif;
-    font-size: 13.75px;
-    color: #666666;
-}
-
 div#navigation li {
     width: auto;
     float: left;
@@ -166,7 +183,9 @@ div#navigation li {
     color: #666;
     list-style: none;
 }
+/*enditems navigation */
 
+/*footer items*/
 #footer {
     color: #666;
     margin: 20px 20px 40px 20px;
@@ -181,6 +200,58 @@ div#footer li {
     float: left;
     list-style: none;
 }
+span#footer-extend{
+    background:#111;
+    float:right;
+    margin-right:60px;
+}
+#footer-extend a{
+    color:white;
+}
+#footer-extend a:hover{
+    color:#FFDB01;
+}
+/*end footer items*/
+
+.article-thumbnail{
+    width: 180px;
+    margin: 0 10px 10px 0;
+    float:left;
+}
+.article-thumbnail image img{
+    width: 100%;
+    margin: 0;
+    border:0;
+}
+
+
+/*footer items*/
+#footer {
+    color: #666;
+    margin: 20px 20px 40px 20px;
+}
+
+#footer img{
+    border:0;
+    margin:0 4px;
+}
+
+div#footer li {
+    float: left;
+    list-style: none;
+}
+
+span#footer-extend{
+    background:#111;
+    float:right;
+    margin-right:60px;
+}
+#footer-extend a{
+    color:white;
+}
+
+/*enditems footer */
+/*Content items*/
 
 .article-thumbnail{
     width: 180px;
@@ -197,10 +268,21 @@ div#footer li {
     padding: 0 20px 40px 20px;
     color: #555;
 }
+.whitebox a{
+    background:#ddd;
+    font-weight:bold;
+    color: #cc3;
+}
+.whitebox a{
+    color: #555;
+}
 .whitebox p{
     margin: .6em 0 0 0;
     font-size: .9em;
     display: inline;
+}
+.whitebox p:first-child{
+    margin-top:1.5em;
 }
 .whitebox > span{
     float:left;
@@ -209,6 +291,9 @@ div#footer li {
     color: #111;
     font-weight: normal;
     margin: .7em 0 0 0;
+}
+.whitebox h2:first-child{
+    margin: 0;
 }
 .whitebox h3{
     color: #333;
@@ -264,14 +349,8 @@ tr.over{
     float:right;
 }
 
- span#footer-extend{
-    background:#111;
-    float:right;
-    margin-right:60px;
-}
-#footer-extend a{
-    color:white;
-}
+/*enditems Content*/
+
 
 a.current-page{
     color:#fff;
