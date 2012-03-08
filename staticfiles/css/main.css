@@ -269,17 +269,16 @@ span#footer-extend{
     color: #555;
 }
 .whitebox a{
-    background:#ddd;
+    background:#eee;
     font-weight:bold;
-    color: #cc3;
+    color: #02b;
 }
-.whitebox a{
-    color: #555;
+.whitebox a:hover{
+    color: #ffdb01;
 }
 .whitebox p{
     margin: .6em 0 0 0;
     font-size: .9em;
-    display: inline;
 }
 .whitebox p:first-child{
     margin-top:1.5em;
