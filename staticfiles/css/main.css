@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(text.css);
 
 /*Redefinitions start */
 * {
@@ -11,56 +11,7 @@ body {
     font-size: 14px;
     font-family: 'Arial', sans-serif;
 }
-ul {
-    list-style-type: none;
-}
-blockquote{
-    margin: 0 2em 0 3em;
-}
 
-h1 {
-    margin: .5em 0 0 0;
-    font-size: 2.5em;
-    width: 100%;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: black;
-    font-weight: lighter;
-    display: block;
-}
-h2{
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 2em;
-    display: block;
-}
-h3{
-    font-size: 1.5em;
-    display: block;
-}
-h4 {
-    font-size: 1em;
-    display: block;
-}
-p {
-    line-height: 1.5em;
-}
-
-a {
-    color: #666;
-    text-decoration: none;
-}
-a:hover {
-   color: #ffdb01;
-}
-button {
-    padding: .5em 1em .5em 1em;
-    font-weight: bold;
-    color: #fff;
-    background: #222;
-    border-top: 1px solid #555;
-    border-right: 1px solid #333;
-    border-bottom: 1px solid #111;
-    border-left: 1px solid #333;
-}
 button a {
     color: #fff;
 }
@@ -269,9 +220,9 @@ span#footer-extend{
     margin: 0 10px 10px 0;
     float:left;
 }
-.article-thumbnail image img{
+.article-thumbnail img{
     width: 100%;
-    margin: 0;
+    margin: 1em 0;
     border:0;
 }
 .whitebox{
@@ -352,7 +303,7 @@ tr.over{
     border: #fff solid 1px;
 }
 .split-right{
-    width: 360px;
+    width: 440px;
     float:right;
 }
 
