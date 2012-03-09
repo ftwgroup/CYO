@@ -6,11 +6,11 @@
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/concert.css" />
-    <script src="{{ STATIC_URL }}js/concert.js"></script>
     {{ feincms_page.content.media }}
 {% endblock %}
 
 {% block style %}background: white;{% endblock %}
+{% block breadcrumbs %}{%  endblock %}
 {% block main_content %}
     <!--TODO make links -->
     <div class="concert_tabs">

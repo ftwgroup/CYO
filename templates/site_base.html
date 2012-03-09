@@ -7,9 +7,10 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/fxns.js"></script>
     {% block extra_head %}
     {% endblock %}
-    {{ feincms_page.content.media }}
+    {{ feincms_page.content.media }}{% load feincms_page_tags %}
 </head>
 <body>
 <div class="row">
@@ -35,6 +36,7 @@
 
 <div class="row">
     <div class="column grid_738" id="main-content" style="{% block style %}{% endblock %}">
+        {% if p|is_parent_of:feincms_page %}{% else %}{% block breadcrumbs %}{% feincms_breadcrumbs feincms_page %}{% endblock %}{% endif %}
         {% block main_content %}
         {% endblock %}
     </div>
@@ -50,6 +52,12 @@
         <a href="{{ p.get_absolute_url }}"  {% if p|is_equal_or_parent_of:feincms_page %}class="current-subpage"{% endif %}><li>{{ p.title }}</li></a>
     {% endfor %}
 </ul>
+                 {% feincms_navigation of feincms_page as sublevel level=3,depth=1 %}
+                 <ul>
+                     {% for p in sublevel %}
+                         <a href="{{ p.get_absolute_url }}"  {% if p|is_equal_or_parent_of:feincms_page %}{% endif %}><li>{{ p.title }}</li></a>
+                     {% endfor %}
+                 </ul>
         {% block sidebar %}
             {% feincms_render_region feincms_page "sidebar" request %}
         {% endblock %}
@@ -62,13 +70,13 @@
     <div class="column grid_1000" id="footer">
         {% block footer %}
             <ul>
-                <li>©2011-2012 Contemporary Youth Orchestra |&nbsp;</li>
+                <li><!--TODO (stephen) fix the (c) to unicode-->©2011-2012 Contemporary Youth Orchestra |&nbsp;</li>
                 <li>(216) 321-3525 |&nbsp;</li>
                 <li><a href="#" class="hover-yellow">Contact</a> |&nbsp;</li>
                 <li><a href="#" class="hover-yellow">Search</a></li>
-                <li><a href="#" class="hover-yellow"><a href="http://facebook.com"><img src="{{ STATIC_URL }}images/social_facebook.png"></a></li>
-                <li><a href="#" class="hover-yellow"><a href="http://twitter.com"><img src="{{ STATIC_URL }}images/social_twitter.png"></a></li>
-                <li><a href="#" class="hover-yellow"><a href="http://youtube.com"><img src="{{ STATIC_URL }}images/social_youtube.png"></a></li>
+                <li><a href="#" class="hover-yellow"><a href="http://www.facebook.com/ContemporaryYouthOrchestra" target="_blank"><img src="{{ STATIC_URL }}images/social_facebook.png"></a></li>
+                <li><a href="#" class="hover-yellow"><a href="http://twitter.com/LizaGrossmanCYO" target="_blank"><img src="{{ STATIC_URL }}images/social_twitter.png"></a></li>
+                <li><a href="#" class="hover-yellow"><a href="http://www.youtube.com/user/CYOrchestra?feature=watch" target="_blank"><img src="{{ STATIC_URL }}images/social_youtube.png"></a></li>
             </ul>
         {% endblock %}
 {% block extend-footer %}<span id="footer-extend">Contribute, <a href="/donate" target="_blank">Donate to CYO!</a></span>{% endblock %}
