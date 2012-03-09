@@ -7,11 +7,13 @@ $(document).ready(function(){
 /*Bios Accordion Stuff*/
     $('#sidebar-bios h3').next('p').hide();
     makeSidebarOpenNext();
-
-/*Breadcrumbs*/
+    h2afterh1removeMargins()
     addSignagetoBreadcumbs()
 
 /*Document functions*/
+function h2afterh1removeMargins(){
+    $('.whitebox h1').next('h2').css('margin','0');
+}
 function makeSidebarOpenNext(){
     $('#sidebar-bios h3').click(function () {
         $(this).next().slideToggle('fast');

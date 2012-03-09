@@ -17,18 +17,29 @@
     color: #000;
 }
 .yellowbox img{
-    width: 95%;
+    width: 220px;
     border: none;
+}
+.yellowbox div ul{
+    text-align: left;
+    list-style: none;
+    padding: .1em 5px .5em 5px;
+    margin: .2em auto;
+}
+.yellowbox p {
+    line-height: 1.2em;
+}
+.concerth1{
+    margin-left:20px;
 }
 div.concert_leftCol{
     width: 230px;
     float: left;
-    padding-bottom: 1em;
     text-align:center;
 }
 div.event-details{
     margin: 0 auto;
-    padding: 12px .7em;
+    padding: 6px .7em;
 }
 div.concert_rightCol{
     padding: 0 24px 0 0;
@@ -40,15 +51,9 @@ div.artist_plate {
    width: 100%;
    background: #231f20;
    padding: .3em 5px .3em 0;
-   margin: 0 0 1em 0;
+   margin: 0 0 .3em 0;
    float: left;
    text-align:right;
-}
-.yellowbox div ul{
-    text-align: left;
-    list-style: none;
-    width:80%;
-    margin: 1em auto;
 }
 
 div.artist_plate p {
@@ -58,10 +63,6 @@ div.artist_plate p {
     font-size: .9em;
     margin:0;
 }
-.yellowbox p {
-    line-height: 1.2em;
-}
-
 span.artist_name, span.artist_title{
     white-space: nowrap;
     color: #fff;

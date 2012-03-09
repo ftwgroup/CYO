@@ -19,7 +19,7 @@ blockquote{
 }
 
 h1 {
-    margin: .5em 0 0 20px;
+    margin: .5em 0 0 0;
     font-size: 2.5em;
     width: 100%;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -242,7 +242,6 @@ span#footer-extend{
     color: #666;
     margin: 20px 20px 40px 20px;
 }
-
 #footer img{
     border:0;
     margin:0 4px;
@@ -278,7 +277,7 @@ span#footer-extend{
 .whitebox{
     width: 698px;
     padding: 0 20px 40px 20px;
-    color: #555;
+    color: #4a4a4a;
 }
 .whitebox a{
     background:#eee;
@@ -302,9 +301,6 @@ span#footer-extend{
     color: #111;
     font-weight: normal;
     margin: .7em 0 0 0;
-}
-.whitebox h2:first-child{
-    margin: 0;
 }
 .whitebox h3{
     color: #333;

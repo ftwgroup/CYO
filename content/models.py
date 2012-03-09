@@ -50,6 +50,8 @@ Page.register_templates(
         'title': 'Concert Archive Page',
         'path': 'concert_archive.html',
         'regions': (
+            ('concert_details', 'Concert Details', 'inherited'),
+            ('concert_abstract', 'Concert Abstract', 'inherited'),
             ('content', 'Content'),
             ('archive_detail_table', 'Series Archive Table', 'inherited'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
