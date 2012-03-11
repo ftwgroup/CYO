@@ -3,9 +3,9 @@
     </div>
     <div class="event-details">
         <ul>
-            <li>{{ concertdetails.concert_datetime.date }}</li>
-            <li>{{ concertdetails.concert_datetime.time }}</li>
-            <li>{{ concertdetails.location }}</li>
+            <li class="concert-date">{{ concertdetails.concert_datetime.date }}</li>
+            <li class="concert-time">{{ concertdetails.concert_datetime.time }}</li>
+            <li class="concert-loc">{{ concertdetails.location }}</li>
         </ul>
         <button id="ticket-button" value="get-tickets">
             <a href="{{ concertdetails.concert_ticket_url }}">Get Tickets</a>

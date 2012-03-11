@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^audition/', include('auditions.urls')),
     url(r'^', include('feincms.urls')),
-
+    (r'^tinymce/', include('tinymce.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

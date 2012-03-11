@@ -30,7 +30,7 @@ ul.breadcrumbs > li {
 #main-content{
 }
 /* sidebar stuff */
-#season-number {
+#season-number, #season-number a {
     font-family: 'Tahoma', sans-serif;
     font-size: 36px;
     font-weight: bold;
@@ -244,6 +244,7 @@ span#footer-extend{
 .whitebox h3{
     color: #333;
     font-weight: bold;
+    font-size: 1.2em;
     margin: 1em 0 .1em 0;
 }
 .whitebox table{

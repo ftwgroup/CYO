@@ -7,8 +7,10 @@ $(document).ready(function(){
 /*Bios Accordion Stuff*/
     $('#sidebar-bios h3').next('p').hide();
     makeSidebarOpenNext();
-    h2afterh1removeMargins()
-    addSignagetoBreadcumbs()
+    h2afterh1removeMargins();
+    addSignagetoBreadcumbs();
+    changeTBAconcertValues();
+    $('<span>&gt;</span>').prependTo('ul.breadcrumbs > li:not(:first-child)');
 
 /*Document functions*/
 function h2afterh1removeMargins(){
@@ -23,6 +25,11 @@ function addSignagetoBreadcumbs(){
     if ($('ul.breadcrumbs').children().length < 2) {
         $('ul.breadcrumbs').css('display', 'none');
     }
-    $('<span>&gt;</span>').prependTo('ul.breadcrumbs > li:not(:first-child)');
 }
+/*function changeTBAconcertValues(){
+    $('li.concert-date').replaceWith('Date to be announced' );
+    $('li.concert-time').replaceWith('');
+}
+*/
+
 });/*The end*/

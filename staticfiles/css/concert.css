@@ -1,16 +1,8 @@
 /* CSS sheet by Stephen for CYO concert info*/
 
-.yellowbox{
-    font-weight:100;
-    color: #333;
-}
-.yellowbox div h2{
-    font-family:'Open Sans Condensed', sans-serif;
-    margin: .1em 0 0 0;
-    font-weight: 600;
-    color: #fff;
-    font-size: 2em;
-}
+.yellowbox{font-weight:100;color: #333;}
+.yellowbox div h2{font-family:'Open Sans Condensed', sans-serif;margin: .1em 0 0 0;font-weight: 600;color: #fff;
+    font-size: 2em;}
 .yellowbox div h3{
     margin: .1em 0 1em 0;
     font-size: 1em;
@@ -82,5 +74,15 @@ div#concert_container{
 }
 div.image .caption, div.image .copyright{
     display:none;
+}
+.concert-date{
+    font-weight:bold;
+    color:#111;
+}
+.concert-loc{
+    font-size:.9em;
+}
+.concert-time{
+    font-size:.9em;
 }
 /* the 'black' color the designers used 231f20

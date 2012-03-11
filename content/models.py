@@ -15,6 +15,7 @@ from feincms.content.image.models import ImageContent
 from feincms.content.medialibrary.v2 import MediaFileContent
 
 import os.path
+from string import maketrans
 
 Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
@@ -85,6 +86,10 @@ class ConcertDetails(models.Model):
     #concert_abstract_text = models.TextField()
     featured_artist_name = models.CharField(max_length=32)
     featured_artist_role = models.CharField(max_length=32)
+
+    #def concert_dow(self):
+    #    obj = {1:'Monday', 2:'Tuesday', 3:'Wednesday', 4:'Thursday', 5:'Friday', 6:'Sunday'}
+    #    return (obj[dow] for dow in (self).concert_datetime.weekday)
 
     class Meta:
         abstract = True
