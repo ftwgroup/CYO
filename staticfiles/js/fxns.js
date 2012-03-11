@@ -9,7 +9,6 @@ $(document).ready(function(){
     makeSidebarOpenNext();
     h2afterh1removeMargins();
     addSignagetoBreadcumbs();
-    changeTBAconcertValues();
     $('<span>&gt;</span>').prependTo('ul.breadcrumbs > li:not(:first-child)');
 
 /*Document functions*/

@@ -43,6 +43,7 @@ ul.breadcrumbs > li {
    color: #fff;
    font-size: .9em;
 }
+
 #sidebar h3 a {
    color: #3CF;
    background:#111;
@@ -81,6 +82,9 @@ ul.breadcrumbs > li {
     margin: 1em 0 .5em 0;
     padding: .2em 0 0 0;
 }
+#sidebar-details p{
+    margin-bottom: 1em;
+}
 #sidebar-bios h3{
     border-top: #fff dotted thin;
 }
@@ -97,6 +101,9 @@ div#sidebar-bios p{
  
 /*end sidebar items*/
 /*header items*/
+#header {
+    height:100px;
+}
 input.box {
     width: 120px;
     color: #666;
@@ -114,14 +121,16 @@ input.box {
 
 /*navigation items*/
 #navigation {
-    height: 100px;
-    font-family: Font1, Gadget, sans-serif;
+    font-family: 'Impact', Gadget, sans-serif;
     font-size: 13.75px;
     color: #666666;
-}
-#navigation {
-    padding: 0;
     text-align:left;
+    width:600px;
+    float:left;
+    margin-top: 57px;
+}
+#searchbox{
+    float:right;
 }
 #navigation ul li:last-child a{
     margin-right:0;
@@ -129,20 +138,21 @@ input.box {
 #navigation ul li:first-child a{
     margin-left:0;
 }
-navigation a{
+#navigation a{
     display: block;
     width: auto;
     margin: 0 .6em;
     text-transform: uppercase;
-    font-family: 'Impact',sans-serif;
 }
-navigation a:hover {
+#navigation a:hover {
     color: #FFDB01;
+}
+div#navigation ul{
 }
 div#navigation li {
     width: auto;
     float: left;
-    margin-top: 60px;
+    margin-top: 1px;
     color: #666;
     list-style: none;
 }

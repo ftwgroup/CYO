@@ -17,7 +17,7 @@
 <body>
 <div class="row">
     <a href="/"><div class="column grid_250" id="logo"></div></a>
-    <div class="column grid_750" id="navigation">
+    <div id="navigation">
         <navigation>
             {% block navigation %}
                 {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
@@ -28,12 +28,14 @@
                     </ul>
             {% endblock %}
         </navigation>
-        {% block search_box %}
-            <form name="input" action="some_link" method="post">
-                <input type="text" class="box" name="some_name" value="Search" />
-            </form>
-        {% endblock %}
     </div>
+    <div id="searchbox">
+    {% block search_box %}
+        <form name="input" action="some_link" method="post">
+            <input type="text" class="box" name="searchbox" value="Search" />
+        </form>
+    {% endblock %}
+    </div><!--searchbox-->
 </div>
 
 <div class="row">
