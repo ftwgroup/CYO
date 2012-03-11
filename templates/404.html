@@ -1,10 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'site_base.html' %}
+{% load feincms_tags %}
+<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
+<!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
+{% block extra_head %}
+    {{ feincms_page.content.media }}
+{% endblock %}
 
-</body>
-</html>
+{% block style %}background: white;{% endblock %}
+{% block main_content %}
+    <div class="row">
+        <div class="column grid_738 whitebox">
+            <h1>Uh Oh!</h1>
+You're trying to access something that does not exist. It's okay, just hit the back button or you may help us out by
+        contacting us to report it.</div>
+    </div>
+{% endblock %}

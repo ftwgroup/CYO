@@ -20,6 +20,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
 )
+handler404 = 'content.views.page_not_found'
+
 if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
