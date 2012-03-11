@@ -176,18 +176,6 @@ span#footer-extend{
 }
 /*end footer items*/
 
-.article-thumbnail{
-    width: 180px;
-    margin: 0 10px 10px 0;
-    float:left;
-}
-.article-thumbnail image img{
-    width: 100%;
-    margin: 0;
-    border:0;
-}
-
-
 /*footer items*/
 #footer {
     color: #666;
@@ -216,13 +204,13 @@ span#footer-extend{
 /*Content items*/
 
 .article-thumbnail{
-    width: 180px;
+    width: 230px;
     margin: 0 10px 10px 0;
     float:left;
 }
 .article-thumbnail img{
     width: 100%;
-    margin: 1em 0;
+    margin: 1.5em 0;
     border:0;
 }
 .whitebox{
