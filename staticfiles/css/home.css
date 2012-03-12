@@ -35,8 +35,12 @@
     list-style: none;
     margin: .5em;
 }
-#feature-boxes div img{
-    width: 100%;
+.fimage img{
+    width:100%;
+}
+.fimage{
+    height: 140px;
+    overflow: hidden;
 }
 #feature-boxes div ul li:last-child {
     color: white;
