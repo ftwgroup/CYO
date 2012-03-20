@@ -3,11 +3,13 @@ from django.contrib.localflavor import us
 from django.contrib.localflavor.us.models import USStateField, USPostalCodeField
 
 from django.db import models
+from django.db.models.fields.related import ForeignKey
 from django.template.loader import render_to_string
 
 from django import forms
 
 from django.utils.translation import ugettext_lazy as _
+from feincms.module import page
 from feincms.module.medialibrary.fields import MediaFileForeignKey
 from feincms.module.medialibrary.models import MediaFile
 from feincms.admin.item_editor import FeinCMSInline
@@ -111,7 +113,7 @@ Page.create_content_type(ConcertDetails)
 Page.create_content_type(ConcertArchiveDetails)
 
 class FeaturedImageInBox(FeinCMSInline):
-    raw_id_fields = ('poster_thumbnail',)
+    raw_id_fields = ('poster_thumbnail','series_url')
 
 class FeaturedBoxContent(models.Model):
     """
@@ -124,6 +126,7 @@ class FeaturedBoxContent(models.Model):
     headliner = models.CharField(max_length=48, blank=True)
     short_descriptor = models.TextField()
     poster_thumbnail = MediaFileForeignKey(MediaFile, blank=True, null=True)
+    tickets_url = models.CharField(max_length=64, blank=True, null=True)
 
 #    def __unicode__(self):
 #        return u'%s %s' % (self.series_title, self.date_descriptor)

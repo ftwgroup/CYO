@@ -16,15 +16,7 @@
 {% block breadcrumbs %}{%  endblock %}
 {% block main_content %}
     <div class="slideshow">
-        <img src="{{ STATIC_URL }}images/slider1.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider2.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider3.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider4.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider5.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider6.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider7.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider8.jpg" alt="" />
-        <img src="{{ STATIC_URL }}images/slider9.jpg" alt="" />
+        {% feincms_render_region feincms_page "rotator_images" request %}
     </div>
     <div id="feature-boxes">
         {% feincms_render_region feincms_page "featured_area" request %}
