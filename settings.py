@@ -143,7 +143,6 @@ INSTALLED_APPS = (
     'south',
     'content',
     'auditions',
-    'tinymce'
 )
 FEINCMS_TREE_EDITOR_INCLUDE_ANCESTORS = True
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
