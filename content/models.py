@@ -77,13 +77,53 @@ Page.register_templates(
 Page.create_content_type(RichTextContent)
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
-    ('ArticleImage', 'Article Image'),
-    ('ConcertThumbnail', 'Concert Poster Image'),
-    ('RotatorImage', 'Rotator Image'),
+    ('ArticleImage', _('Article Image')),
+    ('ConcertThumbnail', _('Concert Poster Image')),
     #TODO (Ipsheeta) define type choices
 ))
 
+
 # TODO (julian) depending on how future conversations with CYO goes, we may refactor
+
+
+class ImageInField(FeinCMSInline):
+    raw_id_fields = ('poster_thumbnail', 'img')
+
+class FeaturedBoxContent(models.Model):
+    """
+    One block of the three.
+    """
+    feincms_item_editor_inline = ImageInField
+    series_title = models.CharField(max_length=48)
+    series_url = models.CharField(max_length=64)
+    date_descriptor = models.CharField(max_length=48)
+    headliner = models.CharField(max_length=48, blank=True)
+    short_descriptor = models.TextField()
+    poster_thumbnail = MediaFileForeignKey(MediaFile, blank=True, null=True)
+    tickets_url = models.CharField(max_length=64, blank=True, null=True)
+
+#    def __unicode__(self):
+#        return u'%s %s' % (self.series_title, self.date_descriptor)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/featured_box.html', {'featured_box': self})
+
+Page.create_content_type(FeaturedBoxContent)
+
+class RotatorImage(models.Model):
+    feincms_item_editor_inline = ImageInField
+    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/rotator_image.html', {'rotator_image': self})
+
+Page.create_content_type(RotatorImage, regions=('rotator_images',))
 
 class ConcertDetails(models.Model):
     location = models.TextField()
@@ -112,31 +152,3 @@ class ConcertArchiveDetails(models.Model):
 
 Page.create_content_type(ConcertDetails)
 Page.create_content_type(ConcertArchiveDetails)
-
-class FeaturedImageInBox(FeinCMSInline):
-    raw_id_fields = ('poster_thumbnail','series_url')
-
-class FeaturedBoxContent(models.Model):
-    """
-    One block of the three.
-    """
-    feincms_item_editor_inline = FeaturedImageInBox
-    series_title = models.CharField(max_length=48)
-    series_url = models.CharField(max_length=64)
-    date_descriptor = models.CharField(max_length=48)
-    headliner = models.CharField(max_length=48, blank=True)
-    short_descriptor = models.TextField()
-    poster_thumbnail = MediaFileForeignKey(MediaFile, blank=True, null=True)
-    tickets_url = models.CharField(max_length=64, blank=True, null=True)
-
-#    def __unicode__(self):
-#        return u'%s %s' % (self.series_title, self.date_descriptor)
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/featured_box.html', {'featured_box': self})
-
-Page.create_content_type(FeaturedBoxContent)
-
