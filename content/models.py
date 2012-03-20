@@ -79,6 +79,7 @@ Page.create_content_type(RichTextContent)
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('ArticleImage', 'Article Image'),
     ('ConcertThumbnail', 'Concert Poster Image'),
+    ('RotatorImage', 'Rotator Image'),
     #TODO (Ipsheeta) define type choices
 ))
 
