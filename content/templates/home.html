@@ -4,7 +4,6 @@
 <!-- TODO (julian) point the headers at the appropriate distro of the source -->
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/home.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
     <script>
     $(document).ready(function() {
@@ -28,31 +27,6 @@
         <img src="{{ STATIC_URL }}images/slider9.jpg" alt="" />
     </div>
     <div id="feature-boxes">
-                <div>
-                    <h2><a href="/new-works">New Works</a></h2>
-            <div class="fimage"><img src="http://cyo.ftwgroup.com/media/medialibrary/2012/03/s17NewWorksSmall.jpg" alt="" /></div>
-                    <ul>
-                        <li>December 2011</li>
-                        <li>Liquid Melancholy</li>
-                    </ul>
-                    <a href="http://cyorchestra.org"><button class="ticket-button">Get Tickets!</button></a>                    </div>
-                <div>
-                    <h2><a href="/music-and-its-industry">Music and Its Industry</a></h2>
-                    <div class="fimage"><img src="http://cyo.ftwgroup.com/media/medialibrary/2012/03/2012-miaaMed.jpg" alt="" /></div>
-                    <ul>
-                        <li>March 2012</li>
-                        <li>Cartunestra!</li>
-                    </ul>
-                    <a href="http://cyorchestra.org/tickets"> <button class="ticket-button">Get Tickets!</button></a>
-                </div>
-                <div class="feature_box">
-                    <h2><a href="/rock-the-orchestra">Rock the Orchestra</a></h2>
-                    <div class="fimage"><img src="http://cyo.ftwgroup.com/media/medialibrary/2012/03/2012-blamesalley.jpg" alt="" /></div>
-                    <ul>
-                        <li>May/June 2012</li>
-                        <li>Blame Sally</li>
-                    </ul>
-                    <a href="http://cyorchestra.org"><button class="ticket-button">Get Tickets!</button></a>
-                </div>
-    </div>
+        {% feincms_render_region feincms_page "featured_area" request %}
+    </div><!--feature-boxes-->
 {% endblock %}

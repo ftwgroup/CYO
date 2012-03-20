@@ -8,11 +8,14 @@ from django.template.loader import render_to_string
 from django import forms
 
 from django.utils.translation import ugettext_lazy as _
+from feincms.module.medialibrary.fields import MediaFileForeignKey
+from feincms.module.medialibrary.models import MediaFile
+from feincms.admin.item_editor import FeinCMSInline
+from feincms.content.medialibrary.v2 import MediaFileContent
 
 from feincms.module.page.models import Page
 from feincms.content.richtext.models import RichTextContent
 from feincms.content.image.models import ImageContent
-from feincms.content.medialibrary.v2 import MediaFileContent
 
 import os.path
 from string import maketrans
@@ -63,7 +66,7 @@ Page.register_templates(
         'path': 'home.html',
         'regions': (
             ('rotator_images', 'Rotator Images'),
-            ('homepage_content', 'Homepage Content'),
+            ('featured_area', 'Featured Area'),
             ('sidebar', '(Home) Side Bar Sections')
            ),
         },
@@ -106,3 +109,30 @@ class ConcertArchiveDetails(models.Model):
 
 Page.create_content_type(ConcertDetails)
 Page.create_content_type(ConcertArchiveDetails)
+
+class FeaturedImageInBox(FeinCMSInline):
+    raw_id_fields = ('poster_thumbnail',)
+
+class FeaturedBoxContent(models.Model):
+    """
+    One block of the three.
+    """
+    feincms_item_editor_inline = FeaturedImageInBox
+    series_title = models.CharField(max_length=48)
+    series_url = models.CharField(max_length=64)
+    date_descriptor = models.CharField(max_length=48)
+    headliner = models.CharField(max_length=48, blank=True)
+    short_descriptor = models.TextField()
+    poster_thumbnail = MediaFileForeignKey(MediaFile, blank=True, null=True)
+
+#    def __unicode__(self):
+#        return u'%s %s' % (self.series_title, self.date_descriptor)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/featured_box.html', {'featured_box': self})
+
+Page.create_content_type(FeaturedBoxContent)
+
