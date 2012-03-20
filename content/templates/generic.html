@@ -4,6 +4,8 @@
 <!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
 {% block extra_head %}
     {{ feincms_page.content.media }}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/generic.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/fancybox/jquery.fancybox.pack.js"></script>
 {% endblock %}
 
 {% block style %}background: white;{% endblock %}

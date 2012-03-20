@@ -1,4 +1,4 @@
-@import url(text.css);
+@import url('text.css');
 
 /*Redefinitions start */
 * {
@@ -212,7 +212,15 @@ span#footer-extend{
 
 /*enditems footer */
 /*Content items*/
-
+#page-title{}
+.image-wrapped{
+    float:right;
+    margin: 0 0 1em 1em;
+    display:inline;
+}
+.image-wrapped img{
+    width: 320px;
+}
 .article-thumbnail{
     width: 230px;
     margin: 0 10px 10px 0;
@@ -245,6 +253,11 @@ span#footer-extend{
 }
 .whitebox > span{
     float:left;
+}
+.whitebox h2{
+    color: #111;
+    font-weight: normal;
+    margin: .7em 0 0 0;
 }
 .whitebox h2{
     color: #111;

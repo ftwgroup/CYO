@@ -34,6 +34,15 @@ Page.register_templates(
             ),
         },
         {
+        'title': 'Top-Level Page',
+        'path': 'top_level.html',
+        'regions': (
+            ('highlight', 'Highlighted Section (Yellow)'),
+            ('content', 'Content (White)'),
+            ('sidebar', 'Side Bar', 'inherited')
+            ),
+        },
+        {
         'title': 'Bio Page',
         'path': 'bio_page.html',
         'regions': (
@@ -57,8 +66,8 @@ Page.register_templates(
         'path': 'concert_archive.html',
         'regions': (
             ('concert_details', 'Concert Details', 'inherited'),
-            ('concert_abstract', 'Concert Abstract', 'inherited'),
-            ('content', 'Content'),
+            ('concert_abstract', 'Concert Abstract (Yellow Text)', 'inherited'),
+            ('content', 'Content (White Text)'),
             ('archive_detail_table', 'Series Archive Table', 'inherited'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
@@ -77,7 +86,6 @@ Page.register_templates(
 Page.create_content_type(RichTextContent)
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
-    ('ArticleImage', _('Article Image')),
     ('ConcertThumbnail', _('Concert Poster Image')),
     #TODO (Ipsheeta) define type choices
 ))
@@ -113,7 +121,7 @@ class FeaturedBoxContent(models.Model):
 
 Page.create_content_type(FeaturedBoxContent)
 
-class RotatorImage(models.Model):
+class ImageRotator(models.Model):
     feincms_item_editor_inline = ImageInField
     img = MediaFileForeignKey(MediaFile, blank=True, null=True)
 
@@ -121,9 +129,22 @@ class RotatorImage(models.Model):
         abstract = True
 
     def render(self, **kwargs):
-        return render_to_string('content/rotator_image.html', {'rotator_image': self})
+        return render_to_string('content/image_rotator.html', {'image_rotator': self})
 
-Page.create_content_type(RotatorImage, regions=('rotator_images',))
+Page.create_content_type(ImageRotator, regions=('rotator_images',))
+
+class ImageWrapped(models.Model):
+    feincms_item_editor_inline = ImageInField
+    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/image_wrapped.html', {'image_wrapped': self})
+
+Page.create_content_type(ImageWrapped, regions=('content',))
+
 
 class ConcertDetails(models.Model):
     location = models.TextField()
@@ -150,5 +171,5 @@ class ConcertArchiveDetails(models.Model):
     def render(self, **kwargs):
         return render_to_string('content/concert_archive_detail.html', {'archived_concert': self})
 
-Page.create_content_type(ConcertDetails)
+Page.create_content_type(ConcertDetails, regions=('concert_details',))
 Page.create_content_type(ConcertArchiveDetails)
