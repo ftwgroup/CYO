@@ -37,8 +37,8 @@ Page.register_templates(
         'title': 'Top-Level Page',
         'path': 'top_level.html',
         'regions': (
-            ('highlight', 'Highlighted Section (Yellow)'),
-            ('content', 'Content (White)'),
+            ('content', 'Main Content (Yellow)'),
+            ('extra_content', 'Extra Content (White)'),
             ('sidebar', 'Side Bar', 'inherited')
             ),
         },
@@ -119,7 +119,7 @@ class FeaturedBoxContent(models.Model):
     def render(self, **kwargs):
         return render_to_string('content/featured_box.html', {'featured_box': self})
 
-Page.create_content_type(FeaturedBoxContent)
+Page.create_content_type(FeaturedBoxContent, region=('featured_area',))
 
 class ImageRotator(models.Model):
     feincms_item_editor_inline = ImageInField
@@ -143,8 +143,26 @@ class ImageWrapped(models.Model):
     def render(self, **kwargs):
         return render_to_string('content/image_wrapped.html', {'image_wrapped': self})
 
-Page.create_content_type(ImageWrapped, regions=('content',))
+Page.create_content_type(ImageWrapped, regions=('content','highlight'))
 
+class SponsorLogo(models.Model):
+    location = models.IntegerField(blank=True, null=True)
+    name = models.CharField(max_length=128)
+    website_url = models.URLField()
+    feincms_item_editor_inline = ImageInField
+    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
+
+    #def concert_dow(self):
+    #    obj = {1:'Monday', 2:'Tuesday', 3:'Wednesday', 4:'Thursday', 5:'Friday', 6:'Sunday'}
+    #    return (obj[dow] for dow in (self).concert_datetime.weekday)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/mediafile/sponsor_logo.html', {'sponsor_logo': self})
+
+Page.create_content_type(SponsorLogo, regions=('content',))
 
 class ConcertDetails(models.Model):
     location = models.TextField()

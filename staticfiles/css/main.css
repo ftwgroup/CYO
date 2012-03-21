@@ -212,11 +212,49 @@ span#footer-extend{
 
 /*enditems footer */
 /*Content items*/
-#page-title{}
+
+.yellowbox{font-weight:100;color: #333;background: #FFDB01;min-height:200px;}
+
+.yellowbox div h2{font-family:'Open Sans Condensed', sans-serif;margin: .1em 0 0 0;font-weight: 600;color: #fff;
+    font-size: 2em;}
+
+.yellowbox div h3{
+    margin: .1em 0 1em 0;
+    font-size: 1em;
+    color: #000;
+}
+.yellowbox img{
+    width: 220px;
+    border: none;
+}
+.yellowbox div ul{
+    text-align: left;
+    list-style: none;
+    padding: .1em 5px .5em 5px;
+    margin: .2em auto;
+}
+.highlight p {
+    line-height: 1.2em;
+    margin: 1em 0;
+    color:#444;
+    font-size: .95em;
+    display:block;
+}
+.highlight{
+    padding: 1em;
+    margin: 0 0 0 10px;
+    width:705px;
+}
+
+.parenth1{
+    margin-left:20px;
+}
+
 .image-wrapped{
-    float:right;
-    margin: 0 0 1em 1em;
+    float:left;
+    margin: 0 1em .5em 0;
     display:inline;
+    height:100%;
 }
 .image-wrapped img{
     width: 320px;
@@ -230,6 +268,22 @@ span#footer-extend{
     width: 100%;
     margin: 1.5em 0;
     border:0;
+}
+div.sponsor_logo{
+    width:128px;
+    margin:10px;
+    padding:4px;
+    display:inline-block;
+    border:#fff 1px solid;
+    vertical-align: top;
+}
+div.sponsor_logo:hover{
+    border:#ddd 1px solid;
+}
+div.sponsor_logo img, div.sponsor_logo span{
+    border:0;
+    width:128px;
+    display:block;
 }
 .whitebox{
     width: 698px;

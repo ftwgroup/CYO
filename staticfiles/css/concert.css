@@ -1,29 +1,4 @@
-/* CSS sheet by Stephen for CYO concert info*/
 
-.yellowbox{font-weight:100;color: #333;}
-.yellowbox div h2{font-family:'Open Sans Condensed', sans-serif;margin: .1em 0 0 0;font-weight: 600;color: #fff;
-    font-size: 2em;}
-.yellowbox div h3{
-    margin: .1em 0 1em 0;
-    font-size: 1em;
-    color: #000;
-}
-.yellowbox img{
-    width: 220px;
-    border: none;
-}
-.yellowbox div ul{
-    text-align: left;
-    list-style: none;
-    padding: .1em 5px .5em 5px;
-    margin: .2em auto;
-}
-.yellowbox p {
-    line-height: 1.2em;
-}
-.concerth1{
-    margin-left:20px;
-}
 div.concert_leftCol{
     width: 230px;
     float: left;
@@ -68,10 +43,7 @@ span.artist_title{
     text-transform: lowercase;
     margin: 0 0 0 0;
 }
-div#concert_container{
-    background: #FFDB01;
-    min-height:200px;
-}
+
 div.image .caption, div.image .copyright{
     display:none;
 }

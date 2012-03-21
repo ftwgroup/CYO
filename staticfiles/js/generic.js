@@ -1,7 +1,26 @@
-/**
- * Created by PyCharm.
- * User: steve
- * Date: 3/20/12
- * Time: 4:26 PM
- * To change this template use File | Settings | File Templates.
- */
+$(document).ready(function(){
+    $("a.image_wrapped").fancybox({
+        openEffect: 'elastic',
+        closeEffect: 'elastic',
+        prevEffect	: 'none',
+        nextEffect	: 'none',
+        maxWidth : 640,
+        maxHeight : 480,
+        closeBtn		: true,
+        helpers	: {
+            title	: {
+                type: 'inside'
+            },
+            overlay	: {
+                opacity : 0.8,
+                css : {
+                    'background-color' : '#000'
+                }
+            },
+            thumbs	: {
+                width	: 50,
+                height	: 50
+            }
+        }
+    });
+});

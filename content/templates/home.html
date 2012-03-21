@@ -4,7 +4,7 @@
 <!-- TODO (julian) point the headers at the appropriate distro of the source -->
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/home.css" />
-    <script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.cycle.all.js"></script>
     <script>
     $(document).ready(function() {
         $('.slideshow').cycle({
