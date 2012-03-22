@@ -146,8 +146,9 @@ class ImageWrapped(models.Model):
 Page.create_content_type(ImageWrapped, regions=('content','highlight'))
 
 class SponsorLogo(models.Model):
-    location = models.IntegerField(blank=True, null=True)
+    location = models.IntegerField(verbose_name='zip (optional)',blank=True, null=True)
     name = models.CharField(max_length=128)
+    type = models.CharField(verbose_name='organization type (optional)', max_length="32")
     website_url = models.URLField()
     feincms_item_editor_inline = ImageInField
     img = MediaFileForeignKey(MediaFile, blank=True, null=True)
