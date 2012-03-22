@@ -7,16 +7,16 @@
     <script src="{{ STATIC_URL }}js/jquery.cycle.all.js"></script>
     <script>
     $(document).ready(function() {
-        $('.slideshow').cycle({
-            fx: 'fade'
-        });
+        $('.slideshow').cycle({fx: 'fade'});
     });
     </script>
 {% endblock %}
 {% block breadcrumbs %}{%  endblock %}
 {% block main_content %}
-    <div class="slideshow">
+    <div class="slideover">
+        <div class="slideshow">
         {% feincms_render_region feincms_page "rotator_images" request %}
+    </div>
     </div>
     <div id="feature-boxes">
         {% feincms_render_region feincms_page "featured_area" request %}

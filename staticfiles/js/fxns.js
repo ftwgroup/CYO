@@ -10,6 +10,7 @@ $(document).ready(function(){
     h2afterh1removeMargins();
     addSignagetoBreadcumbs();
     $('<span>&gt;</span>').prependTo('ul.breadcrumbs > li:not(:first-child)');
+    $('<a href="/liza" id="map1"></a>').prependTo('.slideover');
 
 /*Document functions*/
 

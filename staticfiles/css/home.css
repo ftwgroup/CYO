@@ -1,6 +1,25 @@
 #main_content {
     min-height: 200px;
 }
+#map1{
+    position:absolute;
+    width:240px;
+    height:25px;
+    top:125px;
+    left:0px;
+    display:block;
+    border: 1px hidden;
+    z-index:99;
+}
+#map1:hover{
+    border: 1px solid #fff;
+}
+.slideover{
+    position:relative;
+}
+.slideshow img{
+    z-index:-1;
+}
 #feature-boxes{
     width: inherit;
 }
