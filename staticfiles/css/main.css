@@ -235,15 +235,15 @@ span#footer-extend{
 }
 .highlight p {
     line-height: 1.2em;
-    margin: 1em 0;
+    margin: .8em 0 1.5em 0;
     color:#444;
     font-size: .95em;
     display:block;
 }
 .highlight{
-    padding: 1em;
+    padding: 0 10px 0 20px;
     margin: 0 0 0 10px;
-    width:705px;
+    width:700px;
 }
 
 .parenth1{
