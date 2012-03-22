@@ -276,6 +276,8 @@ div.sponsor_logo{
     display:inline-block;
     border:#fff 1px solid;
     vertical-align: top;
+    font-size:.8em;
+    text-align: center;
 }
 div.sponsor_logo:hover{
     border:#ddd 1px solid;
@@ -284,6 +286,7 @@ div.sponsor_logo img, div.sponsor_logo span{
     border:0;
     width:128px;
     display:block;
+    margin:0 0 .5em 0;
 }
 .whitebox{
     width: 698px;
