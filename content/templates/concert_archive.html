@@ -2,7 +2,6 @@
 {% load feincms_tags %}
 
 {% block main_content %}
-    <!--TODO make links -->
     <div class="concert_tabs">
         <ul>
             <li><a href="/new-works">New Works</a></li>
@@ -10,8 +9,7 @@
             <li><a href="/rock-the-orchestra">Rock the Orchestra</a></li>
         </ul>
     </div>
-    <h1>{{ feincms_page.title }}</h1>
-    <!-- TODO (julian) to make this div render right we need to divs of the appropriate width -->
+    <h1 class='concerth1'>{{ feincms_page.title }}</h1>
     <div class="row">
         <div class="column grid_728 yellowbox" id="concert_container">
             <div class="concert_leftCol">

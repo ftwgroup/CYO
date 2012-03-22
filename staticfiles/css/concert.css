@@ -1,34 +1,12 @@
-/* CSS sheet by Stephen for CYO concert info*/
 
-.yellowbox{
-    font-weight:100;
-    color: #333;
-}
-.yellowbox div h2{
-    font-family:'Open Sans Condensed', sans-serif;
-    margin: .1em 0 0 0;
-    font-weight: 600;
-    color: #fff;
-    font-size: 2em;
-}
-.yellowbox div h3{
-    margin: .1em 0 1em 0;
-    font-size: 1em;
-    color: #000;
-}
-.yellowbox img{
-    width: 95%;
-    border: none;
-}
 div.concert_leftCol{
     width: 230px;
     float: left;
-    padding-bottom: 1em;
     text-align:center;
 }
 div.event-details{
     margin: 0 auto;
-    padding: 12px .7em;
+    padding: 6px .7em;
 }
 div.concert_rightCol{
     padding: 0 24px 0 0;
@@ -40,15 +18,9 @@ div.artist_plate {
    width: 100%;
    background: #231f20;
    padding: .3em 5px .3em 0;
-   margin: 0 0 1em 0;
+   margin: 0 0 .3em 0;
    float: left;
    text-align:right;
-}
-.yellowbox div ul{
-    text-align: left;
-    list-style: none;
-    width:80%;
-    margin: 1em auto;
 }
 
 div.artist_plate p {
@@ -58,10 +30,6 @@ div.artist_plate p {
     font-size: .9em;
     margin:0;
 }
-.yellowbox p {
-    line-height: 1.2em;
-}
-
 span.artist_name, span.artist_title{
     white-space: nowrap;
     color: #fff;
@@ -75,11 +43,18 @@ span.artist_title{
     text-transform: lowercase;
     margin: 0 0 0 0;
 }
-div#concert_container{
-    background: #FFDB01;
-    min-height:200px;
-}
+
 div.image .caption, div.image .copyright{
     display:none;
+}
+.concert-date{
+    font-weight:bold;
+    color:#111;
+}
+.concert-loc{
+    font-size:.9em;
+}
+.concert-time{
+    font-size:.9em;
 }
 /* the 'black' color the designers used 231f20
