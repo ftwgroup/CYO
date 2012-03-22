@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url('text.css');
 
 /*Redefinitions start */
 * {
@@ -12,49 +12,6 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-h1 {
-    margin: 40px 0 0 20px;
-    font-size: 2.5em;
-    width: 100%;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: black;
-    font-weight: lighter;
-    display: block;
-}
-h2{
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 2em;
-    display: block;
-}
-h3{
-    font-size: 1.5em;
-    display: block;
-}
-h4 {
-    font-size: 1em;
-    display: block;
-}
-p {
-    line-height: 1.5em;
-}
-
-a {
-    color: #666;
-    text-decoration: none;
-}
-a:hover {
-   color: #ffdb01;
-}
-button {
-    padding: .5em 1em .5em 1em;
-    font-weight: bold;
-    color: #fff;
-    background: #222;
-    border-top: 1px solid #555;
-    border-right: 1px solid #333;
-    border-bottom: 1px solid #111;
-    border-left: 1px solid #333;
-}
 button a {
     color: #fff;
 }
@@ -63,11 +20,17 @@ button a:hover {
 }
 /*end Redefinitions*/
 
-
+ul.breadcrumbs {
+    margin: 1em 20px 0 20px;
+    text-align: left;
+}
+ul.breadcrumbs > li {
+    display:inline;
+}
 #main-content{
 }
 /* sidebar stuff */
-#season-number {
+#season-number, #season-number a {
     font-family: 'Tahoma', sans-serif;
     font-size: 36px;
     font-weight: bold;
@@ -80,6 +43,7 @@ button a:hover {
    color: #fff;
    font-size: .9em;
 }
+
 #sidebar h3 a {
    color: #3CF;
    background:#111;
@@ -118,6 +82,9 @@ button a:hover {
     margin: 1em 0 .5em 0;
     padding: .2em 0 0 0;
 }
+#sidebar-details p{
+    margin-bottom: 1em;
+}
 #sidebar-bios h3{
     border-top: #fff dotted thin;
 }
@@ -134,6 +101,9 @@ div#sidebar-bios p{
  
 /*end sidebar items*/
 /*header items*/
+#header {
+    height:100px;
+}
 input.box {
     width: 120px;
     color: #666;
@@ -151,14 +121,16 @@ input.box {
 
 /*navigation items*/
 #navigation {
-    height: 100px;
-    font-family: Font1, Gadget, sans-serif;
+    font-family: 'Impact', Gadget, sans-serif;
     font-size: 13.75px;
     color: #666666;
-}
-#navigation {
-    padding: 0;
     text-align:left;
+    width:600px;
+    float:left;
+    margin-top: 57px;
+}
+#searchbox{
+    float:right;
 }
 #navigation ul li:last-child a{
     margin-right:0;
@@ -166,20 +138,21 @@ input.box {
 #navigation ul li:first-child a{
     margin-left:0;
 }
-navigation a{
+#navigation a{
     display: block;
     width: auto;
     margin: 0 .6em;
     text-transform: uppercase;
-    font-family: 'Impact',sans-serif;
 }
-navigation a:hover {
+#navigation a:hover {
     color: #FFDB01;
+}
+div#navigation ul{
 }
 div#navigation li {
     width: auto;
     float: left;
-    margin-top: 60px;
+    margin-top: 1px;
     color: #666;
     list-style: none;
 }
@@ -213,24 +186,11 @@ span#footer-extend{
 }
 /*end footer items*/
 
-.article-thumbnail{
-    width: 180px;
-    margin: 0 10px 10px 0;
-    float:left;
-}
-.article-thumbnail image img{
-    width: 100%;
-    margin: 0;
-    border:0;
-}
-
-
 /*footer items*/
 #footer {
     color: #666;
     margin: 20px 20px 40px 20px;
 }
-
 #footer img{
     border:0;
     margin:0 4px;
@@ -253,33 +213,97 @@ span#footer-extend{
 /*enditems footer */
 /*Content items*/
 
+.yellowbox{font-weight:100;color: #333;background: #FFDB01;min-height:200px;}
+
+.yellowbox div h2{font-family:'Open Sans Condensed', sans-serif;margin: .1em 0 0 0;font-weight: 600;color: #fff;
+    font-size: 2em;}
+
+.yellowbox div h3{
+    margin: .1em 0 1em 0;
+    font-size: 1em;
+    color: #000;
+}
+.yellowbox img{
+    width: 220px;
+    border: none;
+}
+.yellowbox div ul{
+    text-align: left;
+    list-style: none;
+    padding: .1em 5px .5em 5px;
+    margin: .2em auto;
+}
+.highlight p {
+    line-height: 1.2em;
+    margin: .8em 0 1.5em 0;
+    color:#444;
+    font-size: .95em;
+    display:block;
+}
+.highlight{
+    padding: 0 10px 0 20px;
+    margin: 0 0 0 10px;
+    width:700px;
+}
+
+.parenth1{
+    margin-left:20px;
+}
+
+.image-wrapped{
+    float:left;
+    margin: 0 1em .5em 0;
+    display:inline;
+    height:100%;
+}
+.image-wrapped img{
+    width: 320px;
+}
 .article-thumbnail{
-    width: 180px;
+    width: 230px;
     margin: 0 10px 10px 0;
     float:left;
 }
-.article-thumbnail image img{
+.article-thumbnail img{
     width: 100%;
-    margin: 0;
+    margin: 1.5em 0;
     border:0;
+}
+div.sponsor_logo{
+    width:128px;
+    margin:10px;
+    padding:4px;
+    display:inline-block;
+    border:#fff 1px solid;
+    vertical-align: top;
+    font-size:.8em;
+    text-align: center;
+}
+div.sponsor_logo:hover{
+    border:#ddd 1px solid;
+}
+div.sponsor_logo img, div.sponsor_logo span{
+    border:0;
+    width:128px;
+    display:block;
+    margin:0 0 .5em 0;
 }
 .whitebox{
     width: 698px;
     padding: 0 20px 40px 20px;
-    color: #555;
+    color: #4a4a4a;
 }
 .whitebox a{
-    background:#ddd;
+    background:#eee;
     font-weight:bold;
-    color: #cc3;
+    color: #02b;
 }
-.whitebox a{
-    color: #555;
+.whitebox a:hover{
+    color: #ffdb01;
 }
 .whitebox p{
     margin: .6em 0 0 0;
     font-size: .9em;
-    display: inline;
 }
 .whitebox p:first-child{
     margin-top:1.5em;
@@ -292,12 +316,15 @@ span#footer-extend{
     font-weight: normal;
     margin: .7em 0 0 0;
 }
-.whitebox h2:first-child{
-    margin: 0;
+.whitebox h2{
+    color: #111;
+    font-weight: normal;
+    margin: .7em 0 0 0;
 }
 .whitebox h3{
     color: #333;
     font-weight: bold;
+    font-size: 1.2em;
     margin: 1em 0 .1em 0;
 }
 .whitebox table{
@@ -345,7 +372,7 @@ tr.over{
     border: #fff solid 1px;
 }
 .split-right{
-    width: 360px;
+    width: 440px;
     float:right;
 }
 

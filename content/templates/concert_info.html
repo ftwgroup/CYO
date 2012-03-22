@@ -6,13 +6,14 @@
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/concert.css" />
-    <script src="{{ STATIC_URL }}js/concert.js"></script>
     {{ feincms_page.content.media }}
 {% endblock %}
 
 {% block style %}background: white;{% endblock %}
+{% block breadcrumbs %}{%  endblock %}
 {% block main_content %}
     <!--TODO make links -->
+    {% block concert_tabs %}
     <div class="concert_tabs">
         <ul>
             <li><a href="/new-works">New Works</a></li>
@@ -20,10 +21,10 @@
             <li><a href="/rock-the-orchestra">Rock the Orchestra</a></li>
         </ul>
     </div>
-    <h1>{{ feincms_page.title }}</h1>
-
+        {% endblock %}
+    <h1 class='parenth1'>{{ feincms_page.title }}</h1>
     <div class="row">
-        <div class="column grid_728 yellowbox" id="concert_container">
+        <div class="column grid_728 yellowbox">
             <div class="concert_leftCol">
                 {% feincms_render_region feincms_page "ConcertThumbnail" request %}
                 {% feincms_render_region feincms_page "concert_details" request %}

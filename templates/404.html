@@ -1,0 +1,17 @@
+{% extends 'site_base.html' %}
+{% load feincms_tags %}
+<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
+<!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
+{% block extra_head %}
+    <title>404 Error | {{ feincms_sitetitle }}</title>
+{% endblock %}
+
+{% block style %}background: white;{% endblock %}
+{% block main_content %}
+    <div class="row">
+        <div class="column grid_738 whitebox">
+            <h1>Uh Oh!</h1>
+You're trying to access something that does not exist. It's okay, just hit the back button or you may help us out by
+        contacting us to report it.</div>
+    </div>
+{% endblock %}
