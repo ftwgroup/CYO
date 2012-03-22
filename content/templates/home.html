@@ -7,7 +7,7 @@
     <script src="{{ STATIC_URL }}js/jquery.cycle.all.js"></script>
     <script>
     $(document).ready(function() {
-        $('.slideshow').cycle({fx: 'fade'});
+    $('.slideshow').cycle({fx: 'fade'});
     });
     </script>
 {% endblock %}
@@ -21,4 +21,12 @@
     <div id="feature-boxes">
         {% feincms_render_region feincms_page "featured_area" request %}
     </div><!--feature-boxes-->
+    {% block mp3player %}
+        <div>
+            <audio controls="controls" height="50px" width="100px">
+                <source src="song.mp3" type="audio/mpeg" />
+                <embed height="50px" width="100px" src="/media/medialibrary/2012/03/01_2010__Traffic_Jam_-_Jared_Miller.mp3">
+            </audio>
+        </div>
+    {% endblock %}
 {% endblock %}
