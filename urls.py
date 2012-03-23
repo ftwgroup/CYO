@@ -17,7 +17,6 @@ urlpatterns = patterns('',
     url(r'^', include('feincms.urls')),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
             {'sitemaps': sitemaps}),
-
 )
 handler404 = 'content.views.page_not_found'
 

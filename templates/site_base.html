@@ -62,9 +62,9 @@
                          <a href="{{ p.get_absolute_url }}"  {% if p|is_equal_or_parent_of:feincms_page %}{% endif %}><li>{{ p.title }}</li></a>
                      {% endfor %}
                  </ul>
-        {% block sidebar %}
-            {% feincms_render_region feincms_page "sidebar" request %}
-        {% endblock %}
+            {% block sidebar %}
+                {% feincms_render_region feincms_page "sidebar" request %}
+            {% endblock %}
             </div>
         </div>
     </div>
@@ -86,6 +86,5 @@
         {% endblock %}
 {% block extend-footer %}<span id="footer-extend">Contribute, <a href="/donate" target="_blank">Donate to CYO!</a></span>{% endblock %}
     </div></div>
-
 </body>
 </html>
