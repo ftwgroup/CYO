@@ -240,10 +240,14 @@ span#footer-extend{
     font-size: .95em;
     display:block;
 }
-.highlight{
+div.highlight{
     padding: 0 10px 0 20px;
     margin: 0 0 0 10px;
     width:700px;
+    min-height:0;
+}
+.highlight .image-wrapped{
+    margin-top:10px;
 }
 
 .parenth1{
