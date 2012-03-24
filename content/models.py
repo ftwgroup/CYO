@@ -81,13 +81,21 @@ Page.register_templates(
             ('sidebar', '(Home) Side Bar Sections')
            ),
         },
+        {
+        'title': 'Media Page',
+        'path': 'media.html',
+        'regions': (
+            ('content', 'Content Area'),
+            ('sidebar', '(Home) Side Bar Sections')
+            ),
+        },
 )
 
 Page.create_content_type(RichTextContent)
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
-    ('ConcertThumbnail', _('Concert Poster Image')),
-    #TODO (Ipsheeta) define type choices
+    ('concertthumbnail', _('Concert Poster Image')),
+    ('downloadable', _('Downloadable Image')),
 ))
 
 
@@ -182,6 +190,7 @@ class ConcertDetails(models.Model):
 
     def render(self, **kwargs):
         return render_to_string('content/concert_detail.html', {'concertdetails': self})
+
 
 class ConcertArchiveDetails(models.Model):
     class Meta:

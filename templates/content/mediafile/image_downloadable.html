@@ -1,0 +1,5 @@
+{% load nesh.thumbnail %}
+<a rel="sponsor" title="{{ content.image.name }}" href="{{ content.mediafile.file.url }}" rel="images_set">
+   {{ object.content.image|thumbnail:100x100 }}
+</a>
+    <span><a href="{{ content.mediafile.file.url }}">{{ content.mediafile.name }}alleui</a></span>

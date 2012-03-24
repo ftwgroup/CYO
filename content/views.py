@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from feincms.module.page.models import Page
+from feincms.templatetags.feincms_thumbnail import thumbnail
 import content
 
 #def show_featured_box(request,template_name='featured_box.html'):

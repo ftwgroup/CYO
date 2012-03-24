@@ -29,7 +29,6 @@ function addSignagetoBreadcumbs(){
     }
 }
 
-
 /*function changeTBAconcertValues(){
     $('li.concert-date').replaceWith('Date to be announced' );
     $('li.concert-time').replaceWith('');
