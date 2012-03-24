@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("a.image_wrapped, a.downloadable_image").fancybox({
+    $("a.image_wrapped, a.image_downloadable").fancybox({
         openEffect: 'elastic',
         closeEffect: 'elastic',
         prevEffect	: 'none',
