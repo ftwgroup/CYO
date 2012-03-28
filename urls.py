@@ -14,9 +14,11 @@ urlpatterns = patterns('',
     # url(r'^$', 'cyo.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^audition/', include('auditions.urls')),
+    url(r'^repertoire/', include('repertoire.urls')),
     url(r'^', include('feincms.urls')),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
             {'sitemaps': sitemaps}),
+
 )
 handler404 = 'content.views.page_not_found'
 
