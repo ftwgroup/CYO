@@ -34,10 +34,20 @@ class Concert(models.Model):
     city = models.CharField(max_length=60)
     state = us.models.USStateField()
     zip_code = models.CharField(max_length=10)
-    songs = models.ManyToManyField('Song')
+    songs = models.ManyToManyField('Song', through="ConcertSong")
 
     def __unicode__(self):
         return self.title
+
+class ConcertSong(models.Model):
+    song = models.ForeignKey('Song')
+    concert = models.ForeignKey('Concert')
+    arranger = models.ForeignKey('Performer', related_name='arranger', blank=True, null=True)
+    conductor = models.ForeignKey('Performer', related_name='conductor', blank=True, null=True)
+    guest_artist = models.ForeignKey('Performer', related_name='guest_artist',verbose_name='Guest Artist' ,blank=True, null=True)
+    soloist = models.ForeignKey('Performer', blank=True, null=True)
+    world_premiere = models.BooleanField('World Premiere', default=False)
+    local_premiere = models.BooleanField('Local Premiere', default=False)
 
 class Person(models.Model):
     """
@@ -56,9 +66,3 @@ class Person(models.Model):
 
 class Performer(Person):
     pass
-
-#TODO move to join table
-    #conductor = models.ForeignKey()
-    #arranger = models.ForeignKey() #factor to join table
-    #guest_artist = models.ForeignKey()
-    #soloist = models.ForeignKey()

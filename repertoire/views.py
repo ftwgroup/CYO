@@ -10,5 +10,10 @@ class RepertoireView(ListView):
     This class renders the repertoire
     """
     allow_empty = True
-    model = Concert
     paginate_by = 5
+
+    def get_queryset(self):
+        """
+        Get the list of items for this view
+        """
+        return
