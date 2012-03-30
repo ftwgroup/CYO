@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.gif" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/grid.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/repertoire.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="{{ STATIC_URL }}js/fxns.js"></script>
     {% block extra_head %}
@@ -29,7 +30,7 @@
 </div>
 
 <div class="row">
-    <div class="column grid_738" id="main-content" style="background:#fff;">
+    <div class="column grid_738" id="repertoire-container" style="background:#fff;">
         {% block main_content %}
             <h1>CYO Repertoire</h1>
             {% for concert in concert_list %}
