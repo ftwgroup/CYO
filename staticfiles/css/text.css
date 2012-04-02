@@ -1,52 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-ul {
-    list-style-type: none;
-}
-blockquote{
-    margin: 0 2em 0 3em;
-}
-
-h1 {
-    margin: .5em 0 0 0;
-    font-size: 2.5em;
-    width: 100%;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: black;
-    font-weight: lighter;
-    display: block;
-}
-h2{
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 2em;
-    display: block;
-}
-h3{
-    font-size: 1.5em;
-    display: block;
-}
-h4 {
-    font-size: 1em;
-    display: block;
-}
-p {
-    line-height: 1.5em;
+@font-face {
+    font-family: "Univers";
+    src: url("/static/fonts/UniversLTStd-LightCn.otf") format("opentype");
+    font-weight:normal;
 }
 
-a {
-    color: #666;
-    text-decoration: none;
-}
-a:hover {
-    color: #ffdb01;
-}
-button {
-    padding: .5em 1em .5em 1em;
-    font-weight: bold;
-    color: #fff;
-    background: #222;
-    border-top: 1px solid #555;
-    border-right: 1px solid #333;
-    border-bottom: 1px solid #111;
-    border-left: 1px solid #333;
+@font-face {
+    font-family: "Univers";
+    src: url("/static/fonts/UniversLTStd-BoldCn.otf") format("opentype");
+    font-weight:bold;
 }
