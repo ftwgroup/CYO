@@ -1,0 +1,12 @@
+#repertoire-container{
+    padding:5px 20px 10px 20px;
+    width: 718px;
+}
+#repertoire-container table{
+    width:100%;
+    margin:5px;
+}
+#repertoire-container table td{
+    text-align:left;
+    margin:2px 0;
+}
