@@ -9,7 +9,8 @@ strong{
     font-weight:bold;
 }
 body {
-    background: #231f20;
+    background: #000;
+    /*background: #231f20;*/
     font-size: 14px;
     font-family: 'Arial', sans-serif;
 }
