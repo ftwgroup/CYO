@@ -24,7 +24,7 @@
             document.documentElement.addEventListener(click, kickoff, true);
         },
         loop: true,
-        swfPath: "/js"
+        swfPath: "{{ STATIC_URL }}js/jplayer"
     });
         $('.jp-controls li a').click( function(e) { e.preventDefault(); } );
     });
