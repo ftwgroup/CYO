@@ -4,4 +4,7 @@ local_settings.py
 *.db
 .DS_Store
 .idea
-
+*~
+content/migrations/*
+/migrate/*
+/media/*

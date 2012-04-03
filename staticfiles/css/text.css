@@ -4,10 +4,12 @@
     font-family: "Univers";
     src: url("/static/fonts/UniversLTStd-LightCn.otf") format("opentype");
     font-weight:normal;
+    padding-bottom: 0;
 }
 
 @font-face {
     font-family: "Univers";
     src: url("/static/fonts/UniversLTStd-BoldCn.otf") format("opentype");
     font-weight:bold;
+    padding-bottom: 0;
 }

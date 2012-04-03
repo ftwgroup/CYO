@@ -275,6 +275,11 @@ span#footer-extend {
     color: #FFDB01;
 }
 
+#content_main h1 {
+    margin: 0 0 0 20px;
+}
+
+
 /*Yellowbox items*/
 
 .yellowbox {
@@ -286,14 +291,14 @@ span#footer-extend {
 
 .yellowbox div h2 {
     font-family: 'Univers', 'Open Sans Condensed', sans-serif;
-    margin: .1em 0 0 0;
+    margin: .5em 0 0 0;
     font-weight: normal;
     color: #fff;
     font-size: 2em;
 }
 
 .yellowbox div h3 {
-    margin: .1em 0 1em 0;
+    margin: .5em 0;
     font-size: 1em;
     color: #000;
 }
@@ -312,7 +317,7 @@ span#footer-extend {
 
 .highlight p {
     line-height: 1.2em;
-    margin: .8em 0 1.5em 0;
+    margin: .8em 0;
     color: #444;
     font-size: .95em;
     display: block;
@@ -326,6 +331,10 @@ div.highlight {
 }
 
 /*Whitebox Stuff*/
+#main-content > h1{
+    margin-top:40px;
+}
+
 .whitebox {
     width: 698px;
     padding: 0 20px 40px 20px;
