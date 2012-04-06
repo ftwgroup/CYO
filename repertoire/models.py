@@ -32,7 +32,6 @@ class Concert(models.Model):
     city = models.CharField(max_length=60)
     state = us.models.USStateField()
     zip_code = models.CharField(max_length=10)
-    songs = models.ManyToManyField('Song', through="ConcertSong")
 
     def __unicode__(self):
         return self.title

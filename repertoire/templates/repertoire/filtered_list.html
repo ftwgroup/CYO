@@ -34,12 +34,12 @@
         {% block main_content %}
             <h1>CYO Repertoire</h1>
             {% for concert in concert_list %}
-                <div><h2>{{ concert.title }}</h2>
+                <div>
                     <table>
-                        {% for concertsong in concert.concertsong_set.all %}
+                        {% for composer in composer_list.songs.all %}
                             <tr>
-                                <td>{{ concertsong.song.title }}</td>
-                                <td>{{ concertsong.song.composer }}</td>
+                                <td>{{ song.title }}</td>
+                                <td>{{ song.composer }}</td>
                             </tr>
                         {% endfor %}
                     </table>

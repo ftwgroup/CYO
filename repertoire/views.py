@@ -28,9 +28,9 @@ class RepertoireView(ListView):
         if not self.filter:
             queryset = Concert.objects.all()
         elif self.filter == 'composer':
-            queryset = ConcertSong.objects.order_by('song__composer__last_name')
+            queryset = Song.objects.order_by('song__composer__last_name')
         elif self.filter == 'song':
-            queryset = ConcertSong.objects.order_by('song')
+            queryset = Song.objects.all()
         elif self.filter == 'premiere':
             queryset = ConcertSong.objects.filter(Q(world_premiere=True)|Q(local_premiere=True))
         else:
@@ -38,7 +38,8 @@ class RepertoireView(ListView):
         return queryset
 
     def get_template_names(self):
+        # TODO we don't want to have a template for each performer type
         if self.filter:
-            return ['repertoire/filtered_list.html']
+            return ['repertoire/concert_'+self.filter+'_list.html']
         else:
             return ['repertoire/concert_list.html']
