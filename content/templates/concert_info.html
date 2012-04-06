@@ -5,23 +5,14 @@
 <!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
 
 {% block extra_head %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/concert.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/concert.css"/>
     {{ feincms_page.content.media }}
 {% endblock %}
 
 {% block style %}background: white;{% endblock %}
-{% block breadcrumbs %}{%  endblock %}
+{% block breadcrumbs %}{% endblock %}
 {% block main_content %}
-    <!--TODO make links -->
-    {% block concert_tabs %}
-    <div class="concert_tabs">
-        <ul>
-            <li><a href="/new-works">New Works</a></li>
-            <li><a href="/music-and-its-industry">Music and Its Industry</a></li>
-            <li><a href="/rock-the-orchestra">Rock the Orchestra</a></li>
-        </ul>
-    </div>
-        {% endblock %}
+    {% block concert_abstract %}
     <h1 class='parenth1'>{{ feincms_page.title }}</h1>
     <div class="row">
         <div class="column grid_728 yellowbox">
@@ -30,14 +21,14 @@
                 {% feincms_render_region feincms_page "concert_details" request %}
             </div>
             <div class="concert_rightCol">
-            <h2>{{ feincms_page.content_subtitle }}</h2>
+                <h2>{{ feincms_page.content_subtitle }}</h2>
                 <span class="yellowBox" id="season-description">
                 {% feincms_render_region feincms_page "concert_abstract" request %}
                 </span>
             </div>
         </div>
     </div>
-
+    {% endblock %}
     <div class="row">
         <div class="column grid_738 whitebox">
             {% feincms_render_region feincms_page "content" request %}
