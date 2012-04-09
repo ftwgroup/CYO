@@ -33,7 +33,7 @@
     <div class="column grid_738" id="repertoire-container" style="background:#fff;">
         {% block main_content %}
             <h1>CYO Repertoire</h1>
-            {% for concert in concert_list %}
+            {% for concert in repertoire_list %}
                 <div><h2>{{ concert.title }}</h2>
                     <table>
                         {% for concertsong in concert.concertsong_set.all %}

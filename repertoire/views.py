@@ -14,7 +14,7 @@ class RepertoireView(ListView):
     """
     allow_empty = True
     paginate_by = 5
-    context_object_name = 'concert_list'
+    context_object_name = 'repertoire_list'
 
     def dispatch(self, request, *args, **kwargs):
         self.filter = kwargs.get('filter', '')
@@ -28,7 +28,7 @@ class RepertoireView(ListView):
         if not self.filter:
             queryset = Concert.objects.all()
         elif self.filter == 'composer':
-            queryset = Song.objects.order_by('song__composer__last_name')
+            queryset = Song.objects.order_by('composer__last_name')
         elif self.filter == 'song':
             queryset = Song.objects.all()
         elif self.filter == 'premiere':
@@ -40,6 +40,7 @@ class RepertoireView(ListView):
     def get_template_names(self):
         # TODO we don't want to have a template for each performer type
         if self.filter:
+            print self.filter
             return ['repertoire/concert_'+self.filter+'_list.html']
         else:
             return ['repertoire/concert_list.html']
