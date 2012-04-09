@@ -34,7 +34,7 @@
         {% block main_content %}
             <h1>CYO Repertoire</h1>
             {% for concert in repertoire_list %}
-                <div><h2>{{ concert.title }}</h2>
+                <div><h2>{{ song.title }}</h2>
                     <table>
                         {% for concertsong in concert.concertsong_set.all %}
                             <tr>
@@ -45,6 +45,7 @@
                     </table>
                 </div>
             {% endfor %}
+
         {% endblock %}
     </div>
     <div class="column grid_242" id="sidebar">

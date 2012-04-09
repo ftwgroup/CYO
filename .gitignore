@@ -8,3 +8,4 @@ local_settings.py
 content/migrations/*
 /migrate/*
 /media/*
+*migrations

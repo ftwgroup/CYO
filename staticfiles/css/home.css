@@ -53,6 +53,8 @@
 #feature-boxes ul{
     list-style: none;
     margin: .5em;
+    height: 4em;
+    display:block;
 }
 .fimage img{
     width:100%;
@@ -70,6 +72,6 @@
     font-weight: bold;
 }
 .ticket-button{
-    margin: .2em .5em;
+    margin: 1em 10px;
     vertical-align: baseline;
 }
