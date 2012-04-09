@@ -28,11 +28,11 @@ class RepertoireView(ListView):
         if not self.filter:
             queryset = Concert.objects.all()
         elif self.filter == 'composer':
-            queryset = Performer.objects.order_by('first_name')
+            queryset = Performer.objects.order_by('last_name')
         elif self.filter == 'song':
             queryset = Song.objects.order_by('title')
         elif self.filter == 'premiere':
-            queryset = ConcertSong.objects.filter(Q(world_premiere=True)|Q(local_premiere=True))
+            queryset = ConcertSong.objects.filter(Q(world_premiere=True)|Q(local_premiere=True)).order_by('concert__date')
         else:
             queryset = ConcertSong.objects.order_by(self.filter+'__last_name')
         return queryset
