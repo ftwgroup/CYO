@@ -2,7 +2,7 @@ from django.db.models.query_utils import Q
 from django.http import HttpResponse
 import datetime
 from django.views.generic.list import ListView
-from repertoire.models import Concert, ConcertSong, Song
+from repertoire.models import Concert, ConcertSong, Song, Performer
 
 # TODO make repertoire view dynamic for all filter options
 
@@ -28,9 +28,9 @@ class RepertoireView(ListView):
         if not self.filter:
             queryset = Concert.objects.all()
         elif self.filter == 'composer':
-            queryset = Song.objects.order_by('composer__last_name')
+            queryset = Performer.objects.order_by('first_name')
         elif self.filter == 'song':
-            queryset = Song.objects.all()
+            queryset = Song.objects.order_by('title')
         elif self.filter == 'premiere':
             queryset = ConcertSong.objects.filter(Q(world_premiere=True)|Q(local_premiere=True))
         else:

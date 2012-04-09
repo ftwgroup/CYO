@@ -33,18 +33,19 @@
     <div class="column grid_738" id="repertoire-container" style="background:#fff;">
         {% block main_content %}
             <h1>CYO Repertoire</h1>
-            {% for concert in concert_list %}
-                <div>
+            {% for concert in repertoire_list %}
+                <div><h2>{{ song.title }}</h2>
                     <table>
-                        {% for composer in composer_list.songs.all %}
+                        {% for concertsong in concert.concertsong_set.all %}
                             <tr>
-                                <td>{{ song.title }}</td>
-                                <td>{{ song.composer }}</td>
+                                <td>{{ concertsong.song.title }}</td>
+                                <td>{{ concertsong.song.composer }}</td>
                             </tr>
                         {% endfor %}
                     </table>
                 </div>
             {% endfor %}
+
         {% endblock %}
     </div>
     <div class="column grid_242" id="sidebar">
