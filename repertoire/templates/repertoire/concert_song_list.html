@@ -1,0 +1,21 @@
+{% extends 'repertoire/concert_base.html' %}
+{# queryset = Song objects #}
+{% block main_content %}
+    <h1>CYO Repertoire</h1>
+    <h2>Ordered by Song Title</h2>
+    {% for song in repertoire_list %}
+        <div><h3>{{ song.title }}</h3>
+            <table>
+                {% for concertsong in song.concertsong_set.all %}
+                    {# % for composer in song.concertsong_set.all % #}
+                        <tr>
+                            <td>{{ song.title }}</td>
+                            <td>{{ concertsong.concert.title }}</td>
+                            <td>{{ song.composer.first_name }}{{ song.composer.last_name }}</td>
+                        </tr>
+                    {#  % endfor %#}
+                {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+{% endblock %}
