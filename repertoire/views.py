@@ -20,7 +20,6 @@ class RepertoireView(ListView):
         self.filter = kwargs.get('filter', '')
         return super(RepertoireView, self).dispatch(request, *args, **kwargs)
 
-
     def get_queryset(self):
         """
         Get the list of items for this view
