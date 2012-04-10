@@ -1,15 +1,14 @@
 {% extends 'repertoire/concert_base.html' %}
-        {% block main_content %}
+{% block main_content %}
+        <table>
             {% for concert in repertoire_list %}
-                <div><h2>{{ concert.title }}</h2>
-                    <table>
-                        {% for concertsong in concert.concertsong_set.all %}
-                            <tr>
-                                <td>{{ concertsong.song.title }}</td>
-                                <td>{{ concertsong.song.composer }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
+                <tr><td><h2>{{ concert.title }}</h2></td></tr>
+                {% for concertsong in concert.concertsong_set.all %}
+                    <tr>
+                        <td>{{ concertsong.song.title }}</td>
+                        <td>{{ concertsong.song.composer }}</td>
+                    </tr>
+                {% endfor %}
             {% endfor %}
-        {% endblock %}
+                </table>
+{% endblock %}

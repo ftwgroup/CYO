@@ -1,6 +1,9 @@
 #main_content {
     min-height: 200px;
 }
+.concert_tabs{
+    display: none;
+}
 #map1{
     position:absolute;
     width:240px;
