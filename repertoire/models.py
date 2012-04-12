@@ -9,6 +9,12 @@ SONG_TAGS = (
     ('c','Local Premiere'),
 )
 
+CONCERT_SERIES = (
+    ('RTO', 'Rock the Orchestra'),
+    ('NW', 'New Works'),
+    ('MAII', 'Music and Its Industry'),
+)
+
 class Song(models.Model):
     """
     This song model stores one song performed by cyo.
