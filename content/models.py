@@ -26,14 +26,6 @@ Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
 Page.register_templates(
         {
-        'title': 'Generic Page',
-        'path': 'generic.html',
-        'regions': (
-            ('content', 'Content'),
-            ('sidebar', 'Side Bar', 'inherited')
-            ),
-        },
-        {
         'title': 'Top-Level Page',
         'path': 'top_level.html',
         'regions': (
@@ -58,17 +50,6 @@ Page.register_templates(
             ('concert_details', 'Concert Details', 'inherited'),
             ('concert_abstract', 'Concert Abstract'),
             ('content', 'Content'),
-            ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
-            ),
-        },
-        {
-        'title': 'Concert Archive Page',
-        'path': 'concert_archive.html',
-        'regions': (
-            ('concert_details', 'Concert Details', 'inherited'),
-            ('concert_abstract', 'Concert Abstract (Yellow Text)', 'inherited'),
-            ('content', 'Content (White Text)'),
-            ('archive_detail_table', 'Series Archive Table', 'inherited'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
