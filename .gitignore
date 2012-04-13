@@ -5,7 +5,3 @@ local_settings.py
 .DS_Store
 .idea
 *~
-content/migrations/*
-/migrate/*
-/media/*
-*migrations
