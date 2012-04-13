@@ -45,14 +45,14 @@ class Concert(models.Model):
     season = models.IntegerField()
 
     rough_date = models.CharField(verbose_name="e.g. Summer 2012", max_length=32, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
-    time = models.TimeField(blank=True, null=True)
+    date_time = models.DateTimeField(blank=True, null=True)
 
-    featured_artist = models.ManyToManyField("Performer")
+    featured_artist = models.ManyToManyField('Performer')
     venue = models.ForeignKey('Venue', null=True)
 
+    # TODO (jordan) Decide what to do here
     poster = models.CharField(max_length=128, blank=True, null=True)
-    media_link = models.TextField()
+    media_link = models.TextField(blank=True)
 
     def __unicode__(self):
         return self.title
@@ -71,12 +71,13 @@ class PerformedSong(models.Model):
         null=True)
     soloist = models.ManyToManyField('Performer', blank=True, null=True)
 
-    SONG_TAGS = (
+    PREMIERE_TAGS = (
         ('a','World Premiere'),
         ('b','US Premiere'),
         ('c','Local Premiere'),
+        ('d','None'),
     )
-    premiere = models.CharField(max_length=1, choices=SONG_TAGS)
+    premiere = models.CharField(max_length=1, choices=PREMIERE_TAGS, default='d')
 
     def __unicode__(self):
         return "%s at %s" % (self.song.title, self.concert.title)

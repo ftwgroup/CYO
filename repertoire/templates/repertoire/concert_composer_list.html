@@ -6,10 +6,10 @@
                     <div><h3>{{ composer.first_name }} {{ composer.last_name }}</h3>
                         <table>
                             {% for song in composer.song_set.all %}
-                                {% for concertsong in song.concertsong_set.all %}
+                                {% for ps in song.performedsong_set.all %}
                                 <tr>
                                     <td>{{ song.title }}</td>
-                                    <td>{{ concertsong.concert.title }}</td>
+                                    <td>{{ ps.concert.title }}</td>
                                 </tr>
                                 {% endfor %}
                             {% endfor %}
