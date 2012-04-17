@@ -1,5 +1,6 @@
 from django.contrib.localflavor import us
 from django.db import models
+from feincms.content.application import models as app_models
 
 # TODO include tagging
 
@@ -24,7 +25,7 @@ class Venue(models.Model):
     """
     This table describes the venue for a concert.
     """
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=128) #TODO (stephen) once migrations are redone, rename this colmn to title
     address1 = models.CharField(max_length=64)
     address2 = models.CharField(max_length=64, blank=True, null=True)
     city = models.CharField(max_length=60)
@@ -47,15 +48,24 @@ class Concert(models.Model):
     rough_date = models.CharField(verbose_name="e.g. Summer 2012", max_length=32, blank=True, null=True)
     date_time = models.DateTimeField(blank=True, null=True)
 
-    featured_artist = models.ManyToManyField('Performer')
+    featured_artist = models.ManyToManyField('Performer') #TODO through PerformedSong?
     venue = models.ForeignKey('Venue', null=True)
 
     # TODO (jordan) Decide what to do here
     poster = models.CharField(max_length=128, blank=True, null=True)
     media_link = models.TextField(blank=True)
 
+    class Meta:
+        ordering = ['date_time']
+
     def __unicode__(self):
         return self.title
+
+#    @app_models.permalink
+#    def get_absolute_url(self):
+#        return ('entry_detail', 'concerts', (), {
+#            'slug': self.slug,
+#             })
 
 
 class PerformedSong(models.Model):
