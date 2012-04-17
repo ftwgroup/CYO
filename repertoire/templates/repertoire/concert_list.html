@@ -3,10 +3,10 @@
             {% for concert in repertoire_list %}
                 <div><h2>{{ concert.title }}</h2>
                     <table>
-                        {% for concertsong in concert.concertsong_set.all %}
+                        {% for ps in concert.performedsong_set.all %}
                             <tr>
-                                <td>{{ concertsong.song.title }}</td>
-                                <td>{{ concertsong.song.composer }}</td>
+                                <td>{{ ps.song.title }}</td>
+                                <td>{{ ps.song.composer }}</td>
                             </tr>
                         {% endfor %}
                     </table>

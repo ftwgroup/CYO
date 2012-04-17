@@ -3,30 +3,28 @@ from django.db import models
 
 # TODO include tagging
 
-SONG_TAGS = (
-    ('a','World Premiere'),
-    ('b','US Premiere'),
-    ('c','Local Premiere'),
+
+
+CONCERT_SERIES = (
+    ('RTO', 'Rock the Orchestra'),
+    ('NW', 'New Works'),
+    ('MAII', 'Music and Its Industry'),
 )
 
-class Song(models.Model):
+class Series(models.Model):
     """
-    This song model stores one song performed by cyo.
+    This model specifies the concert series. Allowing for future series to be created.
     """
-    title = models.CharField(max_length=48)
-    composer = models.ForeignKey('Performer')
-    note = models.TextField('Notes about this song')
+    title = models.CharField(max_length=128)
 
     def __unicode__(self):
         return self.title
-
-
-class Concert(models.Model):
+    
+class Venue(models.Model):
     """
-    This model stores concert information
+    This table describes the venue for a concert.
     """
-    title = models.CharField(max_length=60)
-    date = models.DateField()
+    name = models.CharField(max_length=128)
     address1 = models.CharField(max_length=64)
     address2 = models.CharField(max_length=64, blank=True, null=True)
     city = models.CharField(max_length=60)
@@ -34,24 +32,67 @@ class Concert(models.Model):
     zip_code = models.CharField(max_length=10)
 
     def __unicode__(self):
+            return self.name
+
+class Concert(models.Model):
+    """
+    This model stores concert information
+    """
+    title = models.CharField(max_length=60)
+    short_description = models.TextField(verbose_name="Three line descriptor")
+    description = models.TextField()
+    series = models.ForeignKey('Series')
+    season = models.IntegerField()
+
+    rough_date = models.CharField(verbose_name="e.g. Summer 2012", max_length=32, blank=True, null=True)
+    date_time = models.DateTimeField(blank=True, null=True)
+
+    featured_artist = models.ManyToManyField('Performer')
+    venue = models.ForeignKey('Venue', null=True)
+
+    # TODO (jordan) Decide what to do here
+    poster = models.CharField(max_length=128, blank=True, null=True)
+    media_link = models.TextField(blank=True)
+
+    def __unicode__(self):
         return self.title
 
-class ConcertSong(models.Model):
+
+class PerformedSong(models.Model):
     """
     This table joins Concert and Song
     """
     song = models.ForeignKey('Song')
     concert = models.ForeignKey('Concert')
-    arranger = models.ForeignKey('Performer', related_name='arranger', blank=True, null=True)
-    conductor = models.ForeignKey('Performer', related_name='conductor', blank=True, null=True)
-    guest_artist = models.ForeignKey('Performer', related_name='guest_artist',verbose_name='Guest Artist' ,blank=True,
+
+    arranger = models.ManyToManyField('Performer', related_name='arranger', blank=True, null=True)
+    conductor = models.ManyToManyField('Performer', related_name='conductor', blank=True, null=True)
+    guest_artist = models.ManyToManyField('Performer', related_name='guest_artist',verbose_name='Guest Artist' ,blank=True,
         null=True)
-    soloist = models.ForeignKey('Performer', blank=True, null=True)
-    world_premiere = models.BooleanField('World Premiere', default=False)
-    local_premiere = models.BooleanField('Local Premiere', default=False)
+    soloist = models.ManyToManyField('Performer', blank=True, null=True)
+
+    PREMIERE_TAGS = (
+        ('a','World Premiere'),
+        ('b','US Premiere'),
+        ('c','Local Premiere'),
+        ('d','None'),
+    )
+    premiere = models.CharField(max_length=1, choices=PREMIERE_TAGS, default='d')
 
     def __unicode__(self):
         return "%s at %s" % (self.song.title, self.concert.title)
+
+
+class Song(models.Model):
+    """
+    This song model stores one song performed by cyo.
+    """
+    title = models.CharField(max_length=48)
+    composer = models.ForeignKey('Performer')
+    description = models.TextField('Description of this song')
+
+    def __unicode__(self):
+        return self.title
 
 class Person(models.Model):
     """
@@ -59,8 +100,9 @@ class Person(models.Model):
     """
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    birth_date = models.DateField()
-    death_date = models.DateField(blank=True, null=True)
+    birth_year = models.IntegerField()
+    death_year = models.IntegerField(blank=True, null=True)
+    bio = models.TextField(blank=True)
 
     class Meta:
         abstract = True
@@ -70,6 +112,3 @@ class Person(models.Model):
 
 class Performer(Person):
     pass
-
-#Series
-#Change performer birthdate to year
