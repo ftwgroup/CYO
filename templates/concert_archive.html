@@ -1,27 +1,47 @@
+{% with concert=object_list.0 %}
+    {% block concert_abstract %}
+        <h1 class='parenth1'>{{ feincms_page.title }}</h1>
+        <div class="row">
+            <div class="column grid_728 yellowbox">
+                <div class="concert_leftCol">
+                    <div class="artist_plate">
+                        <p>
+                            <span class="artist_name">Liza Grossman</span>,
+                            <span class="artist_title">Director</span>&nbsp;&gt;
+                        </p>
+                    </div>
+                    <div class="event_details">
+                        <ul>
+                            <li class="concert-date">{{ concert.date_time|date }}</li>
+                            <li class="concert-time">{{ concert.date_time|time }}</li>
+                            <li class="concert-loc">
+                                <p>{{ concert.venue.name }}</p>
 
-{%  with concert=object_list.0 %}
-<div class="artist_plate">
-    <p>
-        <span class="artist_name">LIZA GROSSMAN</span>,
-        <span class="artist_title">Director</span>&nbsp;&gt;
-    </p>
-</div>
-<div class="event_details">
-    <ul>
-        <li class="concert-date">{{ concert.date_time|date }}</li>
-        <li class="concert-time">{{ concert.date_time|time }}</li>
-        <li class="concert-loc">
-            <p>{{ concert.venue.name }}</p>
-            <p>{{ concert.venue.address1 }}</p>
-            {% if concert.venue.address2 %}
-            <p>{{ concert.venue.address2 }}</p>
-            {% endif %}
-            <p>{{ concert.venue.city }}, {{ concert.venue.state}} {{ concert.venue.zip_code }}</p>
-        </li>
-    </ul>
-    <button id="ticket-buttno" value="get-tickets">
-        <!-- TODO (julian) we need to be able to link to a paypal screen -->
-        <a href="#">Get Tickets</a>
-    </button>
-</div>
-{%  endwith %}
+                                <p>{{ concert.venue.address1 }}</p>
+                                {% if concert.venue.address2 %}
+                                    <p>{{ concert.venue.address2 }}</p>
+                                {% endif %}
+                                <p>{{ concert.venue.city }}, {{ concert.venue.state }} {{ concert.venue.zip_code }}</p>
+                            </li>
+                        </ul>
+                        <button id="ticket-button" value="get-tickets">
+                            <!-- TODO (julian) we need to be able to link to a paypal screen -->
+                            <a href="#">Get Tickets</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="concert_rightCol">
+                    <h2>{{ feincms_page.content_subtitle }}</h2>
+                <span class="yellowBox" id="season-description">
+                                    {{ concert.description }}
+                </span>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    <div class="row">
+        <div class="column grid_738 whitebox">
+
+        </div>
+    </div>
+{% endwith %}
