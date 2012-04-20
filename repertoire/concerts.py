@@ -35,7 +35,7 @@ urlpatterns = patterns('',
     # concert series archive pages- the url will look like this http://cyorchestra.org/concert/new-works/season-18
     # this view shows upcoming on top and concert details per season on the bottom.
 
-    url(r'(?P<pk>\d+)/$', ConcertDetailView.as_view(template_name='concert_archive.html'), name='concert-detail'),
+    url(r'(?P<pk>\d+)/$', ConcertDetailView.as_view(), name='concert-detail'),
 )
 
 """

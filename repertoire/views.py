@@ -51,5 +51,6 @@ class ConcertDetailView(DetailView):
     """
     This class was created to display a concert details page
     """
-    context_object_name = 'concert'
     model = Concert
+    context_object_name = 'concert'
+    template_name = 'concert_detail.html'

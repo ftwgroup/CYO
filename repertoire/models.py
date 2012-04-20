@@ -63,9 +63,9 @@ class Concert(models.Model):
     def __unicode__(self):
         return self.title
 
-    @app_models.permalink
+    @models.permalink
     def get_absolute_url(self):
-        return ('concert-detail', [str(self.pk)])
+        return ('concert-detail', [str(self.id)])
 
 
 class PerformedSong(models.Model):
