@@ -1,6 +1,6 @@
 {% with concert=object_list.0 %}
     {% block concert_abstract %}
-        <h1 class='parenth1'>{{ feincms_page.title }}</h1>
+        <h1 class='parenth1'>{{ concert.series.title }}</h1>
         <div class="row">
             <div class="column grid_728 yellowbox">
                 <div class="concert_leftCol">
@@ -12,11 +12,16 @@
                     </div>
                     <div class="event_details">
                         <ul>
+                        {# TODO (stephen) get concert.poster image here #}
+                        {% if concert.date_time %}
                             <li class="concert-date">{{ concert.date_time|date }}</li>
                             <li class="concert-time">{{ concert.date_time|time }}</li>
+                        {% else %}
+                            <li class="concert-date">{{ concert.rough_date }}</li>
+                        {% endif %}
+
                             <li class="concert-loc">
                                 <p>{{ concert.venue.name }}</p>
-
                                 <p>{{ concert.venue.address1 }}</p>
                                 {% if concert.venue.address2 %}
                                     <p>{{ concert.venue.address2 }}</p>
@@ -25,13 +30,13 @@
                             </li>
                         </ul>
                         <button id="ticket-button" value="get-tickets">
-                            <!-- TODO (julian) we need to be able to link to a paypal screen -->
-                            <a href="#">Get Tickets</a>
+                            {# TODO (julian) we need to be able to link to a paypal screen #}
+                            <a href="http://www2.cyorchestra.org/tickets">Get Tickets</a>
                         </button>
                     </div>
                 </div>
                 <div class="concert_rightCol">
-                    <h2>{{ feincms_page.content_subtitle }}</h2>
+                    <h2>Upcoming</h2>
                 <span class="yellowBox" id="season-description">
                                     {{ concert.description }}
                 </span>
@@ -39,9 +44,26 @@
             </div>
         </div>
     {% endblock %}
+{% endwith %}
+{% with concert_archive_item=object_list.all %}
     <div class="row">
         <div class="column grid_738 whitebox">
-
+            <table>
+                <thead>
+                <tr>
+                <h2>Browse the Archives</h2>
+                </tr>
+            </thead>
+                <tbody>
+                {% for c in concert_archive_item %}
+                <tr>
+                    <td>Season #{{ c.season }}</td>
+                    <td>{{ c.title }}</td>
+                    <td>{{ c.media_link }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endwith %}

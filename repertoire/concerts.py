@@ -19,16 +19,16 @@ the series name.
 """
 urlpatterns = patterns('',
     # concert series
-    url(r'new-works/$', ListView.as_view(queryset=Concert.objects.filter(series__title="New Works"), template_name='concert_archive.html'),
+    url(r'new-works/$', ListView.as_view(queryset=Concert.objects.filter(series__title="New Works").order_by('-rough_date','date_time'), template_name='concert_archive.html'),
         name='new-works'),
-    url(r'rock-the-orchestra/$', ListView.as_view(model=Concert, template_name='concert_archive.html'),
+    url(r'rock-the-orchestra/$', ListView.as_view(queryset=Concert.objects.filter(series__title="Rock the Orchestra"), model=Concert, template_name='concert_archive.html'),
         name='rock-the-orchestra'),
-    url(r'music-and-its-industry/$', ListView.as_view(model=Concert, template_name='concert_archive.html'),
+    url(r'music-and-its-industry/$', ListView.as_view(queryset=Concert.objects.filter(series__title="Music and Its Industry"), model=Concert, template_name='concert_archive.html'),
         name='music-and-its-industry'),
 )
 
 """
 Creating views here
 
-What we might want to do here is setup querysets.
+We may want to do detail views here.
 """

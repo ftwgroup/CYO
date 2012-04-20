@@ -4,8 +4,6 @@ from feincms.content.application import models as app_models
 
 # TODO include tagging
 
-
-
 CONCERT_SERIES = (
     ('RTO', 'Rock the Orchestra'),
     ('NW', 'New Works'),
