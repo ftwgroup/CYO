@@ -4,8 +4,6 @@ from feincms.content.application import models as app_models
 
 # TODO include tagging
 
-
-
 CONCERT_SERIES = (
     ('RTO', 'Rock the Orchestra'),
     ('NW', 'New Works'),
@@ -17,6 +15,9 @@ class Series(models.Model):
     This model specifies the concert series. Allowing for future series to be created.
     """
     title = models.CharField(max_length=128)
+
+    class Meta:
+        verbose_name_plural = "series"
 
     def __unicode__(self):
         return self.title
@@ -52,6 +53,7 @@ class Concert(models.Model):
     venue = models.ForeignKey('Venue', null=True)
 
     # TODO (jordan) Decide what to do here
+    # (stephen) perhaps link to zenfolio hosted items?
     poster = models.CharField(max_length=128, blank=True, null=True)
     media_link = models.TextField(blank=True)
 
@@ -61,11 +63,9 @@ class Concert(models.Model):
     def __unicode__(self):
         return self.title
 
-#    @app_models.permalink
-#    def get_absolute_url(self):
-#        return ('entry_detail', 'concerts', (), {
-#            'slug': self.slug,
-#             })
+    @models.permalink
+    def get_absolute_url(self):
+        return ('concert-detail', [str(self.id)])
 
 
 class PerformedSong(models.Model):
