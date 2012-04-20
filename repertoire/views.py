@@ -2,7 +2,7 @@ from django.db.models.query_utils import Q
 from django.http import HttpResponse
 import datetime
 from django.views.generic.list import ListView
-from repertoire.models import Concert, PerformedSong, Song, Performer
+from repertoire.models import Concert, PerformedSong, Performer, Song
 
 # TODO make repertoire view dynamic for all filter options
 
