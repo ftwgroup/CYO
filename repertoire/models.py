@@ -50,6 +50,7 @@ class Concert(models.Model):
     venue = models.ForeignKey('Venue', null=True)
 
     # TODO (jordan) Decide what to do here
+    # (stephen) perhaps link to zenfolio hosted items?
     poster = models.CharField(max_length=128, blank=True, null=True)
     media_link = models.TextField(blank=True)
 
@@ -59,11 +60,9 @@ class Concert(models.Model):
     def __unicode__(self):
         return self.title
 
-#    @app_models.permalink
-#    def get_absolute_url(self):
-#        return ('entry_detail', 'concerts', (), {
-#            'slug': self.slug,
-#             })
+    @app_models.permalink
+    def get_absolute_url(self):
+        return ('concert-detail', [str(self.pk)])
 
 
 class PerformedSong(models.Model):
