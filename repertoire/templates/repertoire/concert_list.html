@@ -1,5 +1,4 @@
-{% extends 'repertoire/concert_base.html' %}
-        {% block main_content %}
+
             {% for concert in repertoire_list %}
                 <div><h2>{{ concert.title }}</h2>
                     <table>
@@ -12,4 +11,3 @@
                     </table>
                 </div>
             {% endfor %}
-        {% endblock %}

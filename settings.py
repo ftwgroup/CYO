@@ -115,6 +115,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.media',
     'django.core.context_processors.debug',
+    # Use if we need to place feincms_page objects on various pages
+    #'feincms.context_processors.add_page_if_missing',
 )
 
 ROOT_URLCONF = 'cyo.urls'

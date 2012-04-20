@@ -9,6 +9,7 @@ from django.template.loader import render_to_string
 from django import forms
 
 from django.utils.translation import ugettext_lazy as _
+from feincms.content.application.models import ApplicationContent
 from feincms.module import page
 from feincms.module.medialibrary.fields import MediaFileForeignKey
 from feincms.module.medialibrary.models import MediaFile
@@ -79,8 +80,9 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('downloadable', _('Downloadable Image')),
 ))
 
-
-# TODO (julian) depending on how future conversations with CYO goes, we may refactor
+Page.create_content_type(ApplicationContent, APPLICATIONS=(
+    ('repertoire.concerts', 'Repertoire Application'),
+    ))
 
 
 class ImageInField(FeinCMSInline):

@@ -1,0 +1,71 @@
+{% block page_title %}{{ concert.series.title }} - {{ concert.season }}{% endblock %}
+{% with concert=object_list.0 %}
+    {% block concert_abstract %}
+        <h1 class='parenth1'>{{ concert.series.title }}</h1>
+        <div class="row">
+            <div class="column grid_728 yellowbox">
+                <div class="concert_leftCol">
+                    <div class="artist_plate">
+                        <p>
+                            <span class="artist_name">Liza Grossman</span>,
+                            <span class="artist_title">Director</span>&nbsp;&gt;
+                        </p>
+                    </div>
+                    <div class="event_details">
+                        <ul>
+                        {# TODO (stephen) get concert.poster image here #}
+                        {% if concert.date_time %}
+                            <li class="concert-date">{{ concert.date_time|date }}</li>
+                            <li class="concert-time">{{ concert.date_time|time }}</li>
+                        {% else %}
+                            <li class="concert-date">{{ concert.rough_date }}</li>
+                        {% endif %}
+
+                            <li class="concert-loc">
+                                <p>{{ concert.venue.name }}</p>
+                                <p>{{ concert.venue.address1 }}</p>
+                                {% if concert.venue.address2 %}
+                                    <p>{{ concert.venue.address2 }}</p>
+                                {% endif %}
+                                <p>{{ concert.venue.city }}, {{ concert.venue.state }} {{ concert.venue.zip_code }}</p>
+                            </li>
+                        </ul>
+                        <button id="ticket-button" value="get-tickets">
+                            {# TODO (julian) we need to be able to link to a paypal screen #}
+                            <a href="http://www2.cyorchestra.org/tickets">Get Tickets</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="concert_rightCol">
+                    <h2>Upcoming</h2>
+                <span class="yellowBox" id="season-description">
+                                    {{ concert.description }}
+                </span>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endwith %}
+{% with concert_archive_item=object_list.all %}
+    <div class="row">
+        <div class="column grid_738 whitebox">
+            <table>
+                <thead>
+                <tr>
+                <h2>Browse the Archives</h2>
+                </tr>
+            </thead>
+                <tbody>
+                {% for c in concert_archive_item %}
+                <tr>
+                    <td>Season {{ c.season }}</td>
+                    <td><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></td>
+                    <td>{{ c.media_link }}</td>
+                    {# TODO possibly break this up into program, youtube, and photos #}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endwith %}

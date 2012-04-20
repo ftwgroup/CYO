@@ -8,26 +8,22 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         
-        # Adding model 'FeaturedBoxContent'
-        db.create_table('page_page_featuredboxcontent', (
+        # Adding model 'ApplicationContent'
+        db.create_table('page_page_applicationcontent', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('parent', self.gf('django.db.models.fields.related.ForeignKey')(related_name='featuredboxcontent_set', to=orm['page.Page'])),
+            ('parameters', self.gf('feincms.contrib.fields.JSONField')(null=True)),
+            ('parent', self.gf('django.db.models.fields.related.ForeignKey')(related_name='applicationcontent_set', to=orm['page.Page'])),
             ('region', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('ordering', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            ('series_title', self.gf('django.db.models.fields.CharField')(max_length=48)),
-            ('series_url', self.gf('django.db.models.fields.URLField')(max_length=48)),
-            ('date_descriptor', self.gf('django.db.models.fields.CharField')(max_length=48)),
-            ('headliner', self.gf('django.db.models.fields.CharField')(max_length=48, blank=True)),
-            ('short_descriptor', self.gf('django.db.models.fields.TextField')()),
-            ('poster_thumbnail', self.gf('feincms.module.medialibrary.fields.MediaFileForeignKey')(to=orm['medialibrary.MediaFile'], null=True, blank=True)),
+            ('urlconf_path', self.gf('django.db.models.fields.CharField')(max_length=100)),
         ))
-        db.send_create_signal('page', ['FeaturedBoxContent'])
+        db.send_create_signal('page', ['ApplicationContent'])
 
 
     def backwards(self, orm):
         
-        # Deleting model 'FeaturedBoxContent'
-        db.delete_table('page_page_featuredboxcontent')
+        # Deleting model 'ApplicationContent'
+        db.delete_table('page_page_applicationcontent')
 
 
     models = {
@@ -39,7 +35,7 @@ class Migration(SchemaMigration):
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
         },
         'medialibrary.mediafile': {
-            'Meta': {'ordering': "['-created']", 'object_name': 'MediaFile'},
+            'Meta': {'object_name': 'MediaFile'},
             'categories': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': "orm['medialibrary.Category']", 'null': 'True', 'blank': 'True'}),
             'copyright': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
@@ -47,6 +43,15 @@ class Migration(SchemaMigration):
             'file_size': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'type': ('django.db.models.fields.CharField', [], {'max_length': '12'})
+        },
+        'page.applicationcontent': {
+            'Meta': {'ordering': "['ordering']", 'object_name': 'ApplicationContent', 'db_table': "'page_page_applicationcontent'"},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'ordering': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+            'parameters': ('feincms.contrib.fields.JSONField', [], {'null': 'True'}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'applicationcontent_set'", 'to': "orm['page.Page']"}),
+            'region': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'urlconf_path': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
         'page.concertarchivedetails': {
             'Meta': {'ordering': "['ordering']", 'object_name': 'ConcertArchiveDetails', 'db_table': "'page_page_concertarchivedetails'"},
@@ -77,8 +82,25 @@ class Migration(SchemaMigration):
             'poster_thumbnail': ('feincms.module.medialibrary.fields.MediaFileForeignKey', [], {'to': "orm['medialibrary.MediaFile']", 'null': 'True', 'blank': 'True'}),
             'region': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'series_title': ('django.db.models.fields.CharField', [], {'max_length': '48'}),
-            'series_url': ('django.db.models.fields.URLField', [], {'max_length': '48'}),
-            'short_descriptor': ('django.db.models.fields.TextField', [], {})
+            'series_url': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
+            'short_descriptor': ('django.db.models.fields.TextField', [], {}),
+            'tickets_url': ('django.db.models.fields.CharField', [], {'max_length': '64', 'null': 'True', 'blank': 'True'})
+        },
+        'page.imagerotator': {
+            'Meta': {'ordering': "['ordering']", 'object_name': 'ImageRotator', 'db_table': "'page_page_imagerotator'"},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'img': ('feincms.module.medialibrary.fields.MediaFileForeignKey', [], {'to': "orm['medialibrary.MediaFile']", 'null': 'True', 'blank': 'True'}),
+            'ordering': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'imagerotator_set'", 'to': "orm['page.Page']"}),
+            'region': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        'page.imagewrapped': {
+            'Meta': {'ordering': "['ordering']", 'object_name': 'ImageWrapped', 'db_table': "'page_page_imagewrapped'"},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'img': ('feincms.module.medialibrary.fields.MediaFileForeignKey', [], {'to': "orm['medialibrary.MediaFile']", 'null': 'True', 'blank': 'True'}),
+            'ordering': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'imagewrapped_set'", 'to': "orm['page.Page']"}),
+            'region': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         },
         'page.mediafilecontent': {
             'Meta': {'ordering': "['ordering']", 'object_name': 'MediaFileContent', 'db_table': "'page_page_mediafilecontent'"},
@@ -87,16 +109,16 @@ class Migration(SchemaMigration):
             'ordering': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'parent': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'mediafilecontent_set'", 'to': "orm['page.Page']"}),
             'region': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'type': ('django.db.models.fields.CharField', [], {'default': "'ArticleImage'", 'max_length': '20'})
+            'type': ('django.db.models.fields.CharField', [], {'default': "'concertthumbnail'", 'max_length': '20'})
         },
         'page.page': {
             'Meta': {'ordering': "['tree_id', 'lft']", 'object_name': 'Page'},
             '_cached_url': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '300', 'db_index': 'True', 'blank': 'True'}),
             '_content_title': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             '_page_title': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'}),
-            'active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'active': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'in_navigation': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'in_navigation': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'meta_description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
@@ -104,12 +126,12 @@ class Migration(SchemaMigration):
             'navigation_extension': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'override_url': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
             'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['page.Page']"}),
-            'publication_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2012, 3, 19, 23, 35)'}),
+            'publication_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2012, 4, 17, 16, 10)'}),
             'publication_end_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'redirect_to': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
             'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150', 'db_index': 'True'}),
-            'template_key': ('django.db.models.fields.CharField', [], {'default': "'generic.html'", 'max_length': '255'}),
+            'template_key': ('django.db.models.fields.CharField', [], {'default': "'top_level.html'", 'max_length': '255'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
         },
@@ -120,6 +142,18 @@ class Migration(SchemaMigration):
             'parent': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'richtextcontent_set'", 'to': "orm['page.Page']"}),
             'region': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'text': ('django.db.models.fields.TextField', [], {'blank': 'True'})
+        },
+        'page.sponsorlogo': {
+            'Meta': {'ordering': "['ordering']", 'object_name': 'SponsorLogo', 'db_table': "'page_page_sponsorlogo'"},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'img': ('feincms.module.medialibrary.fields.MediaFileForeignKey', [], {'to': "orm['medialibrary.MediaFile']", 'null': 'True', 'blank': 'True'}),
+            'location': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
+            'ordering': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'sponsorlogo_set'", 'to': "orm['page.Page']"}),
+            'region': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'type': ('django.db.models.fields.CharField', [], {'max_length': "'32'"}),
+            'website_url': ('django.db.models.fields.URLField', [], {'max_length': '200'})
         }
     }
 

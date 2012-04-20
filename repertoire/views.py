@@ -1,6 +1,7 @@
 from django.db.models.query_utils import Q
 from django.http import HttpResponse
 import datetime
+from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from repertoire.models import Concert, PerformedSong, Performer, Song
 
@@ -44,3 +45,11 @@ class RepertoireView(ListView):
             return ['repertoire/concert_'+self.filter+'_list.html']
         else:
             return ['repertoire/concert_list.html']
+
+
+class ConcertDetailView(DetailView):
+    """
+    This class was created to display a concert details page
+    """
+    context_object_name = 'concert'
+    model = Concert
