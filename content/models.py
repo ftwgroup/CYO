@@ -85,9 +85,6 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ))
 
 
-# TODO (julian) depending on how future conversations with CYO goes, we may refactor
-
-
 class ImageInField(FeinCMSInline):
     raw_id_fields = ('poster_thumbnail', 'img')
 

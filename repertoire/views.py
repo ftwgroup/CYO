@@ -1,8 +1,9 @@
 from django.db.models.query_utils import Q
 from django.http import HttpResponse
 import datetime
+from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from repertoire.models import Concert, PerformedSong, Song, Performer
+from repertoire.models import Concert, PerformedSong, Performer, Song
 
 # TODO make repertoire view dynamic for all filter options
 
@@ -44,3 +45,12 @@ class RepertoireView(ListView):
             return ['repertoire/concert_'+self.filter+'_list.html']
         else:
             return ['repertoire/concert_list.html']
+
+
+class ConcertDetailView(DetailView):
+    """
+    This class was created to display a concert details page
+    """
+    model = Concert
+    context_object_name = 'concert'
+    template_name = 'concert_detail.html'
