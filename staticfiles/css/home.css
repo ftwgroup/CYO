@@ -4,6 +4,9 @@
 .concert_tabs{
     display: none;
 }
+.concert_tabs{
+    display: none;
+}
 #map1{
     position:absolute;
     width:240px;
