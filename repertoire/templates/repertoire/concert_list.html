@@ -1,13 +1,14 @@
-
-            {% for concert in repertoire_list %}
-                <div><h2>{{ concert.title }}</h2>
-                    <table>
-                        {% for ps in concert.performedsong_set.all %}
-                            <tr>
-                                <td>{{ ps.song.title }}</td>
-                                <td>{{ ps.song.composer }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
+{% extends 'repertoire/rep_base.html' %}
+{% block main_content %}
+    <table>
+        {% for concert in repertoire_list %}
+            <tr><td>{{ concert.title }}</td></tr>
+            {% for ps in concert.performedsong_set.all %}
+                <tr>
+                    <td>{{ ps.song.title }}</td>
+                    <td>{{ ps.song.composer }}</td>
+                </tr>
             {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}

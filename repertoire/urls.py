@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     url(r'soloist$', RepertoireView.as_view(), {'filter':'soloist'}, name='soloist-view'),
     url(r'song$', RepertoireView.as_view(), {'filter':'song'}, name='song-view'),
     url(r'premiere$', RepertoireView.as_view(), {'filter':'premiere'}, name='premiere-view'),
-    url(r'$', RepertoireView.as_view(), name="default-view"),
+    url(r'$', RepertoireView.as_view(), name='default-view'),
 )
