@@ -44,6 +44,7 @@ urlpatterns = patterns('',
         name='rock-the-orchestra'),
     url(r'music-and-its-industry/$', ListView.as_view(queryset=Concert.objects.filter(series__title="Music and Its Industry").order_by('-season'), model=Concert, template_name='concert_archive.html'),
         name='music-and-its-industry'),
+
     # concert series archive pages- the url will look like this http://cyorchestra.org/concert/new-works/id
     # this view shows upcoming on top and concert details per season on the bottom.
     url(r'(?P<pk>\d+)/$', ConcertDetailView.as_view(), name='concert-detail'),

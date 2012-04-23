@@ -1,13 +1,15 @@
-
-            {% for concert in repertoire_list %}
-                <div><h2>{{ concert.title }}</h2>
-                    <table>
-                        {% for ps in concert.performedsong_set.all %}
-                            <tr>
-                                <td>{{ ps.song.title }}</td>
-                                <td>{{ ps.song.composer }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
+{% extends 'repertoire/rep_base.html' %}
+{% block main_content %}
+    <h2>Grouped by Concert</h2>
+    <table>
+        {% for concert in repertoire_list %}
+            <tr><td><h3>{{ concert.title }}</h3></td></tr>
+            {% for ps in concert.performedsong_set.all %}
+                <tr>
+                    <td>{{ ps.song.title }}</td>
+                    <td>{{ ps.song.composer }} <small><em>({{ ps.song.composer.birth_year }}-{% if ps.song.composer.death_year %}{{ ps.song.composer.death_year }}{% else %}Current{% endif %})</em></small></td>
+                </tr>
             {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}

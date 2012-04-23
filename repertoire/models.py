@@ -53,7 +53,7 @@ class Concert(models.Model):
     venue = models.ForeignKey('Venue', null=True)
 
     # TODO (jordan) Decide what to do here
-    # (stephen) perhaps link to zenfolio hosted items?
+    # todo (stephen) perhaps link to zenfolio hosted items?
     poster = models.CharField(max_length=128, blank=True, null=True)
     media_link = models.TextField(blank=True)
 

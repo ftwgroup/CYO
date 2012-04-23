@@ -81,7 +81,8 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
 ))
 
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
-    ('repertoire.concerts', 'Repertoire Application'),
+    ('repertoire.concerts', 'Concert Data in Repertoire'),
+    ('repertoire.urls', 'Repertoire Application Data'),
     ))
 
 
