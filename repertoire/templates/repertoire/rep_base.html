@@ -31,12 +31,13 @@
 
 <div class="row">
     <div class="column grid_738" id="repertoire-container" style="background:#fff;">
-        <h1>CYO Repertoire</h1>
         {% block rep_nav %}
             <div><strong>View by:</strong>
-                <a href="{% url default-view %}">Concert</a>, <a href="{% url song-view %}">Song</a>, <a href="{% url composer-view %}">Composer</a>, <a href="{% url premiere-view %}">Premieres</a>
+                <a href="{% url by-default %}">Concert</a>, <a href="{% url by-song %}">Song</a>, <a href="{% url by-composer %}">Composer</a>, <a href="{% url by-premiere %}">Premieres</a>
             </div>
         {% endblock %}
+
+        <h1>CYO Repertoire</h1>
         {% block main_content %}
         {% endblock %}
     </div>

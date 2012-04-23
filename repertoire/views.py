@@ -33,7 +33,7 @@ class RepertoireView(ListView):
         elif self.filter == 'song':
             queryset = Song.objects.order_by('title')
         elif self.filter == 'premiere':
-            queryset = PerformedSong.objects.exclude(premiere='d').order_by('concert__date_time')
+            queryset = PerformedSong.objects.exclude(premiere='d').order_by('-concert__date_time')
         else:
             queryset = PerformedSong.objects.order_by(self.filter+'__last_name')
         return queryset
@@ -45,12 +45,3 @@ class RepertoireView(ListView):
             return ['repertoire/concert_'+self.filter+'_list.html']
         else:
             return ['repertoire/concert_list.html']
-
-
-class ConcertDetailView(DetailView):
-    """
-    This class was created to display a concert details page
-    """
-    model = Concert
-    context_object_name = 'concert'
-    template_name = 'concert_detail.html'

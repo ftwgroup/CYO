@@ -1,4 +1,4 @@
-{% block page_title %}{{ concert.series.title }} - {{ concert.season }}{% endblock %}
+{# Not working -{% block page_title %}{{ concert.series.title }} - {{ concert.season }}{% endblock %} #}
 {% with concert=object_list.0 %}
     {% block concert_abstract %}
         <h1 class='parenth1'>{{ concert.series.title }}</h1>
@@ -13,8 +13,8 @@
                     </div>
                     <div class="event_details">
                         <ul>
-                        {# TODO (stephen) get concert.poster image here #}
-                        {% if concert.date_time %}
+                        {% if concert.poster %}<a href="{{ concert.poster }}" rel="lb"> <img src="{{ concert.poster }}"></a>{% endif %}
+                            {% if concert.date_time %}
                             <li class="concert-date">{{ concert.date_time|date }}</li>
                             <li class="concert-time">{{ concert.date_time|time }}</li>
                         {% else %}
@@ -44,11 +44,12 @@
                 </div>
             </div>
         </div>
-    {% endblock %}
+    {% endblock %}{# concert_abstract #}
 {% endwith %}
 {% with concert_archive_item=object_list.all %}
     <div class="row">
         <div class="column grid_738 whitebox">
+            {% block page_content %}
             <table>
                 <thead>
                 <tr>
@@ -66,6 +67,7 @@
                 {% endfor %}
                 </tbody>
             </table>
+        {% endblock %} {# page_content #}
         </div>
     </div>
 {% endwith %}
