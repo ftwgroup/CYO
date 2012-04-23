@@ -4,12 +4,17 @@
     <h2>Premieres</h2>
         <div>
             <table>
-                {% for concertsong in repertoire_list %}
+                {% for ps in repertoire_list %}
                 <tr>
-                    <td>{{ concertsong.song.title }}</td>
-                    <td>{{ concertsong.concert.title }}</td>
-                    <td>{% if concertsong.world_premiere %}WP{% endif %}
-                    {% if concertsong.local_premiere %}LP{% endif %}</td>
+                    <td>{{ ps.song.title }}</td>
+                    <td>{{ ps.concert.title }}</td>
+                    <td>{% if ps.world_premiere %}WP{% endif %}
+                        {%  if ps.local_premiere %}USP{% endif %}
+                    {%  if ps.local_premiere %}LP{% endif %}</td>
+                    <td>{% if ps.concert.date_time %}{{ ps.concert.date_time|date:"M Y"}}
+                    {% else %}
+                        {{ ps.concert.rough_date }}
+                    {% endif %}</td>
                 </tr>
                 {% endfor %}
             </table>

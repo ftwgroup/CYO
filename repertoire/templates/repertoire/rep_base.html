@@ -17,8 +17,8 @@
 <div class="row">
     <a href="/"><div class="column grid_250" id="logo"></div></a>
     <div id="navigation">
-        <navigation>
-        </navigation>
+        <nav>
+        </nav>
     </div>
     <div id="searchbox">
         {% block search_box %}
@@ -31,25 +31,14 @@
 
 <div class="row">
     <div class="column grid_738" id="repertoire-container" style="background:#fff;">
-        <h1>CYO Repertoire</h1>
         {% block rep_nav %}
             <div><strong>View by:</strong>
-                <a href="{% url default-sort %}">Concert</a>, <a href="{% url song-sort %}">Song</a>, <a href="{% url composer-sort %}">Composer</a>, <a href="{% url premiere-sort %}">Premieres</a>
+                <a href="{% url by-default %}">Concert</a>, <a href="{% url by-song %}">Song</a>, <a href="{% url by-composer %}">Composer</a>, <a href="{% url by-premiere %}">Premieres</a>
             </div>
         {% endblock %}
+
+        <h1>CYO Repertoire</h1>
         {% block main_content %}
-            {% for concert in concert_list %}
-                <div><h2>{{ concert.title }}</h2>
-                    <table>
-                        {% for concertsong in concert.concertsong_set.all %}
-                            <tr>
-                                <td>{{ concertsong.song.title }}</td>
-                                <td>{{ concertsong.song.composer }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-            {% endfor %}
         {% endblock %}
     </div>
     <div class="column grid_242" id="sidebar">
