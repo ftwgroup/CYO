@@ -1,0 +1,61 @@
+{% with upcoming=upcoming_in_series %}
+    {% block concert_abstract %}
+        <h1 class='parenth1'>{{ upcoming.series.title }}</h1>
+        <div class="row">
+            <div class="column grid_728 yellowbox">
+                <div class="concert_leftCol">
+                    <div class="artist_plate">
+                        <p>
+                            <span class="artist_name">Liza Grossman</span>,
+                            <span class="artist_title">Director</span>&nbsp;&gt;
+                        </p>
+                    </div>
+                    <div class="event_details">
+                        <ul>
+                        {% if upcoming.poster %}<a href="{{ upcoming.poster }}" rel="lb"> <img src="{{ upcoming.poster }}"></a>{% endif %}
+                            {% if upcoming.date_time %}
+                            <li class="concert-date">{{ upcoming.date_time|date }}</li>
+                            <li class="concert-time">{{ upcoming.date_time|time }}</li>
+                        {% else %}
+                            <li class="concert-date">{{ upcoming.rough_date }}</li>
+                        {% endif %}
+
+                            <li class="concert-loc">
+                                <p>{{ upcoming.venue.name }}</p>
+                                <p>{{ upcoming.venue.address1 }}</p>
+                                {% if upcoming.venue.address2 %}
+                                    <p>{{ upcoming.venue.address2 }}</p>
+                                {% endif %}
+                                <p>{{ upcoming.venue.city }}, {{ upcoming.venue.state }} {{ upcoming.venue.zip_code }}</p>
+                            </li>
+                        </ul>
+                        <button id="ticket-button" value="get-tickets">
+                            {# TODO (julian) we need to be able to link to a paypal screen #}
+                            <a href="http://www2.cyorchestra.org/tickets">Get Tickets</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="concert_rightCol">
+                    <h2>Upcoming</h2>
+                <span class="yellowBox" id="season-description">
+                                    {{ upcoming.description }}
+                </span>
+                </div>
+            </div>
+        </div>
+    {% endblock %}{# concert_abstract #}
+{% endwith %}
+{% block page_content %}
+    <h1>{{ concert.title }}{% if concert.series and concert.season %} </h1>
+        <h2> {{ concert.series }} - Season {{ concert.season }}{% endif %}</h2>
+        {% if concert.poster_image %}{{ concert.poster_image }}{% endif %}{{ concert.description }}
+    <h3>Song List</h3>
+    <table>
+            {% for ps in concert.performedsong_set.all %}
+                <tr>
+                    <td>{{ ps.song.title }}</td>
+                    <td>{{ ps.song.composer }} <small><em>({{ ps.song.composer.birth_year }}-{% if ps.song.composer.death_year %}{{ ps.song.composer.death_year }}{% else %}Current{% endif %})</em></small></td>
+                </tr>
+            {% endfor %}
+    </table>
+{% endblock %}
