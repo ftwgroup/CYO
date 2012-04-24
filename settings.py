@@ -147,6 +147,8 @@ INSTALLED_APPS = (
     'auditions',
     'repertoire',
 )
+
+
 FEINCMS_TREE_EDITOR_INCLUDE_ANCESTORS = True
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
     'TINYMCE_JS_URL': STATIC_URL+'js/tiny_mce/tiny_mce.js',
