@@ -1,7 +1,6 @@
 from django.contrib.localflavor import us
 from django.db import models
 from django.template.defaultfilters import slugify
-from feincms.content.application import models as app_models
 
 # TODO include tagging
 
@@ -28,7 +27,8 @@ class Series(models.Model):
 
     def __unicode__(self):
         return self.title
-    
+
+
 class Venue(models.Model):
     """
     This table describes the venue for a concert.
@@ -42,6 +42,7 @@ class Venue(models.Model):
 
     def __unicode__(self):
             return self.name
+
 
 class Concert(models.Model):
     """
@@ -59,10 +60,10 @@ class Concert(models.Model):
     featured_artist = models.ManyToManyField('Performer') #TODO through PerformedSong?
     venue = models.ForeignKey('Venue', null=True)
 
-    # TODO (jordan) Decide what to do here
-    # todo (stephen) perhaps link to zenfolio hosted items?
-    poster = models.CharField(max_length=128, blank=True, null=True)
-    media_link = models.TextField(blank=True)
+    poster_image = models.ImageField(upload_to='concert_poster', blank=True, null=True)
+    photos_link = models.URLField( blank=True, null=True)
+    video_link = models.URLField( blank=True, null=True)
+    program_file = models.FileField(upload_to='concert_program',  blank=True, null=True)
 
     class Meta:
         ordering = ['date_time']
@@ -72,7 +73,7 @@ class Concert(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('concert-detail', [str(self.id)])
+        return 'concert-detail', [str(self.id)]
 
 
 class PerformedSong(models.Model):
@@ -111,6 +112,7 @@ class Song(models.Model):
     def __unicode__(self):
         return self.title
 
+
 class Person(models.Model):
     """
     This model stores artist information
@@ -126,6 +128,7 @@ class Person(models.Model):
 
     def __unicode__(self):
         return '%s %s' % (self.first_name, self.last_name)
+
 
 class Performer(Person):
     pass
