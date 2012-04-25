@@ -4,7 +4,7 @@
 {% block page_content %}
     <h1>{{ concert.title }}{% if concert.series and concert.season %} </h1>
         <h2> {{ concert.series }} - Season {{ concert.season }}{% endif %}</h2>
-        {% if concert.poster_image %}{{ concert.poster_image }}{% endif %}{{ concert.description }}
+        {% if concert.poster_image %}{{ concert.poster_image }}{% endif %}{{ concert.description|safe }}
     <h3>Song List</h3>
     <table>
             {% for ps in concert.performedsong_set.all %}
