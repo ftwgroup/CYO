@@ -1,4 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
+from django.http import Http404
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from feincms.views.generic.list_detail import object_list
@@ -6,13 +8,12 @@ from repertoire.models import Concert
 from django.shortcuts import get_object_or_404
 
 """
-This file handles extending the repertoire to handle the connection from Concert objects from
-the repertoire with the FeinCMS pages app.
+This file handles extending the repertoire to handle the connection from Repertoire models into FeinCMS pages.
 """
 
 
 """
-Creating views here
+Creating concert views from repertoire models here
 
 """
 
@@ -25,6 +26,55 @@ class ConcertDetailView(DetailView):
     template_name = 'concert_detail.html'
 
 
+class ConcertInSeriesView(DetailView):
+    """
+    View details for a particular season of a particular series.
+    """
+    context_object_name = 'concert'
+    template_name = 'concert_in_series.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            # Store series-slug and season for the get_object() call
+            self.slug = kwargs.get('slug', None)
+            self.season = int(kwargs.get('season', 0))
+        except:
+            raise Http404(u"Invalid ConcertInSeriesView arguments: kwargs = %s" % repr(kwargs))
+        return super(ConcertInSeriesView, self).dispatch(request, *args, **kwargs)
+
+    def get_object(self):
+        """
+        Return the concert for the specified season of the specified series.
+        """
+        try:
+            obj =  Concert.objects.get(series__slug=self.slug, season=self.season)
+        except ObjectDoesNotExist:
+            raise Http404(u"No concerts found matching slug='%s', season=%d" % (self.slug,self.season))
+        except MultipleObjectsReturned:
+            raise Http404(u"Multiple concerts matching slug='%s', season=%d" % (self.slug,self.season))
+        return obj
+
+    def get_context_data(self, **kwargs):
+        context = super(ConcertInSeriesView, self).get_context_data(**kwargs)
+        # Attach the next upcoming concert to the default context object
+        context['upcoming'] = Concert.objects.filter(series__slug=self.slug).latest('date_time')
+        return context
+
+
+class ConcertArchiveView(ListView):
+    """
+    View all concerts for a particular series, ordered by date_time field.
+    """
+    template_name = 'concert_archive.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.slug = kwargs.get('slug', '')
+        return super(ConcertArchiveView, self).dispatch(request, *args, **kwargs)
+
+    def get_queryset(self):
+        return Concert.objects.filter(series__slug=self.slug).order_by('-season')
+
+
 """
 Setting URL patterns here.
 
@@ -33,18 +83,16 @@ the series name.
 
 """
 urlpatterns = patterns('',
-    # concert series - the url will look like this http://cyorchestra.org/concert/new-works
-    # by default, these views show archive view using.
-    # views are set to show objects filtered by series title and then ordered by date_time
-    # may have to refactor to get url and then pass into filter to account for series other than the main three
+    # Concert series, identified by slug.  The url will look like
+    #   http://cyorchestra.org/concert/series/new-works
+    url(r'series/(?P<slug>[-\w]+)/$', ConcertArchiveView.as_view(), name='concert-archive'),
 
-    url(r'new-works/$', ListView.as_view(queryset=Concert.objects.filter(series__title="New Works").order_by('-season'), template_name='concert_archive.html'),
-        name='new-works'),
-    url(r'rock-the-orchestra/$', ListView.as_view(queryset=Concert.objects.filter(series__title="Rock the Orchestra").order_by('-season'), model=Concert, template_name='concert_archive.html'),
-        name='rock-the-orchestra'),
-    url(r'music-and-its-industry/$', ListView.as_view(queryset=Concert.objects.filter(series__title="Music and Its Industry").order_by('-season'), model=Concert, template_name='concert_archive.html'),
-        name='music-and-its-industry'),
-    # concert series archive pages- the url will look like this http://cyorchestra.org/concert/new-works/id
-    # this view shows upcoming on top and concert details per season on the bottom.
+    # Concert series archive pages.  The url will look like
+    #   http://cyorchestra.org/concert/series/new-works/season
+    # This view shows the upcoming concert on top and concert details per season below.
+    url(r'series/(?P<slug>[-\w]+)/(?P<season>\d+)/$', ConcertInSeriesView.as_view(), name='concert-in-series'),
+
+    # Generic concert details page.
+    #   http://cyorchestra.org/concert/id
     url(r'(?P<pk>\d+)/$', ConcertDetailView.as_view(), name='concert-detail'),
 )

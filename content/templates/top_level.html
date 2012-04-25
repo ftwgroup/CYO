@@ -1,23 +1,33 @@
 {% extends 'generic.html' %}
 {% load feincms_tags %}
+{% block extra_head %}
+<style type="text/css">
+    .wide-text{margin-left:20px;}
+    .grid_200{width:230px;}
+    .grid_400{width:400px;}
+    .left{width:230px;}
+</style>
+{% endblock %}
 
 {% block style %}background: white;{% endblock %}
-{% block breadcrumbs %}{%  endblock %}
+{% block breadcrumbs %}{% endblock %}
 {% block main_content %}
-    <!--TODO make links -->
     <h1 class='parenth1'>{{ feincms_page.title }}</h1>
     <div class="row">
-        <div class="column grid_728 yellowbox highlight">
-                <h2>{{ feincms_page.content_subtitle }}</h2>
-                <span>
-                {% feincms_render_region feincms_page "content" request %}
-                </span>
+        <div class="column grid_728">
+            <h2>{{ feincms_page.content_subtitle }}</h2>
+            {% feincms_render_region feincms_page "spread_image" request %}
+            <div class="wide-text">
+            {% feincms_render_region feincms_page "spread_text" request %}
+            </div>
         </div>
     </div>
-
     <div class="row">
-        <div class="column grid_738 whitebox">
-            {% feincms_render_region feincms_page "extra_content" request %}
+        <div class="column grid_200 whitebox left">
+            {% feincms_render_region feincms_page "left_side_image" request %}
+        </div>
+        <div class="column grid_400 whitebox right">
+            {% feincms_render_region feincms_page "right_column_text" request %}
         </div>
     </div>
 {% endblock %}

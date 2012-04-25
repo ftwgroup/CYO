@@ -27,12 +27,23 @@ Page.register_extensions('datepublisher', 'navigation', 'seo', 'titles')
 
 Page.register_templates(
         {
+        'title': 'Homepage',
+        'path': 'home.html',
+        'regions': (
+            ('rotator_images', 'Rotator Images'),
+            ('featured_area', 'Featured Area'),
+            ('sidebar', '(Home) Side Bar Sections')
+            ),
+        },
+        {
         'title': 'Top-Level Page',
         'path': 'top_level.html',
         'regions': (
-            ('content', 'Main Content (Yellow)'),
-            ('extra_content', 'Extra Content (White)'),
-            ('sidebar', 'Side Bar', 'inherited')
+            ('spread_image', 'Spread Image'),
+            ("spread_text", 'Wide Text', 'inherited'),
+            ('left_side_image', 'Left-side Thumbnails', 'inherited'),
+            ('right_column_text', 'Content Body', 'inherited'),
+            ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
         {
@@ -41,11 +52,11 @@ Page.register_templates(
         'regions': (
             ('content', 'Content'),
             ('images', 'Bio Images'),
-            ('sidebar', '(Bio) Sidebar Sections', 'inherited'),
+            ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
         {
-        'title': 'Concert Page',
+        'title': 'Concert Application Page',
         'path': 'concert_info.html',
         'regions': (
             ('concert_details', 'Concert Details', 'inherited'),
@@ -55,13 +66,13 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Homepage',
-        'path': 'home.html',
+        'title': 'Repertoire Application Page',
+        'path': 'concert_info.html',
         'regions': (
-            ('rotator_images', 'Rotator Images'),
-            ('featured_area', 'Featured Area'),
-            ('sidebar', '(Home) Side Bar Sections')
-           ),
+            ('repertoire_section', 'Repertoire'),
+            ('page_summary', 'Repertoire Summary'),
+            ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
+            ),
         },
         {
         'title': 'Media Page',
@@ -76,6 +87,8 @@ Page.register_templates(
 Page.create_content_type(RichTextContent)
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
+    ('spread', _('Spread Image')),
+    ('leftside', _('Leftside Image')),
     ('concertthumbnail', _('Concert Poster Image')),
     ('downloadable', _('Downloadable Image')),
 ))
