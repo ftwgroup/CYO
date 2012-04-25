@@ -1,5 +1,6 @@
 from django.contrib.localflavor import us
 from django.db import models
+from django.template.defaultfilters import slugify
 from feincms.content.application import models as app_models
 
 # TODO include tagging
@@ -15,9 +16,15 @@ class Series(models.Model):
     This model specifies the concert series. Allowing for future series to be created.
     """
     title = models.CharField(max_length=128)
+    slug = models.SlugField(max_length=128, blank=True) # should be unique, but causes problems with migration
 
     class Meta:
         verbose_name_plural = "series"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Series, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.title

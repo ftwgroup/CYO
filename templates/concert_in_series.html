@@ -1,4 +1,4 @@
-{% with upcoming=upcoming_in_series %}
+{% if upcoming %}
     {% block concert_abstract %}
         <h1 class='parenth1'>{{ upcoming.series.title }}</h1>
         <div class="row">
@@ -37,14 +37,16 @@
                 </div>
                 <div class="concert_rightCol">
                     <h2>Upcoming</h2>
+                    <!-- (jordan): adding concert title for now, needs to be styled -->
+                    <h3>{{ upcoming.title }}</h3>
                 <span class="yellowBox" id="season-description">
                                     {{ upcoming.description }}
                 </span>
                 </div>
             </div>
         </div>
-    {% endblock %}{# concert_abstract #}
-{% endwith %}
+    {% endblock concert_abstract %}
+{% endif %}
 {% block page_content %}
     <h1>{{ concert.title }}{% if concert.series and concert.season %} </h1>
         <h2> {{ concert.series }} - Season {{ concert.season }}{% endif %}</h2>
