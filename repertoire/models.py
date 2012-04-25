@@ -1,7 +1,6 @@
 from django.contrib.localflavor import us
 from django.db import models
 from django.template.defaultfilters import slugify
-from feincms.content.application import models as app_models
 
 # TODO include tagging
 
