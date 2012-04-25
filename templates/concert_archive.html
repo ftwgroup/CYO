@@ -41,7 +41,7 @@
                     <!-- (jordan): adding concert title for now, needs to be styled -->
                     <h3>{{ concert.title }}</h3>
                 <span class="yellowBox" id="season-description">
-                                    {{ concert.description }}
+                                    {{ concert.description|safe }}
                 </span>
                 </div>
             </div>
