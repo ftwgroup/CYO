@@ -88,6 +88,7 @@ Page.create_content_type(RichTextContent)
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('spread', _('Spread Image')),
+    ('leftside', _('Leftside Image')),
     ('concertthumbnail', _('Concert Poster Image')),
     ('downloadable', _('Downloadable Image')),
 ))
