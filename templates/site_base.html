@@ -12,7 +12,9 @@
     <script src="{{ STATIC_URL }}js/fxns.js"></script>
     {% block extra_head %}
     {% endblock %}
-    {{ feincms_page.content.media }}{% load feincms_page_tags %}
+    {{ feincms_page.content.media }}
+    <link type="text/css" href="{{ STATIC_URL }}js/jplayer/zenphotodark/jplayer.zenphoto.css" rel="stylesheet" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jplayer/jquery.jplayer.min.js"></script>{# for jplayer #}
 </head>
 <body>
 <div class="row">
@@ -55,6 +57,9 @@
     <div class="column grid_242" id="sidebar">
         {%  block sidebar-common %}
             <span id="season">season</span><span id="season-number"><a href="/concerts">17</a></span>
+        {% endblock %}
+        {% block mp3player %}
+            {% include "includes/music_player.html" %}
         {% endblock %}
             <div class="row">
              <div class="column grid_242" id="sidebar-details">
