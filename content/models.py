@@ -37,8 +37,8 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'with Image Column',
-        'path': 'top_level.html',
+        'title': 'Image Column and Text',
+        'path': 'generic.html',
         'regions': (
             ('content_header', 'Content Header'),
             ('left_side_image', 'Left-side Thumbnails'),
@@ -57,7 +57,7 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Single Column',
+        'title': 'Single Column (Bio Section)',
         'path': 'single_column.html',
         'regions': (
             ('content_header', 'Content Header'),
@@ -79,6 +79,7 @@ Page.create_content_type(RichTextContent)
 
 Page.create_content_type(SectionContent, TYPE_CHOICES=(
     ('bio', _('Bio Section')),
+    ('yellow', _('Yellow Header Section')),
 ))
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
@@ -184,32 +185,3 @@ class SponsorLogo(models.Model):
         return render_to_string('content/mediafile/sponsor_logo.html', {'sponsor_logo': self})
 
 Page.create_content_type(SponsorLogo, regions=('content',))
-
-class ConcertDetails(models.Model):
-    location = models.TextField()
-    concert_datetime = models.DateTimeField()
-    concert_ticket_url = models.URLField()
-    #concert_abstract_text = models.TextField()
-    featured_artist_name = models.CharField(max_length=32)
-    featured_artist_role = models.CharField(max_length=32)
-
-    #def concert_dow(self):
-    #    obj = {1:'Monday', 2:'Tuesday', 3:'Wednesday', 4:'Thursday', 5:'Friday', 6:'Sunday'}
-    #    return (obj[dow] for dow in (self).concert_datetime.weekday)
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/concert_detail.html', {'concertdetails': self})
-
-
-class ConcertArchiveDetails(models.Model):
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/concert_archive_detail.html', {'archived_concert': self})
-
-Page.create_content_type(ConcertDetails, regions=('concert_details',))
-Page.create_content_type(ConcertArchiveDetails)

@@ -42,7 +42,7 @@ span#footer-extend{background:#111;float:right;margin-right:60px}
 #footer-extend a{color:#FFF}
 #content_main h1{margin:0 0 0 20px}
 .yellowbox{font-weight:100;color:#333;background:#FFDB01;min-height:200px}
-.yellowbox div h2{font-family:Univers, 'Open Sans Condensed', sans-serif;font-weight:400;color:#fff;font-size:2em;margin:.5em 0 0}
+.yellowbox div h2{font-family:'Univers', 'Open Sans Condensed', sans-serif;font-weight:400;color:#fff;font-size:2em;margin:.5em 0 0}
 .yellowbox div h3{font-size:1em;color:#000;margin:.5em 0}
 .yellowbox img{width:220px;border:none}
 .yellowbox div ul{text-align:left;list-style:none;margin:.2em auto;padding:.1em 5px .5em}

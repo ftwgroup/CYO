@@ -1,0 +1,12 @@
+{% load feincms_thumbnail %}
+<div class="row">
+    <div class="column grid_728 yellowbox">
+        <div class="grid_300 left">
+            <img src="{{ content.mediafile.file|thumbnail:"320x420"}}" alt="">
+        </div>
+        <div class="grid_300">
+            <h2>{{ content.title }}</h2>
+            {{ content.richtext|safe }}
+        </div>
+    </div>
+</div>
