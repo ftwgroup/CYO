@@ -43,5 +43,5 @@ class ConcertForm(forms.ModelForm):
         model = Concert
         widgets = {
             'description': TinyMCEEditor(),
-            'short_description': TinyMCEEditor(),
+            'abstract': TinyMCEEditor(),
         }
