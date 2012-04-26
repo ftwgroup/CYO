@@ -13,6 +13,7 @@
 #main-content h3{font-size:1em;color:#3CF}
 #main-content>p,.content_body{color:#666;line-height:1.8em;padding:0 20px 15px}
 .right{display:inline}
-.single{margin:0 20px 20px 20px}
+div.single{margin:0 20px 20px 20px;display:block}
+div.single p{padding:.5em 0 .7em;display:block;font-size:.9em}
 .sm{font-size:.9em;color:#333}
 .sm h2,.sm h3{color:#000;margin:10px 0 5px}
