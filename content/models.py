@@ -36,22 +36,13 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Top-Level Page',
+        'title': 'Generic Page',
         'path': 'top_level.html',
+        #TODO refactor later
         'regions': (
-            ('spread_image', 'Spread Image'),
-            ("spread_text", 'Wide Text', 'inherited'),
-            ('left_side_image', 'Left-side Thumbnails', 'inherited'),
-            ('right_column_text', 'Content Body', 'inherited'),
-            ('sidebar', 'Sidebar Sections', 'inherited'),
-            ),
-        },
-        {
-        'title': 'Bio Page',
-        'path': 'bio_page.html',
-        'regions': (
-            ('content', 'Content'),
-            ('images', 'Bio Images'),
+            ('content_header', 'Content Header'),
+            ('left_side_image', 'Left-side Thumbnails'),
+            ('right_column_text', 'Content Body'),
             ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
@@ -61,15 +52,6 @@ Page.register_templates(
         'regions': (
             ('content', 'Content Section'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
-            ),
-        },
-
-        {
-        'title': 'Media Page',
-        'path': 'media.html',
-        'regions': (
-            ('content', 'Content Area'),
-            ('sidebar', '(Home) Side Bar Sections')
             ),
         },
 )

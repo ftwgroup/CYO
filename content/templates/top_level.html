@@ -4,8 +4,9 @@
 <style type="text/css">
     .wide-text{margin-left:20px;}
     .grid_200{width:230px;}
-    .grid_400{width:400px;}
-    .left{width:230px;}
+    .grid_400{width:400px;float:right;}
+    .left{max-width:230px;}
+    .clear{float:none;}
 </style>
 {% endblock %}
 
@@ -23,7 +24,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="column grid_200 whitebox left">
+        <div class="column whitebox left">
             {% feincms_render_region feincms_page "left_side_image" request %}
         </div>
         <div class="column grid_400 whitebox right">
