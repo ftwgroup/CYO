@@ -1,10 +1,10 @@
 {% load feincms_thumbnail %}
-    <div class="grid_728 yellow spread-image">
-        <div class="grid_300 left">
-            <img src="{{ content.mediafile.file|thumbnail:"320x420"}}" alt="">
-        </div>
-        <div class="grid_300">
-            <h2>{{ content.title }}</h2>
-            {{ content.richtext|safe }}
-        </div>
+<div class="grid_728 yellow spread-image">
+    <div class="grid_300 left">
+        <img src="{{ content.mediafile.file|thumbnail:"320x420"}}" alt="">
     </div>
+    <div class="grid_300 right">
+        <h2>{{ content.title }}</h2>
+        {{ content.richtext|safe }}
+    </div>
+</div>

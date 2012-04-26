@@ -48,7 +48,7 @@ span#footer-extend{background:#111;float:right;margin-right:60px}
 .yellowbox div ul{text-align:left;list-style:none;margin:.2em auto;padding:.1em 5px .5em}
 .highlight p{line-height:1.2em;color:#444;font-size:.95em;display:block;margin:.8em 0}
 div.highlight{width:700px;min-height:0;margin:0 0 0 10px;padding:0 10px 0 20px}
-#main-content > h1{margin-top:48px}
+.main-content > h1{margin-top:48px}
 .whitebox{width:698px;color:#4a4a4a;padding:0 20px 40px}
 .whitebox a{background:#eee;font-weight:700;color:#02b}
 .whitebox p{font-size:.9em;margin:1em 0 0}
