@@ -49,7 +49,7 @@ class Concert(models.Model):
     This model stores concert information
     """
     title = models.CharField(max_length=60)
-    short_description = models.TextField(verbose_name="Three line descriptor")
+    short_description = models.TextField(verbose_name="Three line descriptor", null=True, blank=True)
     abstract = models.TextField()
     description = models.TextField()
     series = models.ForeignKey('Series')
