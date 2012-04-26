@@ -1,17 +1,10 @@
-{% extends 'generic.html' %}
+{% extends 'site_base.html' %}
 {% load feincms_tags %}
 {% block extra_head %}
-<style type="text/css">
-    .wide-text{margin-left:20px;}
-    .grid_200{width:230px;}
-    .grid_400{width:445px;margin: 0;padding: 0}
-    #main-content>p,
-    .content_body{color:#666;line-height:1.8em;padding:0 20px 15px 20px;}
-    .spread-image{margin:0 0 10px 0}
-    .left{margin:0 20px 0 0;float:left}
-    .leftimage{max-width:230px}
-    .clear{float:none;}
-</style>
+    {{ feincms_page.content.media }}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/generic.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/generic.js"></script>
 {% endblock %}
 
 {% block style %}background: white;{% endblock %}

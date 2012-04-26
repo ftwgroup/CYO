@@ -1,6 +1,7 @@
+{% load feincms_thumbnail %}
 <div>
     <h2><a href="{{ featured_box.series_url }}">{{ featured_box.series_title }}</a></h2>
-    <div class="fimage"><a href="{{ featured_box.series_url }}"><img src="{{ featured_box.poster_thumbnail.file.url }}" alt=""></a></div>
+    <div class="fimage"><a href="{{ featured_box.series_url }}"><img src="{{ featured_box.poster.file|thumbnail:"230x430" }}" alt=""></a></div>
     <ul>
         <li>{{ featured_box.date_descriptor }}</li>
         <li>{{ featured_box.headline }}{{ featured_box.short_descriptor }}</li>

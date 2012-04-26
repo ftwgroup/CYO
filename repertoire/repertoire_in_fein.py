@@ -6,6 +6,16 @@ from repertoire.models import Concert
 from django.shortcuts import get_object_or_404
 
 """
+
+
+TODO (stephen) Is this file still needed?
+
+
+
+
+"""
+
+"""
 This file handles extending the repertoire to handle the connection from Concert objects from
 the repertoire with the FeinCMS pages app.
 """

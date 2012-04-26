@@ -10,6 +10,7 @@ from django import forms
 
 from django.utils.translation import ugettext_lazy as _
 from feincms.content.application.models import ApplicationContent
+from feincms.content.section.models import SectionContent
 from feincms.module import page
 from feincms.module.medialibrary.fields import MediaFileForeignKey
 from feincms.module.medialibrary.models import MediaFile
@@ -76,6 +77,10 @@ Page.register_templates(
 
 Page.create_content_type(RichTextContent)
 
+Page.create_content_type(SectionContent, TYPE_CHOICES=(
+    ('bio', _('Bio Section')),
+))
+
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('spread', _('Spread Image')),
     ('leftside', _('Leftside Image')),
@@ -91,26 +96,25 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
 
 
 class ImageInField(FeinCMSInline):
-    raw_id_fields = ('poster_thumbnail', 'img')
+    raw_id_fields = ('poster_thumbnail', 'img', 'section_image')
 
-
-class ImageWithText(models.Model):
-    """
-    One block of the three.
-    """
-    feincms_item_editor_inline = ImageInField
-    title = models.CharField(max_length=64)
-    subtitle = models.CharField(max_length=64, null=True, blank=True)
-    text_body = models.TextField()
-    feincms_item_editor_inline = ImageInField
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/image_with_text.html', {'featured_box': self})
-
-Page.create_content_type(ImageWithText, region=('single_column_content',))
+#
+#class ImageWithText(models.Model):
+#    """
+#    One block of the three.
+#    """
+#    feincms_item_editor_inline = ImageInField
+#    section_image = MediaFileForeignKey(MediaFile, blank=True, null=True)
+#    text_body = models.TextField()
+#
+#
+#    class Meta:
+#        abstract = True
+#
+#    def render(self, **kwargs):
+#        return render_to_string('content/image_with_text.html', {'featured_box': self})
+#
+#Page.create_content_type(ImageWithText, region=('single_column_content',))
 
 
 class FeaturedBoxContent(models.Model):

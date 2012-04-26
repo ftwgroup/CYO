@@ -1,0 +1,10 @@
+{% extends 'top_level.html' %}
+{% load feincms_tags %}
+
+{% block style %}background: white;{% endblock %}
+{% block main_content %}
+    <h1 class='parenth1'>{{ feincms_page.title }}</h1>
+    <h2>{{ feincms_page.content_subtitle }}</h2>
+    {% feincms_render_region feincms_page "content_header" request %}
+    {% feincms_render_region feincms_page "single_column_text" request %}
+{% endblock %}

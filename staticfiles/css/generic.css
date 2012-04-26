@@ -1,1 +1,18 @@
-@import url('../js/fancybox/jquery.fancybox.css');
+@import url(../js/fancybox/jquery.fancybox.css);
+.grid_200{width:230px}
+.grid_400{width:445px;margin:0;padding:0}
+.spread-image{margin:0 0 10px}
+.left{float:left;margin:0 20px 0 0}
+.leftimage{max-width:230px}
+.clear{float:none}
+.grid_300{width:336px;margin:0;padding:0}
+#main-content{padding-bottom:20px}
+#main-content h2,
+#main-content h3 {font-family:arial, sans-serif;}
+#main-content h2{font-size:1.5em}
+#main-content h3{font-size:1em;color:#3CF}
+#main-content>p,.content_body{color:#666;line-height:1.8em;padding:0 20px 15px}
+.right{display:inline}
+.single{margin:0 20px 20px 20px}
+.sm{font-size:.9em;color:#333}
+.sm h2,.sm h3{color:#000;margin:10px 0 5px}

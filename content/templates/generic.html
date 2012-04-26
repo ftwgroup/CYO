@@ -8,13 +8,3 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/fancybox/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/generic.js"></script>
 {% endblock %}
-
-{% block style %}background: white;{% endblock %}
-{% block main_content %}
-    <div class="row">
-        <div class="column grid_738 whitebox">
-            <h1>{{ feincms_page.title }}</h1>
-            {% feincms_render_region feincms_page "content" request %}
-        </div>
-    </div>
-{% endblock %}
