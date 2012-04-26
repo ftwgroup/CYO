@@ -33,7 +33,7 @@ class Venue(models.Model):
     """
     This table describes the venue for a concert.
     """
-    title = models.CharField(max_length=128) #TODO (stephen) once migrations are redone, rename this colmn to title
+    name = models.CharField(max_length=128) #TODO (stephen) once migrations are redone, rename this colmn to title
     address1 = models.CharField(max_length=64)
     address2 = models.CharField(max_length=64, blank=True, null=True)
     city = models.CharField(max_length=60)
