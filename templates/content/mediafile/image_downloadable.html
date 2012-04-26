@@ -1,2 +1,6 @@
+{% load feincms_thumbnail %}
+<div style="display:block">
 <a rel="images_set" title="{{ content.image.name }}" href="{{ content.mediafile.file.url }}" class="image_downloadable">
-  <img src="{{ content.mediafile.file.url }}"  width="100px"></a>
+  <img src="{{ content.mediafile.file|thumbnail:"120x120" }}"></a>
+  <a href="{{ content.mediafile.file.url }}">Download</a>
+</div>

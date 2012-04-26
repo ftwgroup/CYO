@@ -1,1 +1,2 @@
-<div class="spread-image"><img src="{{ content.mediafile.file.url }}"></div>
+{% load feincms_thumbnail %}
+<div class="spread-image"><img src="{{ content.mediafile.file|thumbnail:"728x320" }}"></div>
