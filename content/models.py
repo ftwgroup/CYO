@@ -56,24 +56,14 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Concert Application Page',
+        'title': 'Concert/Repertoire Application Page',
         'path': 'concert_info.html',
         'regions': (
-            ('concert_details', 'Concert Details', 'inherited'),
-            ('concert_abstract', 'Concert Abstract'),
-            ('content', 'Content'),
+            ('content', 'Content Section'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
-        {
-        'title': 'Repertoire Application Page',
-        'path': 'concert_info.html',
-        'regions': (
-            ('repertoire_section', 'Repertoire'),
-            ('page_summary', 'Repertoire Summary'),
-            ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
-            ),
-        },
+
         {
         'title': 'Media Page',
         'path': 'media.html',

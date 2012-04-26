@@ -12,8 +12,7 @@
 {% block style %}background: white;{% endblock %}
 {% block breadcrumbs %}{% endblock %}
 {% block main_content %}
-    {% feincms_render_region feincms_page "concert_abstract" request %}
-
+    {% feincms_render_region feincms_page "content" request %}
 {% endblock %}
 {% block sidebar %}
     {% feincms_render_region feincms_page "concert_sidebar" request %}
