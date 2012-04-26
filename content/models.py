@@ -14,7 +14,7 @@ from feincms.module import page
 from feincms.module.medialibrary.fields import MediaFileForeignKey
 from feincms.module.medialibrary.models import MediaFile
 from feincms.admin.item_editor import FeinCMSInline
-from feincms.content.medialibrary.v2 import MediaFileContent
+from feincms.content.medialibrary.v2 import MediaFileContent, MediaFileContentInline
 
 from feincms.module.page.models import Page
 from feincms.content.richtext.models import RichTextContent
@@ -36,13 +36,31 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Generic Page',
+        'title': 'with Image Column',
         'path': 'top_level.html',
-        #TODO refactor later
         'regions': (
             ('content_header', 'Content Header'),
             ('left_side_image', 'Left-side Thumbnails'),
             ('right_column_text', 'Content Body'),
+            ('sidebar', 'Sidebar Sections', 'inherited'),
+            ),
+        },
+        {
+        'title': 'Two Text Columns',
+        'path': 'two_columns.html',
+        'regions': (
+            ('content_header', 'Content Header'),
+            ('left_column_text', 'Left Column Text'),
+            ('right_column_text', 'Right Column Text'),
+            ('sidebar', 'Sidebar Sections', 'inherited'),
+            ),
+        },
+        {
+        'title': 'Single Column',
+        'path': 'single_column.html',
+        'regions': (
+            ('content_header', 'Content Header'),
+            ('single_column_text', 'Content Body'),
             ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
@@ -65,6 +83,7 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('downloadable', _('Downloadable Image')),
 ))
 
+
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ('repertoire.concerts', 'Concert Data in Repertoire'),
     ('repertoire.urls', 'Repertoire Application Data'),
@@ -73,6 +92,26 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
 
 class ImageInField(FeinCMSInline):
     raw_id_fields = ('poster_thumbnail', 'img')
+
+
+class ImageWithText(models.Model):
+    """
+    One block of the three.
+    """
+    feincms_item_editor_inline = ImageInField
+    title = models.CharField(max_length=64)
+    subtitle = models.CharField(max_length=64, null=True, blank=True)
+    text_body = models.TextField()
+    feincms_item_editor_inline = ImageInField
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/image_with_text.html', {'featured_box': self})
+
+Page.create_content_type(ImageWithText, region=('single_column_content',))
+
 
 class FeaturedBoxContent(models.Model):
     """
