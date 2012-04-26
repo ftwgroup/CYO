@@ -50,6 +50,7 @@ class Concert(models.Model):
     """
     title = models.CharField(max_length=60)
     short_description = models.TextField(verbose_name="Three line descriptor")
+    abstract = models.TextField()
     description = models.TextField()
     series = models.ForeignKey('Series')
     season = models.IntegerField()

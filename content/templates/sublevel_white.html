@@ -1,0 +1,24 @@
+{% extends 'top_level.html' %}
+{% load feincms_tags %}
+
+{% block style %}background: white;{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+{% block main_content %}
+    <h1 class='parenth1'>{{ feincms_page.title }}</h1>
+    <div class="row">
+        <div class="column grid_728">
+            <h2>{{ feincms_page.content_subtitle }}</h2>
+            <div class="wide-text">
+            {% feincms_render_region feincms_page "spread_text" request %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column grid_200 whitebox left">
+            {% feincms_render_region feincms_page "left_side_image" request %}
+        </div>
+        <div class="column grid_400 whitebox right">
+            {% feincms_render_region feincms_page "right_column_text" request %}
+        </div>
+    </div>
+{% endblock %}
