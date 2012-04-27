@@ -2,6 +2,8 @@
 {% load feincms_tags %}
 
 {% block main_content %}
+    <div class="content-header">
     {% feincms_render_region feincms_page "content_header" request %}
+    </div>
     {% feincms_render_region feincms_page "single_column_text" request %}
 {% endblock %}

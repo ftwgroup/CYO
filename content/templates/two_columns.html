@@ -2,7 +2,9 @@
 {% load feincms_tags %}
 
 {% block main_content %}
+    <div class="content-header">
     {% feincms_render_region feincms_page "content_header" request %}
+    </div>
     <div class="row content-body">
         <div class="column sm">
             <div class="column left grid_300">
