@@ -10,10 +10,12 @@
 {% block style %}background: white;{% endblock %}
 {% block breadcrumbs %}{% endblock %}
 {% block main_content %}
+    <div class="content-header">
     <h1 class='parenth1'>{{ feincms_page.title }}</h1>
             <h2>{{ feincms_page.content_subtitle }}</h2>
             {% feincms_render_region feincms_page "content_header" request %}
-    <div class="row content_body">
+    </div>
+    <div class="row content-body">
         <div class="column">
             <div class="column left leftimage">
                 {% feincms_render_region feincms_page "left_side_image" request %}

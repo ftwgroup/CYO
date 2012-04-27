@@ -6,22 +6,23 @@
 .left{float:left;margin:0 20px 0 0}
 .leftimage{max-width:230px}
 .clear{float:none}
-.main-content{padding-bottom:20px}
+.main-content{padding-bottom:20px;color:#666}
 .main-content h2,
-.main-content h3 {font-family:arial, sans-serif;}
+.main-content h3 {font-family:arial, sans-serif;color:#000}
 .main-content>h2{margin-left: 20px}
 .main-content h2{font-size:1.5em}
 .main-content h3{font-size:1em;color:#3CF}
 .main-content p{padding:.5em 0 .7em}
-.main-content>p,.content_body{color:#666;line-height:1.8em;padding:0 20px 15px}
+.content-header div.rich-text{margin:0 20px}
+.content-body{padding:0 20px}
 div.single{margin:0 20px 20px 20px;display:block}
 div.single p{padding:.5em 0 .7em;display:block;font-size:.9em}
 .rich-text{margin:0 20px 1.2em 0}
 .sm{font-size:.9em;color:#333}
 .sm h2,.sm h3{color:#000;margin:10px 0 5px}
-.yellow{font-weight:100;color:#333;background:#FFDB01;min-height:200px}
+.yellow{font-weight:100;color:#333;background:#FFDB01;min-height:200px;float:left}
 .yellow h2 {font-family:'Univers', 'Open Sans Condensed', sans-serif;font-weight:400;color:#fff;font-size:2em;}
 .yellow h3{font-size:1em;color:#000;margin:.5em 0}
 .yellow div ul{text-align:left;list-style:none;margin:.2em auto;padding:.1em 5px .5em}
-.yellow .left{margin:12px 0 0 20px }
+.yellow .left{margin:12px 0 6px 20px }
 .yellow .right{margin:12px 0;}
