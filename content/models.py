@@ -57,7 +57,7 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Single Column (Bio Section)',
+        'title': 'Single Column Page',
         'path': 'single_column.html',
         'regions': (
             ('content_header', 'Content Header'),
@@ -91,8 +91,9 @@ Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
 
 
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
-    ('repertoire.concerts', 'Concert Data in Repertoire'),
-    ('repertoire.urls', 'Repertoire Application Data'),
+    ('repertoire.concerts', 'Upcoming Concert \+ Archives'),
+    ('repertoire.urls', 'Repertoire Application'),
+    ('repertoire.featured_boxes', 'Featured Boxes'),
     ))
 
 
