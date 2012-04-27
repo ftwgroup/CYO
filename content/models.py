@@ -99,24 +99,6 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
 class ImageInField(FeinCMSInline):
     raw_id_fields = ('poster_thumbnail', 'img', 'section_image')
 
-#
-#class ImageWithText(models.Model):
-#    """
-#    One block of the three.
-#    """
-#    feincms_item_editor_inline = ImageInField
-#    section_image = MediaFileForeignKey(MediaFile, blank=True, null=True)
-#    text_body = models.TextField()
-#
-#
-#    class Meta:
-#        abstract = True
-#
-#    def render(self, **kwargs):
-#        return render_to_string('content/image_with_text.html', {'featured_box': self})
-#
-#Page.create_content_type(ImageWithText, region=('single_column_content',))
-
 
 class FeaturedBoxContent(models.Model):
     """
@@ -173,10 +155,6 @@ class SponsorLogo(models.Model):
     website_url = models.URLField()
     feincms_item_editor_inline = ImageInField
     img = MediaFileForeignKey(MediaFile, blank=True, null=True)
-
-    #def concert_dow(self):
-    #    obj = {1:'Monday', 2:'Tuesday', 3:'Wednesday', 4:'Thursday', 5:'Friday', 6:'Sunday'}
-    #    return (obj[dow] for dow in (self).concert_datetime.weekday)
 
     class Meta:
         abstract = True
