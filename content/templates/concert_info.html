@@ -9,8 +9,7 @@
     {{ feincms_page.content.media }}
 {% endblock %}
 
-{% block style %}background: white;{% endblock %}
-{% block breadcrumbs %}{% endblock %}
+{% block titles %}{% endblock %}
 {% block main_content %}
     {% feincms_render_region feincms_page "content" request %}
 {% endblock %}

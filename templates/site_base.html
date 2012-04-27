@@ -41,7 +41,7 @@
 </div>
 
 <div class="row">
-    <div class="column grid_738 main-content" style="{% block style %}{% endblock %}">
+    <div class="column grid_738 main-content" {% block id %}{% endblock %}>
         {% block concert_tabs %}
             <div class="concert_tabs">
                 <ul>
@@ -52,7 +52,7 @@
             </div>
         {% endblock %}
         {% block titles %}
-            <h1 class='parenth1'>{{ feincms_page.title }}</h1>
+            <h1>{{ feincms_page.title }}</h1>
             <h2>{{ feincms_page.content_subtitle }}</h2>
         {% endblock %}
         {% block main_content %}

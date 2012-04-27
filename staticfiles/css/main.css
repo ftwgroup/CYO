@@ -28,7 +28,6 @@ div#sidebar-bios p{margin:0 0 0 .5em}
 #sidebar li{list-style:none}
 #header{height:100px}
 input.box{width:120px;color:#666;border:0;float:right;margin:55px 0 0;padding:.2em .2em .1em}
-#logo{background:url(/static/images/logo.png) no-repeat;height:100px}
 #navigation{font-family:Univers, Impact, Gadget, sans-serif;font-size:13.75px;color:#666;text-align:left;width:600px;float:left;margin-top:57px}
 #searchbox{float:right}
 #navigation ul li:last-child a{margin-right:0}
@@ -48,7 +47,6 @@ span#footer-extend{background:#111;float:right;margin-right:60px}
 .yellowbox div ul{text-align:left;list-style:none;margin:.2em auto;padding:.1em 5px .5em}
 .highlight p{line-height:1.2em;color:#444;font-size:.95em;display:block;margin:.8em 0}
 div.highlight{width:700px;min-height:0;margin:0 0 0 10px;padding:0 10px 0 20px}
-.main-content > h1{margin-top:48px}
 .whitebox{width:698px;color:#4a4a4a;padding:0 20px 40px}
 .whitebox a{background:#eee;font-weight:700;color:#02b}
 .whitebox p{font-size:.9em;margin:1em 0 0}
@@ -63,20 +61,20 @@ tr.over{background:#222;color:#eee}
 .whitebox table tbody tr td{width:30%;vertical-align:top;margin:.5em 0;padding:.5em 1em}
 .whitebox table tbody tr td ul{list-style-type:none;font-size:.9em}
 .highlight .image-wrapped{margin-top:10px}
-.parenth1{margin-left:20px}
-.image-wrapped{float:left;display:inline;height:100%;margin:0 1em .5em 0}
-.image-wrapped img{width:320px}
-.article-thumbnail{width:230px;float:left;margin:0 10px 10px 0}
-.article-thumbnail img{width:100%;border:0;margin:1.5em 0}
 div.sponsor_logo{width:128px;display:inline-block;border:#fff 1px solid;vertical-align:top;font-size:.8em;text-align:center;margin:10px;padding:4px}
 div.sponsor_logo:hover{border:#ddd 1px solid}
 div.sponsor_logo img,div.sponsor_logo span{border:0;width:128px;display:block;margin:0 0 .5em}
 #sidebar-details .current-subpage > li{background:#1b1b1b}
-.concert_tabs a{color:#333}
-.concert_tabs a:hover{color:#999}
-.concert_tabs{font-family:Univers, 'Open Sans Condensed', sans-serif;text-transform:uppercase;font-size:1.1em;background:#FFDB01;float:right}
-.concert_tabs li{font-weight:700;list-style:none;float:left;border:#fff solid 1px;padding:.5em 1em}
 .split-right{width:440px;float:right}
 a:hover,#sidebar h3 a:hover,#sidebar a:hover,.whitebox a:hover{color:#ffdb01}
 button a,a.current-page{color:#fff}
 button a:hover,#navigation a:hover,#footer-extend a:hover{color:#FFDB01}
+
+#logo{background:url(/static/images/logo.png) no-repeat;height:100px}
+#homepage-content{background:#000}
+.main-content{background:#fff;}
+.main-content > h1{margin:48px 0 0 20px}
+.concert_tabs a{color:#333}
+.concert_tabs a:hover{color:#999}
+.concert_tabs{font-family:Univers, 'Open Sans Condensed', sans-serif;text-transform:uppercase;font-size:1.1em;background:#FFDB01;float:right}
+.concert_tabs li{font-weight:700;list-style:none;float:left;border:#fff solid 1px;padding:.5em 1em}
