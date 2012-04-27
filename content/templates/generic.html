@@ -6,13 +6,10 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/fancybox/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/generic.js"></script>
 {% endblock %}
-
 {% block style %}background: white;{% endblock %}
 {% block breadcrumbs %}{% endblock %}
 {% block main_content %}
     <div class="content-header">
-    <h1 class='parenth1'>{{ feincms_page.title }}</h1>
-            <h2>{{ feincms_page.content_subtitle }}</h2>
             {% feincms_render_region feincms_page "content_header" request %}
     </div>
     <div class="row content-body">

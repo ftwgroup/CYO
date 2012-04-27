@@ -51,6 +51,10 @@
                 </ul>
             </div>
         {% endblock %}
+        {% block titles %}
+            <h1 class='parenth1'>{{ feincms_page.title }}</h1>
+            <h2>{{ feincms_page.content_subtitle }}</h2>
+        {% endblock %}
         {% block main_content %}
         {% endblock %}
     </div>
