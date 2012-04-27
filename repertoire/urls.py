@@ -12,14 +12,9 @@ urlpatterns = patterns('',
     url(r'$', RepertoireView.as_view(), name='by-default'),
 
     #handle individual details per item in repertoire
-    #for a concert
     url(r'concert/(?P<pk>\d+)/$', DetailView.as_view(), name='concert-detail'),
-    #for a person
     url(r'person/(?P<pk>\d+)/$', DetailView.as_view(), name='person-detail'),
-    #for a song
     url(r'song/(?P<pk>\d+)/$', DetailView.as_view(), name='song-detail'),
-    #for a season
     url(r'season/(?P<pk>\d+)/$', DetailView.as_view(), name='season-detail'),
-    #for a series
     url(r'series(?P<pk>\d+)/$', DetailView.as_view(), name='series-detail'),
 )
