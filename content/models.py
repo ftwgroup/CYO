@@ -74,13 +74,13 @@ Page.register_templates(
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
-#       {
-#       'title': 'Placeholder/Forwarding Page',
-#       'path': 'concert_info.html',
-#       'regions': (
-#           ('content', 'NO CONTENT HERE'),
-#           ),
-#       },
+       {
+       'title': 'Placeholder/Forwarding Page',
+       'path': 'concert_info.html',
+       'regions': (
+           ('content', 'NO CONTENT HERE'),
+           ),
+       },
 )
 
 Page.create_content_type(RichTextContent)
