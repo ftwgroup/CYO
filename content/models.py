@@ -105,18 +105,18 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ))
 
 
+class TwoColumnText(models.Model):
+    section_title = models.CharField(max_length="128",verbose_name='Optional Title (spans both columns)',null=True,blank=True)
+    left_col = models.TextField(null=True,blank=True)
+    right_col = models.TextField(null=True,blank=True)
 
-#class TwoColumnText(models.Model):
-#    feincms_item_editor_inline = ImageInField
-#    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
-#
-#    class Meta:
-#        abstract = True
-#
-#    def render(self, **kwargs):
-#        return render_to_string('content/image_rotator.html', {'image_rotator': self})
-#
-#Page.create_content_type(ImageRotator, regions=('rotator_images',))
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/two_column_text.html', {'text_body': self})
+
+Page.create_content_type(TwoColumnText)
 #
 #class ImageStackedLeftWithText(models.Model):
 #    feincms_item_editor_inline = ImageInField
