@@ -1,9 +1,11 @@
 {% load feincms_thumbnail %}
 <div class="grid_728 yellow spread-image">
+    {% if content.mediafile.file %}
     <div class="grid_300 left">
         <img src="{{ content.mediafile.file|thumbnail:"320x420"}}" alt="">
     </div>
-    <div class="grid_300 right">
+    {% endif %}
+    <div class="{% if content.mediafile.file %}grid_300 right{% else %}full{% endif %}">
         <h2>{{ content.title }}</h2>
         {{ content.richtext|safe }}
     </div>

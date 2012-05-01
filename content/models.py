@@ -37,17 +37,18 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Image Column and Text',
+        'title': 'General Content Page', #TODO (s) becomes a content type
         'path': 'generic.html',
         'regions': (
             ('content_header', 'Content Header'),
+            ('content_body', 'Content Body \(\*\)'),
             ('left_side_image', 'Left-side Thumbnails'),
             ('right_column_text', 'Content Body'),
             ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
         {
-        'title': 'Two Text Columns',
+        'title': 'Two Text Columns', #TODO (s) this becomes turned into a customcontenttype
         'path': 'two_columns.html',
         'regions': (
             ('content_header', 'Content Header'),
@@ -57,7 +58,7 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Single Column Page',
+        'title': 'Single Column Page', #TODO (s) this becomes a customcontent type
         'path': 'single_column.html',
         'regions': (
             ('content_header', 'Content Header'),
@@ -73,6 +74,13 @@ Page.register_templates(
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
+#       {
+#       'title': 'Placeholder/Forwarding Page',
+#       'path': 'concert_info.html',
+#       'regions': (
+#           ('content', 'NO CONTENT HERE'),
+#           ),
+#       },
 )
 
 Page.create_content_type(RichTextContent)
@@ -95,6 +103,33 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ('repertoire.urls', 'Repertoire Application'),
     ('repertoire.featured_boxes', 'Featured Boxes'),
     ))
+
+
+
+#class TwoColumnText(models.Model):
+#    feincms_item_editor_inline = ImageInField
+#    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
+#
+#    class Meta:
+#        abstract = True
+#
+#    def render(self, **kwargs):
+#        return render_to_string('content/image_rotator.html', {'image_rotator': self})
+#
+#Page.create_content_type(ImageRotator, regions=('rotator_images',))
+#
+#class ImageStackedLeftWithText(models.Model):
+#    feincms_item_editor_inline = ImageInField
+#    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
+#
+#    class Meta:
+#        abstract = True
+#
+#    def render(self, **kwargs):
+#        return render_to_string('content/image_rotator.html', {'image_rotator': self})
+#
+#Page.create_content_type(ImageRotator, regions=('rotator_images',))
+#
 
 
 class ImageInField(FeinCMSInline):
