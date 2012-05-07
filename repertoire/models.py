@@ -1,4 +1,4 @@
-from django.contrib.localflavor import us
+from django.contrib.localflavor.us.models import USStateField
 from django.db import models
 from django.template.defaultfilters import slugify
 
@@ -37,7 +37,7 @@ class Venue(models.Model):
     address1 = models.CharField(max_length=64)
     address2 = models.CharField(max_length=64, blank=True, null=True)
     city = models.CharField(max_length=60)
-    state = us.models.USStateField()
+    state = USStateField()
     zip_code = models.CharField(max_length=10)
 
     def __unicode__(self):
@@ -89,6 +89,8 @@ class PerformedSong(models.Model):
     guest_artist = models.ManyToManyField('Performer', related_name='guest_artist',verbose_name='Guest Artist' ,blank=True,
         null=True)
     soloist = models.ManyToManyField('Performer', blank=True, null=True)
+
+    note = models.TextField(blank=True, null=True)
 
     PREMIERE_TAGS = (
         ('a','World Premiere'),
