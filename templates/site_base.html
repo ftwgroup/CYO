@@ -20,7 +20,7 @@
 <div class="row">
     <a href="/"><div class="column grid_250" id="logo"></div></a>
     <div id="navigation">
-        <navigation>
+        <nav>
             {% block navigation %}
                 {% feincms_navigation of feincms_page as sublevel level=1,depth=1 %}
                     <ul>
@@ -29,7 +29,7 @@
                         {% endfor %}
                     </ul>
             {% endblock %}
-        </navigation>
+        </nav>
     </div>
     <div id="searchbox">
     {% block search_box %}
