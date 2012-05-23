@@ -1,38 +1,91 @@
-<script>
-    $(document).ready(function() {
-        $('.slideshow').cycle({fx: 'fade'});
-        $("#jquery_jplayer_1").jPlayer({
-            ready: function() {
-                $(this).jPlayer("setMedia", {
-                    mp3: "{{ STATIC_URL }}audio/01_2010__Traffic_Jam_-_Jared_Miller.mp3"
-                }).jPlayer("play");
-                var click = document.ontouchstart === undefined ? 'click' : 'touchstart';
-                var kickoff = function () {
-                    $("#jquery_jplayer_1").jPlayer("play");
-                    document.documentElement.removeEventListener(click, kickoff, true);
-                };
-                document.documentElement.addEventListener(click, kickoff, true);
-            },
-            loop: true,
-            swfPath: "{{ STATIC_URL }}js/jplayer"
-        });
-        $('.jp-controls li a').click( function(e) { e.preventDefault(); } );
-    });
+<script type="text/javascript">
+            $(document).ready(function(){
+                new jPlayerPlaylist({
+                    jPlayer: "#jquery_jplayer_1",
+                    cssSelectorAncestor: "#jp_container_1"
+                }, [
+                    {
+                        title:"Traffic Jam by Jared Miller (2010)",
+                        mp3:"/static/audio/01_2010__Traffic_Jam_-_Jared_Miller.mp3"
+                    },
+                    {
+                        title:"Your Face",
+                        mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+                        oga:"http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg"
+                    },
+                    {
+                        title:"Cyber Sonnet",
+                        mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+                        oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+                    },
+                    {
+                        title:"Tempered Song",
+                        mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+                        oga:"http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg"
+                    },
+                    {
+                        title:"Hidden",
+                        mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+                        oga:"http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+                    },
+                    {
+                        title:"Lentement",
+                        free:true,
+                        mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+                        oga:"http://www.jplayer.org/audio/ogg/Miaow-03-Lentement.ogg"
+                    }
+                ],
+                    {
+                        playlistOptions: {
+                            autoPlay: true,
+                            enableRemoveControls: true
+                    },
+                    swfPath: "/static/js/jplayer", //"../js",
+                    supplied: "oga, mp3",
+                    wmode: "window"
+                });
+            });
 </script>
+
+
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 
 <div id="jp_container_1" class="jp-audio">
-    <div class="jp-type-single">
+    <div class="jp-type-playlist">
         <div class="jp-gui jp-interface">
             <ul class="jp-controls">
+                <li><a href="javascript:;" class="jp-previous" tabindex="1">previous</a></li>
                 <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
                 <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                <li><a href="javascript:;" class="jp-next" tabindex="1">next</a></li>
                 <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
                 <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
                 <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
                 <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
             </ul>
-
+            <div class="jp-progress">
+                <div class="jp-seek-bar">
+                    <div class="jp-play-bar"></div>
+                </div>
+            </div>
+            <div class="jp-volume-bar">
+                <div class="jp-volume-bar-value"></div>
+            </div>
+            <div class="jp-time-holder">
+                <div class="jp-current-time"></div>
+                <div class="jp-duration"></div>
+            </div>
+            <ul class="jp-toggles">
+                <li><a href="javascript:;" class="jp-shuffle" tabindex="1" title="shuffle">shuffle</a></li>
+                <li><a href="javascript:;" class="jp-shuffle-off" tabindex="1" title="shuffle off">shuffle off</a></li>
+                <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+            </ul>
+        </div>
+        <div class="jp-playlist">
+            <ul>
+                <li></li>
+            </ul>
         </div>
         <div class="jp-no-solution">
             <span>Update Required</span>

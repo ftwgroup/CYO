@@ -15,6 +15,7 @@
     {{ feincms_page.content.media }}
     <link type="text/css" href="{{ STATIC_URL }}js/jplayer/zenphotodark/jplayer.zenphoto.css" rel="stylesheet" />
     <script type="text/javascript" src="{{ STATIC_URL }}js/jplayer/jquery.jplayer.min.js"></script>{# for jplayer #}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jplayer/jplayer.playlist.min.js"></script>{# for jplayer playlist #}
 </head>
 <body>
 <div class="row">
@@ -60,7 +61,7 @@
     </div>
     <div class="column grid_242" id="sidebar">
         {%  block sidebar-common %}
-        <img src="{{ STATIC_URL }}images/season17-sm.png">
+        <img class="season-thumbnail" src="{{ STATIC_URL }}images/season17-sm.png">
         {% endblock %}
         {% block mp3player %}
             {% include "includes/music_player.html" %}

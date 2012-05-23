@@ -25,6 +25,7 @@ ul.breadcrumbs > li{display:inline}
 #sidebar-bios h3{border-top:#fff dotted thin}
 #sidebar-bios h3:hover{color:#ffdb01;cursor:pointer}
 div#sidebar-bios p{margin:0 0 0 .5em}
+.season-thumbnail {margin-bottom:20px}
 #sidebar li{list-style:none}
 #header{height:100px}
 input.box{width:120px;color:#666;border:0;float:right;margin:55px 0 0;padding:.2em .2em .1em}

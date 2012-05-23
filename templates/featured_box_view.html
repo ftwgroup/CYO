@@ -1,0 +1,10 @@
+{% load feincms_thumbnail %}
+<div class="featured_box">
+    <h2><a href="{{ url  }}">{{ concert.series }}</a></h2>
+    <div><a href="{{ featured_box.series_url }}"><img src="{% if concert.poster_image %}{{ concert.poster_image.file|thumbnail:"230x128" }}{% endif %}" alt=""></a></div>
+    <ul>
+        <li>{{ featured_box.date_descriptor }}</li>
+        <li>{{ concert.title }}{{ concert.description|safe }}</li>
+    </ul>
+    <a href="{{ featured_box.tickets_url }}"><button class="ticket-button">Get Tickets!</button></a>
+</div>
