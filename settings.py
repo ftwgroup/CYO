@@ -13,7 +13,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('0.0.0.0',)
 
 DATABASES = {
     'default': {
