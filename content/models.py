@@ -41,21 +41,22 @@ Page.register_templates(
         'path': 'generic.html',
         'regions': (
             ('content_header', 'Header'),
-            ('content_body', 'Body'),
+            #('content_body', 'Body'),
+            ('right_column_text', 'Body'),
             ('left_side_image', 'Image Set'),
             ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
-#        {
-#        'title': 'Two Text Columns',
-#        'path': 'two_columns.html',
-#        'regions': (
-#            ('content_header', 'Content Header'),
-#            ('left_column_text', 'Left Column Text'),
-#            ('right_column_text', 'Right Column Text'),
-#            ('sidebar', 'Sidebar Sections', 'inherited'),
-#            ),
-#        },
+        {
+        'title': 'Two Text Columns',
+        'path': 'two_columns.html',
+        'regions': (
+            ('content_header', 'Content Header'),
+            ('left_column_text', 'Left Column Text'),
+            ('right_column_text', 'Right Column Text'),
+            ('sidebar', 'Sidebar Sections', 'inherited'),
+            ),
+        },
 #        {
 #        'title': 'Single Column Page',
 #        'path': 'single_column.html',
@@ -102,7 +103,7 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ('repertoire.urls', 'Repertoire Application'),
     ('repertoire.featured_boxes', 'Featured Boxes'),
     ))
-
+#
 #class TwoColumnText(models.Model):
 #    section_title = models.CharField(max_length="128",verbose_name='Optional Title (spans both columns)',null=True,blank=True)
 #    left_col = models.TextField(null=True,blank=True)
@@ -115,7 +116,7 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
 #        return render_to_string('content/two_column_text.html', {'text_body': self})
 #
 #Page.create_content_type(TwoColumnText)
-##
+#
 #class ImageStackedLeftWithText(models.Model):
 #    feincms_item_editor_inline = ImageInField
 #    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
@@ -132,43 +133,43 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
 
 class ImageInField(FeinCMSInline):
     raw_id_fields = ('poster_thumbnail', 'img', 'section_image')
-
-
-class FeaturedBoxContent(models.Model):
-    """
-    One block of the three.
-    """
-    feincms_item_editor_inline = ImageInField
-    series_title = models.CharField(max_length=48)
-    series_url = models.CharField(max_length=64)
-    date_descriptor = models.CharField(max_length=48)
-    headliner = models.CharField(max_length=48, blank=True)
-    short_descriptor = models.TextField()
-    poster_thumbnail = MediaFileForeignKey(MediaFile, blank=True, null=True)
-    tickets_url = models.CharField(max_length=64, blank=True, null=True)
-
-    #    def __unicode__(self):
-    #        return u'%s %s' % (self.series_title, self.date_descriptor)
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/featured_box.html', {'featured_box': self})
-
-Page.create_content_type(FeaturedBoxContent, region=('featured_area',))
-
-class ImageRotator(models.Model):
-    feincms_item_editor_inline = ImageInField
-    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/image_rotator.html', {'image_rotator': self})
-
-Page.create_content_type(ImageRotator, regions=('rotator_images',))
+#
+#
+#class FeaturedBoxContent(models.Model):
+#    """
+#    One block of the three.
+#    """
+#    feincms_item_editor_inline = ImageInField
+#    series_title = models.CharField(max_length=48)
+#    series_url = models.CharField(max_length=64)
+#    date_descriptor = models.CharField(max_length=48)
+#    headliner = models.CharField(max_length=48, blank=True)
+#    short_descriptor = models.TextField()
+#    poster_thumbnail = MediaFileForeignKey(MediaFile, blank=True, null=True)
+#    tickets_url = models.CharField(max_length=64, blank=True, null=True)
+#
+#    #    def __unicode__(self):
+#    #        return u'%s %s' % (self.series_title, self.date_descriptor)
+#
+#    class Meta:
+#        abstract = True
+#
+#    def render(self, **kwargs):
+#        return render_to_string('content/featured_box.html', {'featured_box': self})
+#
+#Page.create_content_type(FeaturedBoxContent, region=('featured_area',))
+#
+#class ImageRotator(models.Model):
+#    feincms_item_editor_inline = ImageInField
+#    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
+#
+#    class Meta:
+#        abstract = True
+#
+#    def render(self, **kwargs):
+#        return render_to_string('content/image_rotator.html', {'image_rotator': self})
+#
+#Page.create_content_type(ImageRotator, regions=('rotator_images',))
 #
 #class ImageWrapped(models.Model):
 #    feincms_item_editor_inline = ImageInField
