@@ -159,18 +159,18 @@ class ImageInField(FeinCMSInline):
 #
 #Page.create_content_type(FeaturedBoxContent, region=('featured_area',))
 #
-#class ImageRotator(models.Model):
-#    feincms_item_editor_inline = ImageInField
-#    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
-#
-#    class Meta:
-#        abstract = True
-#
-#    def render(self, **kwargs):
-#        return render_to_string('content/image_rotator.html', {'image_rotator': self})
-#
-#Page.create_content_type(ImageRotator, regions=('rotator_images',))
-#
+class ImageRotator(models.Model):
+    feincms_item_editor_inline = ImageInField
+    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+    def render(self, **kwargs):
+        return render_to_string('content/image_rotator.html', {'image_rotator': self})
+
+Page.create_content_type(ImageRotator, regions=('rotator_images',))
+
 #class ImageWrapped(models.Model):
 #    feincms_item_editor_inline = ImageInField
 #    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
