@@ -40,23 +40,22 @@ Page.register_templates(
         'title': 'General Content Page',
         'path': 'generic.html',
         'regions': (
-            ('content_header', 'Content Header'),
-            ('content_body', 'Content Body \(\*\)'),
-            ('left_side_image', 'Left-side Thumbnails'),
-            ('right_column_text', 'Content Body'),
+            ('content_header', 'Header'),
+            ('content_body', 'Body'),
+            ('left_side_image', 'Image Set'),
             ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
-        {
-        'title': 'Two Text Columns',
-        'path': 'two_columns.html',
-        'regions': (
-            ('content_header', 'Content Header'),
-            ('left_column_text', 'Left Column Text'),
-            ('right_column_text', 'Right Column Text'),
-            ('sidebar', 'Sidebar Sections', 'inherited'),
-            ),
-        },
+#        {
+#        'title': 'Two Text Columns',
+#        'path': 'two_columns.html',
+#        'regions': (
+#            ('content_header', 'Content Header'),
+#            ('left_column_text', 'Left Column Text'),
+#            ('right_column_text', 'Right Column Text'),
+#            ('sidebar', 'Sidebar Sections', 'inherited'),
+#            ),
+#        },
 #        {
 #        'title': 'Single Column Page',
 #        'path': 'single_column.html',
