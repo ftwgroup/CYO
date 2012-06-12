@@ -5,7 +5,8 @@
 .grid_300{width:336px;margin:0;padding:0;display:inline-block}
 .grid_400{width:445px;margin:0;padding:0;display:inline-block}
 .left{float:left;margin:0 20px 0 0;text-align:left}
-.full{width:700px}
+.full{width:708px}
+.full .full{margin: 0 10px 0 0} /*to negate the effects of .column*/
 .clear{float:none}
 .sm{font-size:.9em;color:#333}
 .sm h2,.sm h3{color:#000;margin:10px 0 5px}
