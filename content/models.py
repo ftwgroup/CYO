@@ -59,7 +59,7 @@ Page.register_templates(
         },
         {
         'title': 'Concert/Repertoire Application Page',
-        'path': 'concert_info.html',
+        'path': 'repertoire.html',
         'regions': (
             ('content', 'Content Section'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),

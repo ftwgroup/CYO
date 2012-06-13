@@ -42,3 +42,60 @@
     /*In the case that aligned_image_section is used after left/right_content body*/
     .right .full{margin-left:-250px;}
 .right > .rich-text p:first-child{padding-top:0}
+
+#jp_container_1{margin-bottom:1em}
+
+/*Repertoire*/
+.repertoire table{width:100%}
+.repertoire table h3{margin-top:1em}
+.repertoire{margin-left: 20px; float:left;}
+.rep-nav{margin-top: .5em}
+
+div.concert_leftCol{
+    width: 230px;
+    float: left;
+    text-align:center;
+}
+div.event-details{
+    margin: 0 auto;
+    padding: 6px .7em;
+}
+div.concert_rightCol{
+    padding: 0 24px 0 0;
+    float:right;
+    text-align: left;
+    width: 450px;
+}
+div.artist_plate {
+    width: 100%;
+    background: #231f20;
+    padding: .3em 5px .3em 0;
+    margin: 0 0 .3em 0;
+    float: left;
+    text-align:right;
+}
+
+div.artist_plate p {
+    font-family: 'Tahoma', sans-serif;
+    text-align: right;
+    color: #FFDB01;
+    font-size: .9em;
+    margin:0;
+}
+span.artist_name, span.artist_title{
+    white-space: nowrap;
+    color: #fff;
+}
+span.artist_name{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+span.artist_title{
+    font-weight: lighter;
+    text-transform: lowercase;
+    margin: 0 0 0 0;
+}
+
+div.image .caption, div.image .copyright{
+    display:none;
+}
