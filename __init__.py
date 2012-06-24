@@ -1,33 +1,40 @@
 import os
 from django.db.models import signals
 from django.conf import settings
-from rcs.wiki.models import WikiPage
-from whoosh import index, store, fields
+#from rcs.wiki.models import WikiPage
+from feincms.module.page.models import Page
+from whoosh.fields import SchemaClass, TEXT, KEYWORD, ID, STORED
+from whoosh.index import create_in, open_dir
 
-WHOOSH_SCHEMA = fields.Schema(title=fields.TEXT(stored=True),
-                              content=fields.TEXT,
-                              url=fields.ID(stored=True, unique=True))
+# Creating the schema
+class SiteSchema(SchemaClass):
+    path = ID(stored=True)
+    title = TEXT(stored=True)
+    content = TEXT
 
+# Creating the index
 def create_index(sender=None, **kwargs):
-    if not os.path.exists(settings.WHOOSH_INDEX):
-        os.mkdir(settings.WHOOSH_INDEX)
-        storage = store.FileStorage(settings.WHOOSH_INDEX)
-        ix = index.Index(storage, schema=WHOOSH_SCHEMA, create=True)
+    if not os.path.exists("index"):
+        os.mkdir("index")
+    ix = create_in("index", SiteSchema)
 
+ix = open_dir("index") #TODO: (IF) Documentation says "After you've created an
+# index, you can open it using the open_dir function"...does that happen here?
+
+#TODO: (IF) this line isn't mentioned in the new version's documentation...
 signals.post_syncdb.connect(create_index)
 
+# Adding documents to the index
 def update_index(sender, instance, created, **kwargs):
-    storage = store.FileStorage(settings.WHOOSH_INDEX)
-    ix = index.Index(storage, schema=WHOOSH_SCHEMA)
     writer = ix.writer()
     if created:
-        writer.add_document(title=unicode(instance, content=instance.content,
-                            url=unicode(instance.get_absolute_url()))
+        writer.add_document(title=unicode(instance), content=instance.content,
+                            path=unicode(instance.get_absolute_url()))
         writer.commit()
     else:
         writer.update_document(title=unicode(instance), content=instance.content,
-                               url=unicode(instance.get_absolute_url()))
+                               path=unicode(instance.get_absolute_url()))
         writer.commit()
 
-signals.post_save.connect(update_index, sender=WikiPage)
+signals.post_save.connect(update_index, sender=Page)
 
