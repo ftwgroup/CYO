@@ -1,0 +1,25 @@
+{% load feincms_tags %}
+
+{% for content in feincms_object.content.content_header %}
+    {{ content.render|striptags }}
+{% endfor %}
+
+{% for content in feincms_object.content.content_body %}
+    {{ content.render|striptags }}
+{% endfor %}
+
+{% for content in feincms_object.content.right_column_text %}
+    {{ content.render|striptags }}
+{% endfor %}
+
+{% for content in feincms_object.content.sidebar %}
+    {{ content.render|striptags }}
+{% endfor %}
+
+{% for content in feincms_object.content.left_column_text %}
+    {{ content.render|striptags }}
+{% endfor %}
+
+{% for content in feincms_object.content.single_column_text %}
+    {{ content.render|striptags }}
+{% endfor %}

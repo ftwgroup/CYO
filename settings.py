@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     'content',
     'auditions',
     'repertoire',
+    'whoosh',
 )
 
 
