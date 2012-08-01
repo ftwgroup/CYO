@@ -28,8 +28,8 @@ div#sidebar-bios p{margin:0 0 0 .5em}
 #sidebar li{list-style:none}
 #header{height:100px}
 input.box{width:120px;color:#666;border:0;float:right;margin:55px 0 0;padding:.2em .2em .1em}
-#navigation{font-family:Univers, Impact, Gadget, sans-serif;font-size:13.75px;color:#666;text-align:left;width:520px;float:left;margin-top:57px}
-#searchbox{float:left;padding:0 0 0 20px;}
+#navigation{font-family:Univers, Impact, Gadget, sans-serif;font-size:13.75px;color:#666;text-align:left;width:600px;float:left;margin-top:57px}
+#searchbox{float:right;padding:0 0 0 20px;}
 #navigation ul li:last-child a{margin-right:0}
 #navigation ul li:first-child a{margin-left:0}
 #navigation a{display:block;width:auto;text-transform:uppercase;margin:0 .6em}
