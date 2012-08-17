@@ -5,7 +5,12 @@
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/home.css" />
     <script src="{{ STATIC_URL }}js/jquery.cycle.all.js"></script>
-{% endblock %}
+    <script>
+        $(document).ready(function() {
+            $('.slideshow').cycle({fx: 'fade'});
+        });
+    </script>
+    {% endblock %}
 {% block titles %}{% endblock %}
 {% block id %}id="homepage-content"{% endblock %}
 {% block main_content %}

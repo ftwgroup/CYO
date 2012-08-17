@@ -37,18 +37,18 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'General Content Page', #TODO (s) becomes a content type
+        'title': 'General Content Page',
         'path': 'generic.html',
         'regions': (
-            ('content_header', 'Content Header'),
-            ('content_body', 'Content Body \(\*\)'),
-            ('left_side_image', 'Left-side Thumbnails'),
-            ('right_column_text', 'Content Body'),
+            ('content_header', 'Header'),
+            #('content_body', 'Body'),
+            ('right_column_text', 'Body'),
+            ('left_side_image', 'Image Set'),
             ('sidebar', 'Sidebar Sections', 'inherited'),
             ),
         },
         {
-        'title': 'Two Text Columns', #TODO (s) this becomes turned into a customcontenttype
+        'title': 'Two Text Columns',
         'path': 'two_columns.html',
         'regions': (
             ('content_header', 'Content Header'),
@@ -58,29 +58,20 @@ Page.register_templates(
             ),
         },
         {
-        'title': 'Single Column Page', #TODO (s) this becomes a customcontent type
-        'path': 'single_column.html',
-        'regions': (
-            ('content_header', 'Content Header'),
-            ('single_column_text', 'Content Body'),
-            ('sidebar', 'Sidebar Sections', 'inherited'),
-            ),
-        },
-        {
         'title': 'Concert/Repertoire Application Page',
-        'path': 'concert_info.html',
+        'path': 'repertoire.html',
         'regions': (
             ('content', 'Content Section'),
             ('concert_sidebar', '(Series) Side bar Sections', 'inherited'),
             ),
         },
-       {
-       'title': 'Placeholder/Forwarding Page',
-       'path': 'concert_info.html',
-       'regions': (
-           ('content', 'NO CONTENT HERE'),
-           ),
-       },
+        {
+        'title': 'Placeholder/Forwarding Page',
+        'path': 'concert_info.html',
+        'regions': (
+            ('content', 'NO CONTENT HERE'),
+            ),
+        },
 )
 
 Page.create_content_type(RichTextContent)
@@ -88,14 +79,14 @@ Page.create_content_type(RichTextContent)
 Page.create_content_type(SectionContent, TYPE_CHOICES=(
     ('bio', _('Bio Section')),
     ('yellow', _('Yellow Header Section')),
-))
+    ))
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('spread', _('Spread Image')),
     ('leftside', _('Leftside Image')),
     ('concertthumbnail', _('Concert Poster Image')),
     ('downloadable', _('Downloadable Image')),
-))
+    ))
 
 
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
@@ -103,34 +94,6 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ('repertoire.urls', 'Repertoire Application'),
     ('repertoire.featured_boxes', 'Featured Boxes'),
     ))
-
-
-class TwoColumnText(models.Model):
-    section_title = models.CharField(max_length="128",verbose_name='Optional Title (spans both columns)',null=True,blank=True)
-    left_col = models.TextField(null=True,blank=True)
-    right_col = models.TextField(null=True,blank=True)
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/two_column_text.html', {'text_body': self})
-
-Page.create_content_type(TwoColumnText)
-#
-#class ImageStackedLeftWithText(models.Model):
-#    feincms_item_editor_inline = ImageInField
-#    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
-#
-#    class Meta:
-#        abstract = True
-#
-#    def render(self, **kwargs):
-#        return render_to_string('content/image_rotator.html', {'image_rotator': self})
-#
-#Page.create_content_type(ImageRotator, regions=('rotator_images',))
-#
-
 
 class ImageInField(FeinCMSInline):
     raw_id_fields = ('poster_thumbnail', 'img', 'section_image')
@@ -149,8 +112,8 @@ class FeaturedBoxContent(models.Model):
     poster_thumbnail = MediaFileForeignKey(MediaFile, blank=True, null=True)
     tickets_url = models.CharField(max_length=64, blank=True, null=True)
 
-#    def __unicode__(self):
-#        return u'%s %s' % (self.series_title, self.date_descriptor)
+    def __unicode__(self):
+        return u'%s %s' % (self.series_title, self.date_descriptor)
 
     class Meta:
         abstract = True
@@ -171,18 +134,6 @@ class ImageRotator(models.Model):
         return render_to_string('content/image_rotator.html', {'image_rotator': self})
 
 Page.create_content_type(ImageRotator, regions=('rotator_images',))
-
-class ImageWrapped(models.Model):
-    feincms_item_editor_inline = ImageInField
-    img = MediaFileForeignKey(MediaFile, blank=True, null=True)
-
-    class Meta:
-        abstract = True
-
-    def render(self, **kwargs):
-        return render_to_string('content/image_wrapped.html', {'image_wrapped': self})
-
-Page.create_content_type(ImageWrapped, regions=('content','highlight'))
 
 class SponsorLogo(models.Model):
     location = models.IntegerField(verbose_name='zip (optional)',blank=True, null=True)

@@ -1,7 +1,7 @@
 *.pyc
 local_settings.py
 *.sqlite3
-*.db
+*.db*
 .DS_Store
 .idea
 *~
