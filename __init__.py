@@ -35,11 +35,6 @@ ix = open_dir("index") #TODO: (IF) Documentation says "After you've created an
 #TODO: (IF) this line isn't mentioned in the new version's documentation...
 signals.post_syncdb.connect(create_index)
 
-### Converting FeinCMS render_to_region's to index-able content
-#def convert_fein(instance):
-#    if instance is not unicode:
-#        return feincms_render_content(instance)
-
 ### Adding documents to the index
 def update_index(sender, instance, created, **kwargs):
     writer = ix.writer()
