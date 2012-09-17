@@ -1,0 +1,13 @@
+{% extends 'repertoire/rep_base.html' %}
+{# queryset = Song objects #}
+{% block main_content %}
+    <h2>Ordered by Song Title</h2>
+    <table>
+        {% for song in repertoire_list %}
+            <tr>
+                <td>{{ song.title }}</td>
+                <td>{{ song.composer.last_name }}, {{ song.composer.first_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

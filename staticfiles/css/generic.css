@@ -1,1 +1,101 @@
-@import url('../js/fancybox/jquery.fancybox.css');
+@import url(../js/fancybox/jquery.fancybox.css);
+
+/*Mixins*/
+.grid_200{width:230px;display:inline-block}
+.grid_300{width:336px;margin:0;padding:0;display:inline-block}
+.grid_400{width:445px;margin:0;padding:0;display:inline-block}
+.left{float:left;margin:0 20px 0 0;text-align:left}
+.full{width:708px}
+.full .full{margin: 0 10px 0 0} /*to negate the effects of .column*/
+.clear{float:none}
+.sm{font-size:.9em;color:#333}
+.sm h2,.sm h3{color:#000;margin:10px 0 5px}
+
+/*Hard definitions for Main Content Block/Div*/
+.main-content{padding-bottom:20px;color:#666}
+.main-content h2,
+.main-content h3 {font-family:arial, sans-serif;color:#000}
+.main-content>h2{margin-left: 20px}
+.main-content h2{font-size:1.5em}
+.main-content h3{font-size:1em;color:#3CF}
+.main-content p{padding:.5em 0 .7em}
+
+/*Left Column Image*/
+.leftimage{width:230px;margin:.25em 20px 0 0}
+
+/*Content Header*/
+.spread-image{margin:0 0 10px}
+.content-header div.rich-text{margin:0 20px}
+
+    /*Yellow Section Stuff*/
+    .yellow{font-weight:100;color:#333;background:#FFDB01;min-height:200px;float:left}
+    .yellow h2 {font-family:'Univers', 'Open Sans Condensed', sans-serif;font-weight:400;color:#fff;font-size:2em;}
+    .yellow h3{font-size:1em;color:#000;margin:.5em 0}
+    .yellow div ul{text-align:left;list-style:none;margin:.2em auto;padding:.1em 5px .5em}
+    .yellow .left{margin:12px 0 6px 20px }
+    .yellow .right{margin:12px 0;}
+    .yellow .full{margin:20px;}
+
+/*Content Body*/
+.content-body{padding:0 30px}
+.rich-text{margin:0 0 1.2em 0;}
+    /*In the case that aligned_image_section is used after left/right_content body*/
+    .right .full{margin-left:-250px;}
+.right > .rich-text p:first-child{padding-top:0}
+
+#jp_container_1{margin-bottom:1em}
+
+/*Repertoire*/
+.repertoire table{width:100%}
+.repertoire table h3{margin-top:1em}
+.repertoire{margin-left: 20px; float:left;}
+.rep-nav{margin-top: .5em}
+
+div.concert_leftCol{
+    width: 230px;
+    float: left;
+    text-align:center;
+}
+div.event-details{
+    margin: 0 auto;
+    padding: 6px .7em;
+}
+div.concert_rightCol{
+    padding: 0 24px 0 0;
+    float:right;
+    text-align: left;
+    width: 450px;
+}
+div.artist_plate {
+    width: 100%;
+    background: #231f20;
+    padding: .3em 5px .3em 0;
+    margin: 0 0 .3em 0;
+    float: left;
+    text-align:right;
+}
+
+div.artist_plate p {
+    font-family: 'Tahoma', sans-serif;
+    text-align: right;
+    color: #FFDB01;
+    font-size: .9em;
+    margin:0;
+}
+span.artist_name, span.artist_title{
+    white-space: nowrap;
+    color: #fff;
+}
+span.artist_name{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+span.artist_title{
+    font-weight: lighter;
+    text-transform: lowercase;
+    margin: 0 0 0 0;
+}
+
+div.image .caption, div.image .copyright{
+    display:none;
+}

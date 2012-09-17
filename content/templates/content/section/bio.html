@@ -1,0 +1,10 @@
+<div class="full">
+{% load feincms_thumbnail %}
+    <div class="column left leftimage">
+        <img src="{{ content.mediafile.file|thumbnail:"230x420"}}" alt="" />
+    </div>
+    <div class="column grid_400">
+        <h2>{{ content.title }}</h2>
+        {{ content.richtext|safe }}
+    </div>
+</div>

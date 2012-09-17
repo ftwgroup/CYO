@@ -1,0 +1,22 @@
+{% extends 'repertoire/rep_base.html' %}
+{# queryset = ConcertSong objects #}
+{% block main_content %}
+    <h2>Premieres</h2>
+        <div>
+            <table>
+                {% for ps in repertoire_list %}
+                <tr>
+                    <td>{{ ps.song.title }}</td>
+                    <td>{{ ps.concert.title }}</td>
+                    <td>{% if ps.world_premiere %}WP{% endif %}
+                        {%  if ps.local_premiere %}USP{% endif %}
+                    {%  if ps.local_premiere %}LP{% endif %}</td>
+                    <td>{% if ps.concert.date_time %}{{ ps.concert.date_time|date:"M Y"}}
+                    {% else %}
+                        {{ ps.concert.rough_date }}
+                    {% endif %}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}

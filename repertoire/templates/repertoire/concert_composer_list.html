@@ -1,0 +1,20 @@
+{% extends 'repertoire/rep_base.html' %}
+{# queryset = Performer objects #}
+{% block main_content %}
+    <h2>Grouped by Composer</h2>
+    <table>
+        {% for composer in repertoire_list %}
+            <tr><td>
+                <h3>{{ composer.first_name }} {{ composer.last_name }} <small><em>({{ composer.birth_year }}-{% if composer.death_year %}{{ composer.death_year }}{% else %}Current{% endif %})</em></small></h3>
+            </td></tr>
+            {% for song in composer.song_set.all %}
+                {% for ps in song.performedsong_set.all %}
+                    <tr>
+                        <td>{{ song.title }}</td>
+                        <td>{{ ps.concert.title }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}

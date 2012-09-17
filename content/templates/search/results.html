@@ -1,0 +1,14 @@
+{% extends 'generic.html' %}
+
+{% block main_content %}
+<h1>Search results</h1>
+<hr>
+    {% if results %}
+    {% for result in results|slice:":20" %}
+        <p>
+            <a href="{{ result.path }}">{{ result.title|safe }}</a>
+            {{ result.content|truncatewords:"10" }}
+        </p>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

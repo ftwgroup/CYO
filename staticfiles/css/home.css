@@ -1,6 +1,12 @@
 #main_content {
     min-height: 200px;
 }
+.concert_tabs{
+    display: none;
+}
+.concert_tabs{
+    display: none;
+}
 #map1{
     position:absolute;
     width:240px;
@@ -37,7 +43,7 @@
 }
 #feature-boxes > div {
     min-height: 280px;
-    width: 239px;
+    width: 238px;
     position: relative;
     top: -40px;
     z-index: 20;
@@ -53,6 +59,8 @@
 #feature-boxes ul{
     list-style: none;
     margin: .5em;
+    min-height: 60px;
+    display: block;
 }
 .fimage img{
     width:100%;
@@ -70,6 +78,6 @@
     font-weight: bold;
 }
 .ticket-button{
-    margin: .2em .5em;
+    margin: 1em 10px;
     vertical-align: baseline;
 }

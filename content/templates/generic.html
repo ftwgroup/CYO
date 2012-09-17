@@ -1,20 +1,25 @@
 {% extends 'site_base.html' %}
 {% load feincms_tags %}
-<!-- TODO (Ipsheeta) add extra media tags http://www.feinheit.ch/media/labs/feincms/contenttypes.html#extra-media-for-content-types -->
-<!-- TODO (Julian) this page needs a main content that pulls from what ipsheeta is building. -->
 {% block extra_head %}
     {{ feincms_page.content.media }}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/generic.css" />
     <script type="text/javascript" src="{{ STATIC_URL }}js/fancybox/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/generic.js"></script>
 {% endblock %}
-
 {% block style %}background: white;{% endblock %}
+{% block breadcrumbs %}{% endblock %}
 {% block main_content %}
-    <div class="row">
-        <div class="column grid_738 whitebox">
-            <h1>{{ feincms_page.title }}</h1>
-            {% feincms_render_region feincms_page "content" request %}
+    <div class="content-header">
+            {% feincms_render_region feincms_page "content_header" request %}
+    </div>
+    <div class="row content-body">
+        <div class="full">
+                <div class="column left leftimage">
+                    {% feincms_render_region feincms_page "left_side_image" request %}
+                </div>
+            <div class="column {% if feincms_page.content.left_side_image %}right grid_400 {% else %}full{% endif %}">
+                {% feincms_render_region feincms_page "right_column_text" request %}
+            </div>
         </div>
     </div>
 {% endblock %}

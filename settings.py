@@ -13,7 +13,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('0.0.0.0',)
 
 DATABASES = {
     'default': {
@@ -115,6 +115,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.media',
     'django.core.context_processors.debug',
+    # Use if we need to place feincms_page objects on various pages
+    #'feincms.context_processors.add_page_if_missing',
 )
 
 ROOT_URLCONF = 'cyo.urls'
@@ -144,7 +146,10 @@ INSTALLED_APPS = (
     'content',
     'auditions',
     'repertoire',
+    'whoosh',
 )
+
+
 FEINCMS_TREE_EDITOR_INCLUDE_ANCESTORS = True
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
     'TINYMCE_JS_URL': STATIC_URL+'js/tiny_mce/tiny_mce.js',

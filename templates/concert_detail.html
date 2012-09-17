@@ -1,0 +1,9 @@
+{% extends "concert_archive.html" %}
+{% block concert_abstract %}
+{% endblock %}
+{% block page_content %}
+    <h1>{{ concert.title }}{% if concert.series and concert.season %} </h1>
+        <h2> {{ concert.series }} - Season {{ concert.season }}{% endif %}</h2>
+        {% if concert.poster_image %}{{ concert.poster_image }}{% endif %}{{ concert.description|safe }}
+
+{% endblock %}
