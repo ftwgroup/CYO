@@ -146,9 +146,14 @@ INSTALLED_APPS = (
     'content',
     'auditions',
     'repertoire',
-    'whoosh',
+    'haystack',
+    # 'whoosh',
 )
 
+# setup haystack with whoosh
+HAYSTACK_SITECONF = 'cyo.search_sites'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = os.path.join(PROJECT_ROOT, 'search_index')
 
 FEINCMS_TREE_EDITOR_INCLUDE_ANCESTORS = True
 FEINCMS_RICHTEXT_INIT_CONTEXT = {

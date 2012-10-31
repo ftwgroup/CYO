@@ -1,0 +1,4 @@
+{{ object.title }}
+{{ object.description }}
+{{ object.series }}
+{{ object.featured_artist }}
