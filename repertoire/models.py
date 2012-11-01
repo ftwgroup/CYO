@@ -28,6 +28,10 @@ class Series(models.Model):
     def __unicode__(self):
         return self.title
 
+    @models.permalink
+    def get_absolute_url(self):
+        return 'series-detail', [str(self.id)]
+
 
 class Venue(models.Model):
     """
@@ -42,6 +46,10 @@ class Venue(models.Model):
 
     def __unicode__(self):
             return self.name
+
+    @models.permalink
+    def get_absolute_url(self):
+        return 'venue-detail', [str(self.id)]
 
 
 class Concert(models.Model):
@@ -115,6 +123,10 @@ class Song(models.Model):
     def __unicode__(self):
         return self.title
 
+    @models.permalink
+    def get_absolute_url(self):
+        return 'song-detail', [str(self.id)]
+
 
 class Person(models.Model):
     """
@@ -132,6 +144,9 @@ class Person(models.Model):
     def __unicode__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return 'person-detail', [str(self.id)]
 
 class Performer(Person):
     pass

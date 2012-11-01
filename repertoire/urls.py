@@ -16,5 +16,5 @@ urlpatterns = patterns('',
     url(r'person/(?P<pk>\d+)/$', DetailView.as_view(), name='person-detail'),
     url(r'song/(?P<pk>\d+)/$', DetailView.as_view(), name='song-detail'),
     url(r'season/(?P<pk>\d+)/$', DetailView.as_view(), name='season-detail'),
-    url(r'series(?P<pk>\d+)/$', DetailView.as_view(), name='series-detail'),
+    url(r'series/(?P<pk>\d+)/$', DetailView.as_view(), name='series-detail'),
 )
