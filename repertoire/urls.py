@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     #handle individual details per item in repertoire
     url(r'concert/(?P<pk>\d+)/$', DetailView.as_view(model=Concert), name='concert-detail'),
     url(r'person/(?P<pk>\d+)/$', DetailView.as_view(model=Person), name='person-detail'),
+    #TODO maybe - queryset for all the concerts each song is in so that can be displayed in the view as well
     url(r'song/(?P<pk>\d+)/$', DetailView.as_view(model=Song), name='song-detail'),
     url(r'season/(?P<pk>\d+)/$', DetailView.as_view(), name='season-detail'),
     url(r'series/(?P<pk>\d+)/$', DetailView.as_view(model=Series), name='series-detail'),

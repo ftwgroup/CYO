@@ -13,7 +13,7 @@ class VenueAdmin(admin.ModelAdmin):
 	search_fields = ['name', 'city']
 
 class SongAdmin(admin.ModelAdmin):
-	search_fields = ['title', 'composer']
+	search_fields = ['title']
 
 class PerformerAdmin(admin.ModelAdmin):
 	search_fields = ['first_name', 'last_name', 'bio']

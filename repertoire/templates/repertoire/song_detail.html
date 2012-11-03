@@ -2,14 +2,14 @@
 {# model = Song #}
         {% block main_content %}
                 <div><h2>{{ song.title }}</h2>
-                    <h3>Composer: {{ song.composer.first_name }} {{ song.composer.first_name }}</h3>
+                    <h3>Composer: <a href="{{ song.composer.get_absolute_url }}">{{ song.composer.first_name }} {{ song.composer.last_name }}</a></h3>
                     <br />
-                    {{ song.description }}
+                    {{ song.description|linebreaks }}
                     <table>
-                        {% for concertsong in concert.concertsong_set.all %}
+                    	<th><h3>Performed During:</h3></th>
+                        {% for ps in song.performedsong_set.all %}
                             <tr>
-                                <td>{{ concertsong.title }}</td>
-                                <td>{{ concertsong.song.composer }}</td>
+                                <td><a href="{{ ps.concert.get_absolute_url}}">{{ ps.concert.title }}</a></td>
                             </tr>
                         {% endfor %}
                     </table>

@@ -31,7 +31,9 @@ class Series(models.Model):
 
     @app_models.permalink
     def get_absolute_url(self):
-        return 'series-detail', [str(self.id)]
+        return ('series-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 
 class Venue(models.Model):
@@ -50,7 +52,9 @@ class Venue(models.Model):
 
     @app_models.permalink
     def get_absolute_url(self):
-        return 'venue-detail', [str(self.id)]
+        return ('venue-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 
 class Concert(models.Model):
@@ -83,7 +87,9 @@ class Concert(models.Model):
 
     @app_models.permalink
     def get_absolute_url(self):
-        return 'concert-detail', [str(self.id)]
+        return ('concert-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 
 class PerformedSong(models.Model):
@@ -126,7 +132,9 @@ class Song(models.Model):
 
     @app_models.permalink
     def get_absolute_url(self):
-        return 'song-detail', [str(self.id)]
+        return ('song-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 
 class Person(models.Model):
@@ -147,7 +155,9 @@ class Person(models.Model):
 
     @app_models.permalink
     def get_absolute_url(self):
-        return 'person-detail', [str(self.id)]
+        return ('person-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 class Performer(Person):
     pass
