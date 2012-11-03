@@ -153,11 +153,10 @@ class Person(models.Model):
     def __unicode__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
-    @app_models.permalink
-    def get_absolute_url(self):
-        return ('person-detail', 'repertoire.urls', (), {
-            'pk': self.pk,
-            })
 
 class Performer(Person):
-    pass
+    @app_models.permalink
+    def get_absolute_url(self):
+        return ('performer-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
