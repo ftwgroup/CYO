@@ -1,7 +1,10 @@
 {% extends 'repertoire/rep_base.html' %}
 {# model = Song #}
         {% block main_content %}
-                <div><h2>{{ song.title }}, {{ song.composer.first_name }} {{ song.composer.first_name }}</h2>
+                <div><h2>{{ song.title }}</h2>
+                    <h3>Composer: {{ song.composer.first_name }} {{ song.composer.first_name }}</h3>
+                    <br />
+                    {{ song.description }}
                     <table>
                         {% for concertsong in concert.concertsong_set.all %}
                             <tr>
