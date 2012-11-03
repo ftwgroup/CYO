@@ -5,8 +5,8 @@
     <table>
         {% for song in repertoire_list %}
             <tr>
-                <td>{{ song.title }}</td>
-                <td>{{ song.composer.last_name }}, {{ song.composer.first_name }}</td>
+                <td><a href="{{ song.get_absolute_url }}">{{ song.title }}</a></td>
+                <td><a href="{{ song.composer.get_absolute_url }}">{{ song.composer.last_name }}, {{ song.composer.first_name }}</a></td>
             </tr>
         {% endfor %}
     </table>

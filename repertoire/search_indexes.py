@@ -16,8 +16,6 @@ class ConcertIndex(SearchIndex):
 
 class PerformerIndex(SearchIndex):
 	text = CharField(document=True, use_template=True)
-	# first_name = CharField(model_attr="first_name")
-	# bio = CharField(model_attr="bio")
 
 site.register(Series, SeriesIndex)
 site.register(Venue, VenueIndex)
