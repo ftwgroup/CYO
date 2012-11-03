@@ -31,8 +31,8 @@ class Series(models.Model):
 
     @app_models.permalink
     def get_absolute_url(self):
-        return ('series-detail', 'repertoire.urls', (), {
-            'pk': self.pk,
+        return ('concert-archive', 'repertoire.concerts', (), {
+            'slug': self.slug,
             })
 
 
