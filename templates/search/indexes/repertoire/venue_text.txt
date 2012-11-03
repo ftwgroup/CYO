@@ -4,3 +4,6 @@
 {{ object.city }}
 {{ object.state }}
 {{ object.zip_code }}
+{% for concert in object.concert_set.all %}
+{{ concert.title }}
+{% endfor %}
