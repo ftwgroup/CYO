@@ -25,7 +25,7 @@ urlpatterns = patterns('',
     # url(r'^concert/$', redirect_to, {'url' : '/concerts/'}),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
             {'sitemaps': sitemaps}),
-    (r'^search/', include('haystack.urls')),
+    # (r'^search/', include('haystack.urls')),
     url(r'^', include('content.urls')),
     url(r'^', include('feincms.urls')),
 

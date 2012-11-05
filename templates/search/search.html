@@ -1,8 +1,7 @@
-{% extends 'site_base.html' %}
 {% load repertoire_tags %}
 
 {% block main_content %}
-    <h2>Search</h2>
+    <h1>Search</h1>
 
     <form name="search_form" method="get" action=".">
         <table>
@@ -16,7 +15,7 @@
         </table>
 
         {% if query %}
-            <h3>Results</h3>
+            <h2>Results</h2>
 
             {% for result in page.object_list %}
                 <p>

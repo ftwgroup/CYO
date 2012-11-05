@@ -93,6 +93,7 @@ Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ('repertoire.concerts', 'Upcoming Concert \+ Archives'),
     ('repertoire.urls', 'Repertoire Application'),
     ('repertoire.featured_boxes', 'Featured Boxes'),
+    ('haystack.urls', 'Search Application'),
     ))
 
 class ImageInField(FeinCMSInline):
