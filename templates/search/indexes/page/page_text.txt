@@ -1,2 +1,5 @@
 {{ object.title }}
-{{ object.body }}
+{# TODO figure out how to index page content #}
+{% for ct in object.content.body %} 
+  {{ ct.text }} 
+{% endfor %}
