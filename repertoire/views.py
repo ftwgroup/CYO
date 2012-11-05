@@ -63,64 +63,66 @@ def upload_file(request):
             for row in reader:
                 if row[0] != "ID":
                     song_title = row[1]
-                    person_first_name = row[2]
-                    person_last_name = row[3]
-                    person_birth_year_and_death_year = row[4].split("-")
-                    person_birth_year = person_birth_year_and_death_year[0].strip()
-                    print "PERSON BIRTH YEAR IS %s" % person_birth_year
+                    person_first_name = row[2].strip()
+                    person_last_name = row[3].strip()
+                    person_birth_year_and_death_year = row[4].strip().split("-")
+                    person_birth_year = person_birth_year_and_death_year[0]
                     try:
                         person_birth_year = int(person_birth_year)
                     except ValueError:
                         person_birth_year = 9999
                     if len(person_birth_year_and_death_year) > 1:
-                        person_death_year = person_birth_year_and_death_year[1].strip()
-                        if person_death_year != '':
+                        person_death_year = person_birth_year_and_death_year[1]
+                        try:
                             person_death_year = int(person_death_year)
-                    concert_title = row[5]
-                    concert_description = row[6]
-                    concert_abstract = row[7]
-                    series_title = row[8]
-                    concert_season = row[9]
+                        except ValueError:
+                            person_death_year = None
+                    concert_title = row[5].strip()
+                    concert_description = row[6].strip()
+                    concert_abstract = row[7].strip()
+                    series_title = row[8].strip()
+                    concert_season = row[9].strip()
                     if concert_season == "":
                         concert_season = 0
-                    concert_rough_date = row[10]
+                    else:
+                        concert_season = int(concert_season)
+                    concert_rough_date = row[10].strip()
                     try:
-                        concert_date_time = datetime.datetime.strptime(row[11], "%m/%d/%Y %H:%M")
+                        concert_date_time = datetime.datetime.strptime(row[11].strip(), "%m/%d/%Y %H:%M")
                     except ValueError:
                         continue
-                    print concert_date_time
-                    performedsong_premiere = row[12]
+                    performedsong_premiere = row[12].strip()
                     concert_featured_artist_first = row[13].split(",")
                     concert_featured_artist_last = row[14].split(",")
-                    venue_name = row[16]
-                    performedsong_arranger_first = row[17]
-                    performedsong_arranger_last = row[18]
-                    performedsong_guest_artist_first = row[19]
-                    performedsong_guest_artist_last = row[20]
-                    performedsong_soloist_first = row[22]
-                    performedsong_soloist_last = row[23]
+                    venue_name = row[16].strip()
+                    performedsong_arranger_first = row[17].strip()
+                    performedsong_arranger_last = row[18].strip()
+                    performedsong_guest_artist_first = row[19].strip()
+                    performedsong_guest_artist_last = row[20].strip()
+                    performedsong_soloist_first = row[22].strip()
+                    performedsong_soloist_last = row[23].strip()
                     val = URLValidator(verify_exists=False)
                     try:
-                        val(row[24])
-                        concert_poster_image_url = row[24]
+                        val(row[24].strip())
+                        concert_poster_image_url = row[24].strip()
                     except ValidationError, e:
                         pass
                     try:
-                        val(row[25])
-                        concert_photos_link = row[25]
+                        val(row[25].strip())
+                        concert_photos_link = row[25].strip()
                     except ValidationError, e:
                         pass
                     try:
-                        val(row[26])
-                        concert_video_link = row[26]
+                        val(row[26].strip())
+                        concert_video_link = row[26].strip()
                     except ValidationError, e:
                         pass
                     try:
-                        val(row[27])
-                        concert_program_file_url = row[27]
+                        val(row[27].strip())
+                        concert_program_file_url = row[27].strip()
                     except ValidationError, e:
                         pass
-                    performedsong_note = row[28]
+                    performedsong_note = row[28].strip()
                     try:
                         arranger = Performer.objects.get(first_name=performedsong_arranger_first, last_name=performedsong_arranger_last)
                     except Performer.DoesNotExist:
@@ -140,13 +142,15 @@ def upload_file(request):
                         composer = Performer.objects.get(first_name=person_first_name, last_name=person_last_name)
                     except Performer.DoesNotExist:
                         composer = Performer(first_name=person_first_name, last_name=person_last_name, birth_year=person_birth_year)
-                        if person_death_year:
+                        try:
                             composer.death_year = person_death_year
+                        except:
+                            pass
                         composer.save()
                     featured_artists = []
                     for index, artist in enumerate(concert_featured_artist_first):
                         try:
-                            featured_artist, created = Performer.objects.get_or_create(first_name=concert_featured_artist_first[index], last_name=concert_featured_artist_last[index])
+                            featured_artist, created = Performer.objects.get_or_create(first_name=concert_featured_artist_first[index].strip(), last_name=concert_featured_artist_last[index].strip())
                             if created:
                                 featured_artist.birth_year = 9999
                                 featured_artist.save()
@@ -181,7 +185,7 @@ def upload_file(request):
                     performed_song.guest_artist.add(guest_artist)
                     performed_song.note = performedsong_note
                     performed_song.save()
-                    return HttpResponseRedirect('/admin/repertoire/concert')
+            return HttpResponseRedirect('/admin/repertoire/')
     else:
         form = UploadFileForm()
     return render_to_response('upload.html', RequestContext(request, {'form': form}))
