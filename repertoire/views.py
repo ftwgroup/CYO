@@ -20,7 +20,7 @@ class RepertoireView(ListView):
     This class renders the repertoire
     """
     allow_empty = True
-    paginate_by = 5
+    paginate_by = 15
     context_object_name = 'repertoire_list'
 
     def dispatch(self, request, *args, **kwargs):

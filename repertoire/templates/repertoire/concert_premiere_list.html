@@ -18,5 +18,22 @@
                 </tr>
                 {% endfor %}
             </table>
+            {# .... **Now the pagination section** .... #}
+            {% if is_paginated %}
+            <br>
+                <div class="pagination">
+                    <span class="page-links">
+                        {% if page_obj.has_previous %}
+                            <a href="{% url by-premiere %}?page={{ page_obj.previous_page_number }}"><small><em>previous</em></small></a>
+                        {% endif %}
+                        <span class="page-current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="{% url by-premiere %}?page={{ page_obj.next_page_number }}"><small><em>next</em></small></a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
         </div>
 {% endblock %}
