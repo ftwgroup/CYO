@@ -60,9 +60,8 @@
                 {% for c in concert_archive_item %}
                 <tr>
                     <td>Season {{ c.season }}</td>
-                    <!-- <td><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></td> -->
                     <!-- TODO (jordan): use Django to populate this URL automatically -->
-                    <td><a href="/concert/series/{{ c.series.slug }}/{{ c.season }}/">{{ c.title }}</a></td>
+                    <td><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></td>
                     {% if c.media_link %}
                         <td>{{ c.media_link }}</td>
                         {# TODO possibly break this up into program, youtube, and photos #}
