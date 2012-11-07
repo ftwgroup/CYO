@@ -1,9 +1,13 @@
 {% load repertoire_tags %}
+{% load highlight %}
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/search.css" />
+{% endblock %}
 {% block main_content %}
     <h1>Search</h1>
 
-    <form name="search_form" method="get" action=".">
+    <form id="search_form" method="get" action=".">
         <table>
             {{ form.as_table }}
             <tr>
@@ -15,16 +19,28 @@
         </table>
 
         {% if query %}
-            <h2>Results</h2>
-
+            <div class="search_result_container">
+                <span class="search_result_left"><h1>Your Search Results for "<span class="highlighted">{{ query }}</span>"</h1></span>
+                <span class="search_result_right page_count">Page {{ page.number }} of {{ paginator.num_pages }}</span>       
+            </div>
+            <hr>
             {% for result in page.object_list %}
                 <p>
-                    {{ result.object|to_class_name }} <a href="{{ result.object.get_absolute_url }}">{{ result.object }}</a>
+                    <div class="search_result_container">
+                        <span class="search_result_left search_result_title"><a href="{{ result.object.get_absolute_url }}">{% highlight result.object with query  %}</a></span><span class="search_result_right">{{ result.object|to_class_name }}</span>
+                    </div>
+                
+                    {% if result.object.description %}
+                        {% highlight result.object.description with query %}
+                    {% endif %}
+                    {% if result.object.bio %}
+                        {% highlight result.object.bio with query %}
+                    {% endif %}
+                    <div class="result_link"><a href="{{ result.object.get_absolute_url }}">www.cyorchestra.org{{ result.object.get_absolute_url }}</a></div>
                 </p>
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}
-
             {% if page.has_previous or page.has_next %}
                 <div>
                     {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}

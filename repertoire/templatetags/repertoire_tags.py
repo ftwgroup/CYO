@@ -4,6 +4,8 @@ register = template.Library()
 
 @register.filter
 def to_class_name(value):
+	if value.__class__.__name__ == "Page":
+		return "Content"
 	return value.__class__.__name__
 
 
