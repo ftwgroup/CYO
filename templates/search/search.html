@@ -21,7 +21,7 @@
         {% if query %}
             <div class="search_result_container">
                 <span class="search_result_left"><h1>Your Search Results for "<span class="highlighted">{{ query }}</span>"</h1></span>
-                <span class="search_result_right page_count">Page {{ page.number }} of {{ paginator.num_pages }}</span>       
+                <span class="search_result_right page_count">Result <span class="highlighted">{{ page.start_index }}</span>-<span class="highlighted">{{ page.end_index }}</span> of <span class="highlighted">{{ paginator.count }}</span></span>       
             </div>
             <hr>
             {% for result in page.object_list %}
