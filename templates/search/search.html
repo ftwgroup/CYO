@@ -28,7 +28,7 @@
                 <p>
                     <div class="search_result_container">
                         <span class="search_result_left search_result_title"><a href="{{ result.object.get_absolute_url }}">{% highlight result.object with query  %}</a></span>
-                        <span class="search_result_right">{{ result.object|print_model_fields }}</span>
+                        <span class="search_result_right">{{ result.object|to_class_name }}</span>
                     </div>
                     {% if result.object.description %}
                         {% highlight result.object.description with query %}

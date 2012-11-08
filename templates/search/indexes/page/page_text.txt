@@ -1,5 +1,4 @@
 {{ object.title }}
-{# TODO figure out how to index page content #}
 {% for ct in object.richtextcontent_set.all %} 
   {{ ct.text }} 
 {% endfor %}
