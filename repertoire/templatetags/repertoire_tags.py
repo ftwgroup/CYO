@@ -8,6 +8,14 @@ def to_class_name(value):
 		return "Content"
 	return value.__class__.__name__
 
+@register.filter
+def print_model_fields(value):
+	print value._meta.get_all_field_names()
+	for rt in value.richtextcontent_set.all():
+		print rt._meta.get_all_field_names()
+		print rt.text
+	print value.richtextcontent_set
+	return value
 
 @register.filter_function
 def order_by(queryset, args):

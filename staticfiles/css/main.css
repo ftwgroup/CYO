@@ -36,8 +36,8 @@ input.box{width:120px;color:#666;border:0;float:right;margin:55px 0 0;padding:.2
 #navigation ul li:first-child a{margin-left:0}
 #navigation a{display:block;width:auto;text-transform:uppercase;margin:0 .6em}
 div#navigation li{width:auto;float:left;margin-top:1px;color:#666;list-style:none}
-#footer{color:#666;margin:20px 20px 40px}
-#footer img{border:0;margin:0 4px}
+#footer{color:#666;margin:20px 20px 40px;font-size:1.1em !important;}
+#footer img{border:0;margin:0 4px;vertical-align: text-bottom;}
 div#footer li{float:left;list-style:none}
 span#footer-extend{background:#111;float:right;margin-right:60px}
 #footer-extend a{color:#FFF}
