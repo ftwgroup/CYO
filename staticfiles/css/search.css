@@ -14,12 +14,13 @@
 	float: none;
 	display: table-cell;
 	color: #02B;
+	width: 80%;
 }
 .search_result_title {
 	font-size: 1.4em;
 }
-.search_result_container h1 {
-	font-size: 2.3em;
+.search_result_container .search_result_left h1 {
+	font-size: 2.2em !important;
 }
 .search_result_left a:link, .search_result_left a:active, .search_result_left a:visited {
 	color: #02B;
@@ -29,9 +30,7 @@
 }
 .search_result_right {
 	display: table-cell;
-	width: 80px;
-	float: right;
+	text-align: right;
+	padding-right: 10px;
 }
-.page_count {
-	width: 140px;
-}
+

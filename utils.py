@@ -8,7 +8,6 @@ class SearchHighlighter(Highlighter):
     text_block = ''
     
     def __init__(self, query, **kwargs):
-    	print "INSIDE INIT"
         self.query = query
         
         if 'max_length' in kwargs:
