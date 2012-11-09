@@ -464,6 +464,7 @@ div.jp-title li {
 div.jp-playlist li {
 	padding:5px 0 1px 10px;
 	border-bottom:1px solid darkgray;
+	display: none;
 }
 
 div.jp-playlist li div {
@@ -479,6 +480,7 @@ div.jp-type-playlist div.jp-playlist li:last-child {
 div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
 	list-style-type:none;
 	background-color: darkgray;
+	display: block !important;
 }
 div.jp-type-playlist div.jp-playlist a {
 	color: lightgray;
