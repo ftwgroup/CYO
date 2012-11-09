@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 import datetime
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from repertoire.models import Concert, PerformedSong, Performer, Song, Series, Venue
+from repertoire.models import *
 from repertoire.forms import UploadFileForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.template import RequestContext
@@ -95,35 +95,38 @@ def upload_file(request):
                     performedsong_premiere = row[12].strip()
                     concert_featured_artist_first = row[13].split(",")
                     concert_featured_artist_last = row[14].split(",")
+                    featured_artist_instrument = row[15].split(",")
                     venue_name = row[16].strip()
                     performedsong_arranger_first = row[17].strip()
                     performedsong_arranger_last = row[18].strip()
                     performedsong_guest_artist_first = row[19].strip()
                     performedsong_guest_artist_last = row[20].strip()
+                    guest_artist_instrument = row[21].strip()
                     performedsong_soloist_first = row[22].strip()
                     performedsong_soloist_last = row[23].strip()
+                    soloist_instrument = row[24].strip()
                     val = URLValidator(verify_exists=False)
                     try:
-                        val(row[24].strip())
-                        concert_poster_image_url = row[24].strip()
-                    except ValidationError, e:
-                        pass
-                    try:
                         val(row[25].strip())
-                        concert_photos_link = row[25].strip()
+                        concert_poster_image_url = row[25].strip()
                     except ValidationError, e:
                         pass
                     try:
                         val(row[26].strip())
-                        concert_video_link = row[26].strip()
+                        concert_photos_link = row[26].strip()
                     except ValidationError, e:
                         pass
                     try:
                         val(row[27].strip())
-                        concert_program_file_url = row[27].strip()
+                        concert_video_link = row[27].strip()
                     except ValidationError, e:
                         pass
-                    performedsong_note = row[28].strip()
+                    try:
+                        val(row[28].strip())
+                        concert_program_file_url = row[28].strip()
+                    except ValidationError, e:
+                        pass
+                    performedsong_note = row[29].strip()
                     try:
                         arranger = Performer.objects.get(first_name=performedsong_arranger_first, last_name=performedsong_arranger_last)
                     except Performer.DoesNotExist:
@@ -186,6 +189,17 @@ def upload_file(request):
                     performed_song.guest_artist.add(guest_artist)
                     performed_song.note = performedsong_note
                     performed_song.save()
+                    for index, instrument in enumerate(featured_artist_instrument):
+                        instrument = instrument.strip()
+                        if instrument != '':
+                            inst, created = Instrument.objects.get_or_create(instrument=instrument)
+                            fainstrument = FeaturedArtistInstrument.objects.get_or_create(performer=featured_artists[index], performed_song=performed_song, instrument=inst)
+                    if guest_artist_instrument != '':
+                        instrument, created = Instrument.objects.get_or_create(instrument=guest_artist_instrument) 
+                        gainstrument = GuestArtistInstrument.objects.get_or_create(performer=guest_artist, performed_song=performed_song, instrument=instrument)
+                    if soloist_instrument != '':
+                        instrument, created = Instrument.objects.get_or_create(instrument=soloist_instrument)
+                        soinstrument = SoloistInstrument.objects.get_or_create(performer=soloist, performed_song=performed_song, instrument=instrument) 
             return HttpResponseRedirect('/admin/repertoire/')
     else:
         form = UploadFileForm()

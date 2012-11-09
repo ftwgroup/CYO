@@ -1,3 +1,4 @@
+{% load repertoire_tags %}
 {% with concert=object_list.0 %}
     {% block concert_abstract %}
         <h1 class='parenth1'>{{ concert.series.title }}</h1>
@@ -57,10 +58,9 @@
                 </tr>
             </thead>
                 <tbody>
-                {% for c in concert_archive_item %}
+                {% for c in concert_archive_item|order_by:'-date_time' %}
                 <tr>
                     <td>Season {{ c.season }}</td>
-                    <!-- TODO (jordan): use Django to populate this URL automatically -->
                     <td><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></td>
                     {% if c.media_link %}
                         <td>{{ c.media_link }}</td>
