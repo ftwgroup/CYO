@@ -490,9 +490,9 @@ div.jp-type-playlist div.jp-playlist a {
 /* Zenphoto addition for extra <span> to number playlist entries */
 div.jp-type-playlist div.jp-playlist a span {
 	display: block;
-	width: 20px;
-	float: left;
-	text-align: right;
+/*	width: 20px;*/
+/*	float: left;*/
+/*	text-align: right;*/
 	margin-top:0px;
 	margin-right: 4px;
 	font-weight: bold;
@@ -508,7 +508,7 @@ div.jp-type-playlist div.jp-playlist a.jp-playlist-current {
 
 div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove {
 	float:right;
-	display:inline;
+	display:none !important;
 	text-align:right;
 	margin-right:10px;
 	font-weight:bold;
@@ -530,7 +530,7 @@ div.jp-type-playlist div.jp-playlist span.jp-free-media a:hover{
 	color:#0d88c1;
 }
 span.jp-artist {
-	font-size:11px;
+/*	font-size:11px;*/
 	color:#666;
 }
 
