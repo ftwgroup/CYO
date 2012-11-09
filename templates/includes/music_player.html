@@ -1,13 +1,16 @@
 <script type="text/javascript">
             $(document).ready(function(){
+                var localUrl = 'http://127.0.0.1:8000';
+                var homeUrl = 'http://www.cyorchestra.org';
+                if ( document.URL == homeUrl || document.URL == localUrl ){
+                    var playOnStart = true;
+                }else{
+                    var playOnStart = false;   
+                }
                 new jPlayerPlaylist({
                     jPlayer: "#jquery_jplayer_1",
                     cssSelectorAncestor: "#jp_container_1"
                 }, [
-                    {
-                        title:"Traffic Jam by Jared Miller (2010)",
-                        mp3:"/static/audio/01_2010__Traffic_Jam_-_Jared_Miller.mp3"
-                    },
                     {
                         title:"Sun Up",
                         mp3:"/static/audio/02 Sun Up.mp3",
@@ -32,7 +35,7 @@
                 ],
                     {
                         playlistOptions: {
-                            autoPlay: true,
+                            autoPlay: playOnStart,
                             enableRemoveControls: true
                     },
                     swfPath: "/static/js/jplayer", //"../js",
@@ -40,6 +43,7 @@
                     wmode: "window"
                 });
             });
+
 </script>
 
 

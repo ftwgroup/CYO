@@ -30,6 +30,11 @@
                         <span class="search_result_left search_result_title"><a href="{{ result.object.get_absolute_url }}">{% highlight result.object with query  %}</a></span>
                         <span class="search_result_right">{{ result.object|to_class_name }}</span>
                     </div>
+                    {% if result.object|to_class_name == "Content" %}
+                        {% for ct in result.object.richtextcontent_set.all %} 
+                          {% highlight ct.text with query   %} 
+                        {% endfor %}
+                    {% endif %}
                     {% if result.object.description %}
                         {% highlight result.object.description with query %}
                     {% endif %}

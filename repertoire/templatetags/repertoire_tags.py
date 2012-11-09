@@ -8,7 +8,6 @@ def to_class_name(value):
 		return "Content"
 	return value.__class__.__name__
 
-
 @register.filter_function
 def order_by(queryset, args):
     args = [x.strip() for x in args.split(',')]
