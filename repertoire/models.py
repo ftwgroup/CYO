@@ -161,3 +161,25 @@ class Performer(Person):
         return ('performer-detail', 'repertoire.urls', (), {
             'pk': self.pk,
             })
+
+class Instrument(models.Model):
+    instrument = models.CharField(max_length=32)
+
+    def __unicode__(self):
+        return self.instrument
+
+class FeaturedArtistInstrument(models.Model):
+    performer = models.ForeignKey('Performer')
+    performed_song = models.ForeignKey('PerformedSong')
+    instrument = models.ForeignKey('Instrument')
+
+class GuestArtistInstrument(models.Model):
+    performer = models.ForeignKey('Performer')
+    performed_song = models.ForeignKey('PerformedSong')
+    instrument = models.ForeignKey('Instrument')
+
+class SoloistInstrument(models.Model):
+    performer = models.ForeignKey('Performer')
+    performed_song = models.ForeignKey('PerformedSong')
+    instrument = models.ForeignKey('Instrument')
+    

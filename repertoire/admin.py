@@ -46,9 +46,28 @@ class PerformedSongAdmin(admin.ModelAdmin):
 	list_filter = ['premiere', 'concert']
 	search_fields = ['song__title', 'concert__title']
 
+class FeaturedArtistInstrumentAdmin(admin.ModelAdmin):
+	list_display = ['performer', 'performed_song', 'instrument']
+	list_filter = ['instrument']
+	search_fields = ['instrument__title', 'performer__last_name', 'performed_song__title']
+
+class GuestArtistInstrumentAdmin(admin.ModelAdmin):
+	list_display = ['performer', 'performed_song', 'instrument']
+	list_filter = ['instrument']
+	search_fields = ['instrument__title', 'performer__last_name', 'performed_song__title']
+
+class SoloistInstrumentAdmin(admin.ModelAdmin):
+	list_display = ['performer', 'performed_song', 'instrument']
+	list_filter = ['instrument']
+	search_fields = ['instrument__title', 'performer__last_name', 'performed_song__title']
+
 admin.site.register(Concert, ConcertAdmin)
 admin.site.register(PerformedSong, PerformedSongAdmin)
 admin.site.register(Performer, PerformerAdmin)
 admin.site.register(Series, SeriesAdmin)
 admin.site.register(Song, SongAdmin)
 admin.site.register(Venue, VenueAdmin)
+admin.site.register(Instrument)
+admin.site.register(FeaturedArtistInstrument, FeaturedArtistInstrumentAdmin)
+admin.site.register(GuestArtistInstrument, GuestArtistInstrumentAdmin)
+admin.site.register(SoloistInstrument, SoloistInstrumentAdmin)
