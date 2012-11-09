@@ -1,5 +1,6 @@
 {% load repertoire_tags %}
-{% with concert=object_list.0 %}
+{% with concerts=object_list|order_by:"-date_time" %}
+{% with concert=concerts.0 %}
     {% block concert_abstract %}
         <h1 class='parenth1'>{{ concert.series.title }}</h1>
         <div class="row">
@@ -58,7 +59,7 @@
                 </tr>
             </thead>
                 <tbody>
-                {% for c in concert_archive_item|order_by:'-date_time' %}
+                {% for c in concert_archive_item|order_by:'-date_time'|slice:"1:" %}
                 <tr>
                     <td>Season {{ c.season }}</td>
                     <td><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></td>
@@ -73,4 +74,5 @@
         {% endblock %} {# page_content #}
         </div>
     </div>
+{% endwith %}
 {% endwith %}
