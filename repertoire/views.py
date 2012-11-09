@@ -10,6 +10,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
+from django.utils import simplejson
 
 # TODO make repertoire view dynamic for all filter options
 
@@ -189,3 +190,12 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     return render_to_response('upload.html', RequestContext(request, {'form': form}))
+
+def generate_playlist(request):
+    playlist = Song.objects.filter(audio_file__isnull=False).order_by('?')[:10]
+    to_json = []
+    for song in playlist:
+        composer_name = "%s %s" % (song.composer.first_name, song.composer.last_name)
+        to_json.append({"title":song.title, "artist": composer_name, "mp3": song.audio_file.url})
+    return HttpResponse(simplejson.dumps(to_json), mimetype='application/json')
+

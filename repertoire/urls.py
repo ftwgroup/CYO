@@ -4,6 +4,7 @@ from repertoire.views import RepertoireView
 from repertoire.models import *
 
 urlpatterns = patterns('',
+    url(r'get_playlist/$', 'repertoire.views.generate_playlist', name='get-playlist'),
     url(r'arranger/$', RepertoireView.as_view(), {'filter':'arranger'}, name='by-arranger'),
     url(r'composer/$', RepertoireView.as_view(), {'filter':'composer'}, name='by-composer'),
     url(r'guest/$', RepertoireView.as_view(), {'filter':'guest'}, name='by-guest'),
