@@ -1,6 +1,7 @@
 from django.contrib.localflavor.us.models import USStateField
 from django.db import models
 from django.template.defaultfilters import slugify
+from feincms.content.application import models as app_models
 
 # TODO include tagging
 
@@ -28,6 +29,12 @@ class Series(models.Model):
     def __unicode__(self):
         return self.title
 
+    @app_models.permalink
+    def get_absolute_url(self):
+        return ('series-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
+
 
 class Venue(models.Model):
     """
@@ -42,6 +49,12 @@ class Venue(models.Model):
 
     def __unicode__(self):
             return self.name
+
+    @app_models.permalink
+    def get_absolute_url(self):
+        return ('venue-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 
 class Concert(models.Model):
@@ -72,9 +85,11 @@ class Concert(models.Model):
     def __unicode__(self):
         return self.title
 
-    @models.permalink
+    @app_models.permalink
     def get_absolute_url(self):
-        return 'concert-detail', [str(self.id)]
+        return ('concert-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 
 class PerformedSong(models.Model):
@@ -115,6 +130,12 @@ class Song(models.Model):
     def __unicode__(self):
         return self.title
 
+    @app_models.permalink
+    def get_absolute_url(self):
+        return ('song-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
+
 
 class Person(models.Model):
     """
@@ -132,6 +153,11 @@ class Person(models.Model):
     def __unicode__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
+    @app_models.permalink
+    def get_absolute_url(self):
+        return ('person-detail', 'repertoire.urls', (), {
+            'pk': self.pk,
+            })
 
 class Performer(Person):
     pass

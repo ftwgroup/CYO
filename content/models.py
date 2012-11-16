@@ -149,4 +149,4 @@ class SponsorLogo(models.Model):
     def render(self, **kwargs):
         return render_to_string('content/mediafile/sponsor_logo.html', {'sponsor_logo': self})
 
-Page.create_content_type(SponsorLogo, regions=('content',))
+Page.create_content_type(SponsorLogo)
