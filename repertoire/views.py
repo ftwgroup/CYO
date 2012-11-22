@@ -206,7 +206,7 @@ def upload_file(request):
     return render_to_response('upload.html', RequestContext(request, {'form': form}))
 
 def generate_playlist(request):
-    playlist = Song.objects.filter(audio_file__startswith="song_audio_file/").order_by('?')[:10]
+    playlist = Song.objects.filter(audio_file__startswith="song_audio_file/").filter(playable=True).order_by('?')[:10]
     to_json = []
     for song in playlist:
         composer_name = "%s %s" % (song.composer.first_name, song.composer.last_name)

@@ -127,6 +127,7 @@ class Song(models.Model):
     composer = models.ForeignKey('Performer')
     description = models.TextField('Description of this song', blank=True, null=True)
     audio_file = models.FileField(upload_to='song_audio_file', blank=True, null=True)
+    playable = models.BooleanField(default=True)
 
     def __unicode__(self):
         return self.title
