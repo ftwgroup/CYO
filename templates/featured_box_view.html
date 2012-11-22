@@ -6,5 +6,7 @@
         <li>{{ featured_box.date_descriptor }}</li>
         <li>{{ concert.title }}{{ concert.description|safe }}</li>
     </ul>
-    <a href="{{ featured_box.tickets_url }}"><button class="ticket-button">Get Tickets!</button></a>
+    <a href="{{ featured_box.tickets_url }}">
+                        <button class="ticket-button" value="get-tickets"><span>Get Tickets!</span></button>
+                        </a>
 </div>

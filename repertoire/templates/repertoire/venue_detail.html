@@ -1,0 +1,22 @@
+{% extends 'repertoire/rep_base.html' %}
+{% load repertoire_tags %}
+{# model = Venue #}
+        {% block main_content %}
+                <div><h2>{{ venue.name }}</h2>
+                    {{ venue.address1 }}
+                    {% if venue.address2 %}
+                        <br>{{ venue.address2 }}
+                    {% endif %}
+                    <br>{{ venue.city }}, {{ venue.state }}  {{ venue.zip_code }}
+                    <br /><br />
+                    <table>
+                    	<th><h2><small>Concerts Performed at {{ venue.name }}</small></h2></th>
+                        {% for concert in venue.concert_set.all|order_by:'-rough_date' %}
+                            <tr>
+                                <td><a href="{{ concert.get_absolute_url}}">{{ concert.title }}</a></td>
+                                <td>{{ concert.rough_date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+        {% endblock %}

@@ -1,45 +1,40 @@
+
 <script type="text/javascript">
             $(document).ready(function(){
-                new jPlayerPlaylist({
-                    jPlayer: "#jquery_jplayer_1",
+                var localUrl = 'http://127.0.0.1:8000/';
+                var homeUrl = 'http://www.cyorchestra.org/';
+                if (document.location.hostname == '127.0.0.1') {
+                    playlistUrl = 'http://127.0.0.1:8000/repertoire/get_playlist'
+                } else {
+                    playlistUrl = 'http://www.cyorchestra.org/repertoire/get_playlist'
+                }
+                if ( document.URL == homeUrl || document.URL == localUrl ){
+                    var playOnStart = true;
+                }else{
+                    var playOnStart = false;   
+                }
+                var cssSelector = {
+                    jPlayer: "#jquery_jplayer_1", 
                     cssSelectorAncestor: "#jp_container_1"
-                }, [
-                    {
-                        title:"Traffic Jam by Jared Miller (2010)",
-                        mp3:"/static/audio/01_2010__Traffic_Jam_-_Jared_Miller.mp3"
-                    },
-                    {
-                        title:"Sun Up",
-                        mp3:"/static/audio/02 Sun Up.mp3",
-                    },
-                    {
-                        title:"Concerto for Electric Guitar, Electric Bass, Synthesizer, Drum Set and Orchestra IV. Composer Ryan Gallagher",
-                        mp3:"/static/audio/04 Concerto for Electric Guitar, Electric Bass, Synthesizer, Drum Set and Orchestra IV. Composer Ryan Gallagher.mp3",
-                    },
-                    {
-                        title:"Liquid Melancholy III and IV - Gilbert Stephenson",
-                        mp3:"/static/audio/06 Liquid Melancholy III and IV - Gilbert Stephenson",
-                    },
-                    {
-                        title:"Hidden",
-                        mp3:"/static/audio/01_2010__Traffic_Jam_-_Jared_Miller.mp3",
-                    },
-                    {
-                        title:"Lentement",
-                        free:true,
-                        mp3:"/static/audio/01_2010__Traffic_Jam_-_Jared_Miller.mp3",
-                    }
-                ],
-                    {
-                        playlistOptions: {
-                            autoPlay: true,
+                };
+                var playlist = []; // Empty playlist
+                var options = {
+                    playlistOptions: {
+                            autoPlay: playOnStart,
                             enableRemoveControls: true
                     },
                     swfPath: "/static/js/jplayer", //"../js",
                     supplied: "mp3",
                     wmode: "window"
-                });
+                };
+                var myPlaylist = new jPlayerPlaylist(cssSelector, playlist, options);
+                $.getJSON(playlistUrl,function(data){  // get the JSON array produced by my PHP
+                    $.each(data,function(index,value){
+                        myPlaylist.add(value); // add each element in data in myPlaylist
+                    })
+                }); 
             });
+
 </script>
 
 

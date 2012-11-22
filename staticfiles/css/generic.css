@@ -99,3 +99,25 @@ span.artist_title{
 div.image .caption, div.image .copyright{
     display:none;
 }
+
+.ticket-button {
+    cursor: pointer;  
+}  
+  
+.ticket-button:hover,  
+.ticket-button:focus {  
+    color: #FFDB01;
+}  
+  
+.ticket-button:hover span,  
+.ticket-button:focus span {  
+}  
+  
+.ticket-button:focus {  
+    margin-top: 1px;  
+}  
+  
+.ticket-button::-moz-focus-inner /* fixing evil default firefox padding */ {  
+    padding:0;  
+    border:none;  
+} 
