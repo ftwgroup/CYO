@@ -1,14 +1,8 @@
 
 <script type="text/javascript">
             $(document).ready(function(){
-                var localUrl = 'http://127.0.0.1:8000/';
-                var homeUrl = 'http://www.cyorchestra.org/';
-                if (document.location.hostname == '127.0.0.1') {
-                    playlistUrl = 'http://127.0.0.1:8000/repertoire/get_playlist'
-                } else {
-                    playlistUrl = 'http://www.cyorchestra.org/repertoire/get_playlist'
-                }
-                if ( document.URL == homeUrl || document.URL == localUrl ){
+                playlistUrl = '/repertoire/get_playlist'
+                if ( document.location.pathname == '/' ){
                     var playOnStart = true;
                 }else{
                     var playOnStart = false;   
