@@ -464,7 +464,7 @@ div.jp-title li {
 div.jp-playlist li {
 	padding:5px 0 1px 10px;
 	border-bottom:1px solid darkgray;
-	display: none;
+	display: none !important;
 }
 
 div.jp-playlist li div {
