@@ -3,6 +3,7 @@
 {% autoescape off %}
         {% block main_content %}
                 <div><h2>{{ concert.title }}</h2>
+                    <h2><em><small>{{ concert.date_time|date:"l, F jS, Y" }}</small></em></h2>
                     <h3>Series: <a href="{{ concert.series.get_absolute_url }}">{{ concert.series.title }}</a></h3>
                     <br />  
                     <table>

@@ -3,13 +3,30 @@
     <h2>Grouped by Concert</h2>
     <table>
         {% for concert in repertoire_list %}
-            <tr><td><h3>{{ concert.title }}</h3></td></tr>
+            <tr><td><h3><a href="{{ concert.get_absolute_url }}">{{ concert.title }}</a></h3></td></tr>
             {% for ps in concert.performedsong_set.all %}
                 <tr>
-                    <td>{{ ps.song.title }}</td>
-                    <td>{{ ps.song.composer }} <small><em>({{ ps.song.composer.birth_year }}-{% if ps.song.composer.death_year %}{{ ps.song.composer.death_year }}{% else %}Current{% endif %})</em></small></td>
+                    <td><a href="{{ ps.song.get_absolute_url }}">{{ ps.song.title }}</a></td>
+                    <td><a href="{{ ps.song.composer.get_absolute_url }}">{{ ps.song.composer }}</a> <small><em>({{ ps.song.composer.birth_year }}-{% if ps.song.composer.death_year %}{{ ps.song.composer.death_year }}{% else %}Current{% endif %})</em></small></td>
                 </tr>
             {% endfor %}
         {% endfor %}
     </table>
+    {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+    <br>
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{% url by-default %}?page={{ page_obj.previous_page_number }}"><small><em>previous</em></small></a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{% url by-default %}?page={{ page_obj.next_page_number }}"><small><em>next</em></small></a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
 {% endblock %}

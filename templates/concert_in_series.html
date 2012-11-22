@@ -29,10 +29,10 @@
                                 <p>{{ upcoming.venue.city }}, {{ upcoming.venue.state }} {{ upcoming.venue.zip_code }}</p>
                             </li>
                         </ul>
-                        <button id="ticket-button" value="get-tickets">
-                            {# TODO (julian) we need to be able to link to a paypal screen #}
-                            <a href="http://www2.cyorchestra.org/tickets">Get Tickets</a>
-                        </button>
+                            {# TODO (julian) we need to be able to link to a paypal screen #}              
+                        <a href="http://www2.cyorchestra.org/tickets">
+                        <button class="ticket-button" value="get-tickets"><span>Get Tickets!</span></button>
+                        </a>
                     </div>
                 </div>
                 <div class="concert_rightCol">
@@ -48,16 +48,5 @@
     {% endblock concert_abstract %}
 {% endif %}
 {% block page_content %}
-    <h1>{{ concert.title }}{% if concert.series and concert.season %} </h1>
-        <h2> {{ concert.series }} - Season {{ concert.season }}{% endif %}</h2>
-        {% if concert.poster_image %}{{ concert.poster_image }}{% endif %}{{ concert.description|safe }}
-    <h3>Song List</h3>
-    <table>
-            {% for ps in concert.performedsong_set.all %}
-                <tr>
-                    <td>{{ ps.song.title }}</td>
-                    <td>{{ ps.song.composer }} <small><em>({{ ps.song.composer.birth_year }}-{% if ps.song.composer.death_year %}{{ ps.song.composer.death_year }}{% else %}Current{% endif %})</em></small></td>
-                </tr>
-            {% endfor %}
-    </table>
+    {% include 'repertoire/_concert_detail.html' %}
 {% endblock %}

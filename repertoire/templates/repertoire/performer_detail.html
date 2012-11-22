@@ -1,0 +1,84 @@
+{% extends 'repertoire/rep_base.html' %}
+{# model = Performer #}
+{% autoescape off %}
+        {% block main_content %}
+                <div><h2>{{ performer.first_name }} {{ performer.last_name }}</h2>
+                    <small><em>{{ performer.birth_year }}-{% if performer.death_year %}{{ performer.death_year }}{% else %}Current{% endif %}</em></small>
+                    <br />  
+                    {{ performer.bio|safe }}
+                    {% if performer.song_set.all.count > 0 %}
+                         <table>
+                            <caption><h3>Composer:</h3></caption>
+                            {% for cs in performer.song_set.all %}
+                                <tr>
+                                    <td><a href="{{ cs.get_absolute_url}}">{{ cs.title }}</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                    {% if performer.arranger.all.count > 0 %}
+                    <br>
+                        <table>
+                            <caption><h3>Arranger:</h3></caption>
+                            {% for ps in performer.arranger.all %}
+                                    <tr>
+                                        <td><a href="{{ ps.song.get_absolute_url}}">{{ ps.song.title }}</a></td>
+                                        <td><a href="{{ ps.concert.get_absolute_url}}">{{ ps.concert.title }}</a></td>
+                                    </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                    {% if performer.conductor.all.count > 0 %}
+                    <br>
+                        <table>
+                            <caption><h3>Conductor:</h3></caption>
+                            {% for ps in performer.conductor.all %}
+                                    <tr>
+                                        <td><a href="{{ ps.song.get_absolute_url}}">{{ ps.song.title }}</a></td>
+                                        <td><a href="{{ ps.concert.get_absolute_url}}">{{ ps.concert.title }}</a></td>
+                                    </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                    {# TODO queryset in advance to grab concerts where performer was featured artist - right now this will appear occasionally when the performer wasn't #}
+                    {% if performer.performedsong_set.all.count > 0 %}
+                    <br>
+                        <table>
+                            <th><h3>Featured Artist:</h3></th>
+                            {% for ps in performer.performedsong_set.all %}
+                                {% if ps.concert.featured_artist == performer %}
+                                    <tr>
+                                        <td><a href="{{ ps.song.get_absolute_url}}">{{ ps.song.title }}</a></td>
+                                        <td><a href="{{ ps.concert.get_absolute_url}}">{{ ps.concert.title }}</a></td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                    {% if performer.guest_artist.all.count > 0 %}
+                    <br>
+                        <table>
+                            <caption><h3>Guest Artist:</h3></caption>
+                            {% for ps in performer.guest_artist.all %}
+                                    <tr>
+                                        <td><a href="{{ ps.song.get_absolute_url}}">{{ ps.song.title }}</a></td>
+                                        <td><a href="{{ ps.concert.get_absolute_url}}">{{ ps.concert.title }}</a></td>
+                                    </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                    {% if performer.soloist.all.count > 0 %}
+                    <br>
+                        <table>
+                            <caption><h3>Soloist:</h3></caption>
+                            {% for ps in performer.soloist.all %}
+                                    <tr>
+                                        <td><a href="{{ ps.song.get_absolute_url}}">{{ ps.song.title }}</a></td>
+                                        <td><a href="{{ ps.concert.get_absolute_url}}">{{ ps.concert.title }}</a></td>
+                                    </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                </div>
+        {% endblock %}
+{% endautoescape %}

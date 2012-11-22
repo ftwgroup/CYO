@@ -1,0 +1,20 @@
+{# model = Concert #}
+{% autoescape off %}
+        {% block main_content %}
+                <div><h2>{{ concert.title }}</h2>
+                    <h3>Series: <a href="{{ concert.series.get_absolute_url }}">{{ concert.series.title }}</a></h3>
+                    <br />  
+                    <table>
+                        {% for ps in concert.performedsong_set.all %}
+                            <tr>
+                                <td><a href="{{ ps.song.get_absolute_url}}">{{ ps.song.title }}</a></td>
+                                <td><a href="{{ ps.song.composer.get_absolute_url}}">{{ ps.song.composer }}</a> <small><em>({{ ps.song.composer.birth_year }}-{% if ps.song.composer.death_year %}{{ ps.song.composer.death_year }}{% else %}Current{% endif %})</em></small></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+                    <br />
+                    {{ concert.description|safe }}
+                </div>
+        {% endblock %}
+{% endautoescape %}

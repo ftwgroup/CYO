@@ -5,9 +5,26 @@
     <table>
         {% for song in repertoire_list %}
             <tr>
-                <td>{{ song.title }}</td>
-                <td>{{ song.composer.last_name }}, {{ song.composer.first_name }}</td>
+                <td><a href="{{ song.get_absolute_url }}">{{ song.title }}</a></td>
+                <td><a href="{{ song.composer.get_absolute_url }}">{{ song.composer.last_name }}, {{ song.composer.first_name }}</a></td>
             </tr>
         {% endfor %}
     </table>
+    {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+    <br>
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{% url by-song %}?page={{ page_obj.previous_page_number }}"><small><em>previous</em></small></a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{% url by-song %}?page={{ page_obj.next_page_number }}"><small><em>next</em></small></a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
 {% endblock %}

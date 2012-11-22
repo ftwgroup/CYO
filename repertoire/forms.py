@@ -45,3 +45,6 @@ class ConcertForm(forms.ModelForm):
             'description': TinyMCEEditor(),
             'abstract': TinyMCEEditor(),
         }
+
+class UploadFileForm(forms.Form):
+    file = forms.FileField()

@@ -1,3 +1,2 @@
 {{ object.title }}
-{{ object.composer }}
-{{ object.description }}
+{{ object.composer.first_name }} {{ object.composer.last_name }}
