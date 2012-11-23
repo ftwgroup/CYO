@@ -2,3 +2,6 @@
 {{ object.description }}
 {{ object.series }}
 {{ object.featured_artist }}
+{% for song in object.performedsong_set.all %}
+{{ song.title }}
+{% endfor %}

@@ -1,0 +1,36 @@
+#search_form li {
+	display: inline;
+}
+.highlighted {
+	font-style: italic;
+	color: #3CF; /*FFDB01 for yellow*/
+}
+.search_result_container {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+.search_result_left {
+	float: none;
+	display: table-cell;
+	color: #02B;
+	width: 80%;
+}
+.search_result_title {
+	font-size: 1.4em;
+}
+.search_result_container .search_result_left h1 {
+	font-size: 2.2em !important;
+}
+.search_result_left a:link, .search_result_left a:active, .search_result_left a:visited {
+	color: #02B;
+}
+.search_result_left a:hover {
+	color: #3CF;
+}
+.search_result_right {
+	display: table-cell;
+	text-align: right;
+	padding-right: 10px;
+}
+

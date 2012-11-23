@@ -31,8 +31,8 @@ class Series(models.Model):
 
     @app_models.permalink
     def get_absolute_url(self):
-        return ('series-detail', 'repertoire.urls', (), {
-            'pk': self.pk,
+        return ('concert-archive', 'repertoire.concerts', (), {
+            'slug': self.slug,
             })
 
 
@@ -41,11 +41,11 @@ class Venue(models.Model):
     This table describes the venue for a concert.
     """
     name = models.CharField(max_length=128) #TODO (stephen) once migrations are redone, rename this colmn to title
-    address1 = models.CharField(max_length=64)
+    address1 = models.CharField(max_length=64, blank=True, null=True)
     address2 = models.CharField(max_length=64, blank=True, null=True)
-    city = models.CharField(max_length=60)
-    state = USStateField()
-    zip_code = models.CharField(max_length=10)
+    city = models.CharField(max_length=60, blank=True, null=True)
+    state = USStateField(blank=True, null=True)
+    zip_code = models.CharField(max_length=10, blank=True, null=True)
 
     def __unicode__(self):
             return self.name
@@ -63,15 +63,15 @@ class Concert(models.Model):
     """
     title = models.CharField(max_length=60)
     short_description = models.TextField(verbose_name="Three line descriptor", null=True, blank=True)
-    abstract = models.TextField()
-    description = models.TextField()
-    series = models.ForeignKey('Series')
-    season = models.IntegerField()
+    abstract = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    series = models.ForeignKey('Series', blank=True, null=True)
+    season = models.IntegerField(blank=True, null=True)
 
     rough_date = models.CharField(verbose_name="e.g. Summer 2012", max_length=32, blank=True, null=True)
     date_time = models.DateTimeField(blank=True, null=True)
 
-    featured_artist = models.ManyToManyField('Performer') #TODO through PerformedSong?
+    featured_artist = models.ManyToManyField('Performer', blank=True, null=True) #TODO through PerformedSong?
     venue = models.ForeignKey('Venue', null=True)
 
     poster_image = models.ImageField(upload_to='concert_poster', blank=True, null=True)
@@ -97,7 +97,7 @@ class PerformedSong(models.Model):
     This table joins Concert and Song
     """
     song = models.ForeignKey('Song')
-    concert = models.ForeignKey('Concert')
+    concert = models.ForeignKey('Concert', blank=True, null=True)
 
     arranger = models.ManyToManyField('Performer', related_name='arranger', blank=True, null=True)
     conductor = models.ManyToManyField('Performer', related_name='conductor', blank=True, null=True)
@@ -125,7 +125,9 @@ class Song(models.Model):
     """
     title = models.CharField(max_length=48)
     composer = models.ForeignKey('Performer')
-    description = models.TextField('Description of this song')
+    description = models.TextField('Description of this song', blank=True, null=True)
+    audio_file = models.FileField(upload_to='song_audio_file', blank=True, null=True)
+    playable = models.BooleanField(default=True)
 
     def __unicode__(self):
         return self.title
@@ -143,9 +145,9 @@ class Person(models.Model):
     """
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    birth_year = models.IntegerField()
+    birth_year = models.IntegerField(blank=True, null=True)
     death_year = models.IntegerField(blank=True, null=True)
-    bio = models.TextField(blank=True)
+    bio = models.TextField(blank=True, null=True)
 
     class Meta:
         abstract = True
@@ -153,11 +155,32 @@ class Person(models.Model):
     def __unicode__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
+
+class Performer(Person):
     @app_models.permalink
     def get_absolute_url(self):
-        return ('person-detail', 'repertoire.urls', (), {
+        return ('performer-detail', 'repertoire.urls', (), {
             'pk': self.pk,
             })
 
-class Performer(Person):
-    pass
+class Instrument(models.Model):
+    instrument = models.CharField(max_length=32)
+
+    def __unicode__(self):
+        return self.instrument
+
+class FeaturedArtistInstrument(models.Model):
+    performer = models.ForeignKey('Performer')
+    performed_song = models.ForeignKey('PerformedSong')
+    instrument = models.ForeignKey('Instrument')
+
+class GuestArtistInstrument(models.Model):
+    performer = models.ForeignKey('Performer')
+    performed_song = models.ForeignKey('PerformedSong')
+    instrument = models.ForeignKey('Instrument')
+
+class SoloistInstrument(models.Model):
+    performer = models.ForeignKey('Performer')
+    performed_song = models.ForeignKey('PerformedSong')
+    instrument = models.ForeignKey('Instrument')
+    
