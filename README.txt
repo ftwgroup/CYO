@@ -7,3 +7,7 @@ to set up,
 +load data from fixtures
 +manage.py rebuild_index
 
+when on server...
+turn on virtualenv...
+cd .virtualenvs/cyo
+source bin/activate
