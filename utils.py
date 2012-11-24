@@ -23,7 +23,6 @@ class SearchHighlighter(Highlighter):
     
     def highlight(self, text_block):
         self.text_block = strip_tags(text_block)
-        print self.text_block
         highlight_locations = self.find_highlightable_words()
         start_offset, end_offset = self.find_window(highlight_locations)
         return self.render_html(highlight_locations, start_offset, end_offset)
