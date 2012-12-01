@@ -4,11 +4,16 @@
 .highlighted {
 	font-style: italic;
 	color: #3CF; /*FFDB01 for yellow*/
+    font-weight: normal;
 }
 .search_result_container {
 	display: table;
 	table-layout: fixed;
 	width: 100%;
+}
+
+.search_result_content{
+    line-height: 1.5em;
 }
 .search_result_left {
 	float: none;
@@ -18,7 +23,14 @@
 }
 .search_result_title {
 	font-size: 1.4em;
+    font-family:'Univers', 'Open Sans Condensed', sans-serif;
+    font-weight: normal;
 }
+.result_link a{
+    color: #d3d3d3;
+    font-weight: normal;
+}
+
 .search_result_container .search_result_left h1 {
 	font-size: 2.2em !important;
 }
