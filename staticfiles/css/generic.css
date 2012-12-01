@@ -50,6 +50,24 @@
 .repertoire table h3{margin-top:1em}
 .repertoire{margin-left: 20px; float:left;}
 .rep-nav{margin-top: .5em}
+.repertoire tbody tr:nth-child(2n+2){
+    background-color: #e6e7e9;
+    /*background-color: #cd5c5c;*/
+}
+.repertoire tbody td:first-child{
+    width: 50%;
+}
+.repertoire table thead h3{
+    margin-top: 10px ;
+    background-color: #e6e7e9;
+    font-size: 16px;
+}
+.repertoire table thead tr.table-title a{
+    font-weight: 700;
+}
+.repertoire a{
+    font-weight: normal;
+}
 
 div.concert_leftCol{
     width: 230px;

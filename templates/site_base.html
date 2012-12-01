@@ -35,7 +35,7 @@
     <div id="searchbox">
     {% block search_box %}
         <form name="input" action="/search" method="get">
-            <input type="text" class="box" name="q" value="{{ query|default:'Search' }}" />
+            <input type="text" class="box" name="q"  value="{{ query|default:'Search' }}" />
         </form>
     {% endblock %}
     </div><!--searchbox-->

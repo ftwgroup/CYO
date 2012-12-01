@@ -2,21 +2,27 @@
 {# queryset = Performer objects #}
 {% block main_content %}
     <h2>Grouped by Composer</h2>
-    <table>
+
         {% for composer in repertoire_list %}
-            <tr><td>
-                <h3><a href="{{ composer.get_absolute_url }}">{{ composer.first_name }} {{ composer.last_name }}</a> <small><em>({{ composer.birth_year }}-{% if composer.death_year %}{{ composer.death_year }}{% else %}Current{% endif %})</em></small></h3>
-            </td></tr>
-            {% for song in composer.song_set.all %}
-                {% for ps in song.performedsong_set.all %}
-                    <tr>
-                        <td><a href="{{ song.get_absolute_url }}">{{ song.title }}</a></td>
-                        <td><a href="{{ ps.concert.get_absolute_url }}">{{ ps.concert.title }}</a></td>
-                    </tr>
+            <table>
+                <thead>
+                    <tr class="table-title"><td colspan="2">
+                        <h3><a href="{{ composer.get_absolute_url }}">{{ composer.first_name }} {{ composer.last_name }}</a> <small><em>({{ composer.birth_year }}-{% if composer.death_year %}{{ composer.death_year }}{% else %}Current{% endif %})</em></small></h3>
+                    </td></tr>
+                </thead>
+                <tbody>
+                {% for song in composer.song_set.all %}
+                    {% for ps in song.performedsong_set.all %}
+                        <tr>
+                            <td><a href="{{ song.get_absolute_url }}">{{ song.title }}</a></td>
+                            <td><a href="{{ ps.concert.get_absolute_url }}">{{ ps.concert.title }}</a></td>
+                        </tr>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
+                </tbody>
+            </table>
         {% endfor %}
-    </table>
+
     {# .... **Now the pagination section** .... #}
     {% if is_paginated %}
     <br>
