@@ -76,6 +76,8 @@ button a:hover,#navigation a:hover,#footer-extend a:hover{color:#FFDB01}
 #homepage-content{background:#000}
 .main-content{background:#fff;}
 .main-content > h1{margin:48px 0 0 20px}
+
+.main-content a:hover{ color:#3CF;}
 .concert_tabs a{color:#333}
 .concert_tabs a:hover{color:#999}
 .concert_tabs{font-family:Univers, 'Open Sans Condensed', sans-serif;text-transform:uppercase;font-size:1.1em;background:#FFDB01;float:right}
