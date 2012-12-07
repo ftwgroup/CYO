@@ -1,6 +1,5 @@
 from haystack.utils import Highlighter
 from django.utils.html import strip_tags
-from django.utils.encoding import smart_str
 
 class SearchHighlighter(Highlighter):
     css_class = 'highlighted'
@@ -23,8 +22,8 @@ class SearchHighlighter(Highlighter):
         self.query_words = set([word.lower() for word in self.query.split() if not word.startswith('-')])
     
     def highlight(self, text_block):
-        text_block = smart_str(text_block)
         self.text_block = strip_tags(text_block)
+        print self.text_block
         highlight_locations = self.find_highlightable_words()
         start_offset, end_offset = self.find_window(highlight_locations)
         return self.render_html(highlight_locations, start_offset, end_offset)

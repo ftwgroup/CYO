@@ -48,10 +48,15 @@ class RepertoireView(ListView):
     def get_template_names(self):
         # TODO we don't want to have a template for each performer type
         if self.filter:
-            print self.filter
             return ['repertoire/concert_'+self.filter+'_list.html']
         else:
             return ['repertoire/concert_list.html']
+
+def _parse_row(string):
+    if string == '':
+        return None
+    else:
+        return string.strip()
 
 @staff_member_required
 def upload_file(request):
@@ -63,143 +68,183 @@ def upload_file(request):
             reader = csv.reader(file)
             for row in reader:
                 if row[0] != "ID":
-                    song_title = row[1]
-                    person_first_name = row[2].strip()
-                    person_last_name = row[3].strip()
-                    person_birth_year_and_death_year = row[4].strip().split("-")
-                    person_birth_year = person_birth_year_and_death_year[0]
-                    try:
-                        person_birth_year = int(person_birth_year)
-                    except ValueError:
-                        person_birth_year = 9999
-                    if len(person_birth_year_and_death_year) > 1:
-                        person_death_year = person_birth_year_and_death_year[1]
+                    song_title = _parse_row(row[1])
+                    person_first_name = _parse_row(row[2])
+                    person_last_name = _parse_row(row[3])
+                    person_birth_year_and_death_year = _parse_row(row[4])
+                    if person_birth_year_and_death_year:
+                        person_birth_year_and_death_year = person_birth_year_and_death_year.split("-")
+                        person_birth_year = person_birth_year_and_death_year[0]
                         try:
-                            person_death_year = int(person_death_year)
+                            person_birth_year = int(person_birth_year)
                         except ValueError:
-                            person_death_year = None
-                    concert_title = row[5].strip()
-                    concert_description = row[6].strip()
-                    concert_abstract = row[7].strip()
-                    series_title = row[8].strip()
-                    concert_season = row[9].strip()
-                    if concert_season == "":
-                        concert_season = 0
+                            person_birth_year = None
+                        if len(person_birth_year_and_death_year) > 1:
+                            person_death_year = person_birth_year_and_death_year[1]
+                            try:
+                                person_death_year = int(person_death_year)
+                            except ValueError:
+                                person_death_year = None
+                    concert_title = _parse_row(row[5])
+                    concert_description = _parse_row(row[6])
+                    concert_abstract = _parse_row(row[7])
+                    series_title = _parse_row(row[8])
+                    concert_season = _parse_row(row[9])
+                    if concert_season:
+                        concert_season = int(concert_season) 
                     else:
-                        concert_season = int(concert_season)
-                    concert_rough_date = row[10].strip()
+                        concert_season = 0
+                    concert_rough_date = _parse_row(row[10])
                     try:
-                        concert_date_time = datetime.datetime.strptime(row[11].strip(), "%m/%d/%Y %H:%M")
-                    except ValueError:
-                        continue
-                    performedsong_premiere = row[12].strip()
-                    concert_featured_artist_first = row[13].split(",")
-                    concert_featured_artist_last = row[14].split(",")
-                    featured_artist_instrument = row[15].split(",")
-                    venue_name = row[16].strip()
-                    performedsong_arranger_first = row[17].strip()
-                    performedsong_arranger_last = row[18].strip()
-                    performedsong_guest_artist_first = row[19].strip()
-                    performedsong_guest_artist_last = row[20].strip()
-                    guest_artist_instrument = row[21].strip()
-                    performedsong_soloist_first = row[22].strip()
-                    performedsong_soloist_last = row[23].strip()
-                    soloist_instrument = row[24].strip()
+                        concert_date_time = datetime.datetime.strptime(_parse_row(row[11]), "%m/%d/%Y %H:%M")
+                    except:
+                        pass
+                    performedsong_premiere = _parse_row(row[12])
+                    try:
+                        concert_featured_artist_first = _parse_row(row[13]).split(",")
+                    except:
+                        pass
+                    try:
+                        concert_featured_artist_last = _parse_row(row[14]).split(",")
+                    except:
+                        pass
+                    try:
+                        featured_artist_instrument = _parse_row(row[15]).split(",")
+                    except:
+                        pass
+                    venue_name = _parse_row(row[16])
+                    performedsong_arranger_first = _parse_row(row[17])
+                    performedsong_arranger_last = _parse_row(row[18])
+                    performedsong_guest_artist_first = _parse_row(row[19])
+                    performedsong_guest_artist_last = _parse_row(row[20])
+                    guest_artist_instrument = _parse_row(row[21])
+                    performedsong_soloist_first = _parse_row(row[22])
+                    performedsong_soloist_last = _parse_row(row[23])
+                    soloist_instrument = _parse_row(row[24])
                     val = URLValidator(verify_exists=False)
                     try:
-                        val(row[25].strip())
-                        concert_poster_image_url = row[25].strip()
+                        val(_parse_row(row[25]))
+                        concert_poster_image_url = _parse_row(row[25])
                     except ValidationError, e:
                         pass
                     try:
-                        val(row[26].strip())
-                        concert_photos_link = row[26].strip()
+                        val(_parse_row(row[26]))
+                        concert_photos_link = _parse_row(row[26])
                     except ValidationError, e:
                         pass
                     try:
-                        val(row[27].strip())
-                        concert_video_link = row[27].strip()
+                        val(_parse_row(row[27]))
+                        concert_video_link = _parse_row(row[27])
                     except ValidationError, e:
                         pass
                     try:
-                        val(row[28].strip())
-                        concert_program_file_url = row[28].strip()
+                        val(_parse_row(row[28]))
+                        concert_program_file_url = _parse_row(row[28])
                     except ValidationError, e:
                         pass
-                    performedsong_note = row[29].strip()
+                    performedsong_note = _parse_row(row[29])
                     try:
-                        arranger = Performer.objects.get(first_name=performedsong_arranger_first, last_name=performedsong_arranger_last)
-                    except Performer.DoesNotExist:
-                        arranger = Performer(first_name=performedsong_arranger_first, last_name=performedsong_arranger_last, birth_year=9999)
-                        arranger.save()
+                        arranger, created = Performer.objects.get_or_create(first_name=performedsong_arranger_first, last_name=performedsong_arranger_last)
+                    except:
+                        pass
                     try:
-                        guest_artist = Performer.objects.get(first_name=performedsong_guest_artist_first, last_name=performedsong_guest_artist_last)
-                    except Performer.DoesNotExist:
-                        guest_artist = Performer(first_name=performedsong_guest_artist_first, last_name=performedsong_guest_artist_last, birth_year=9999)
-                        guest_artist.save()
+                        guest_artist, created = Performer.objects.get_or_create(first_name=performedsong_guest_artist_first, last_name=performedsong_guest_artist_last)
+                    except:
+                        pass
                     try:
-                        soloist = Performer.objects.get(first_name=performedsong_soloist_first, last_name=performedsong_soloist_last)
-                    except Performer.DoesNotExist:
-                        soloist = Performer(first_name=performedsong_soloist_first, last_name=performedsong_soloist_last, birth_year=9999)
-                        soloist.save()
+                        soloist, created = Performer.objects.get_or_create(first_name=performedsong_soloist_first, last_name=performedsong_soloist_last)
+                    except:
+                        pass
                     try:
-                        composer = Performer.objects.get(first_name=person_first_name, last_name=person_last_name)
-                    except Performer.DoesNotExist:
-                        composer = Performer(first_name=person_first_name, last_name=person_last_name, birth_year=person_birth_year)
+                        composer, created = Performer.objects.get_or_create(first_name=person_first_name, last_name=person_last_name)
+                        try:
+                            composer.birth_year = person_birth_year
+                        except:
+                            pass
                         try:
                             composer.death_year = person_death_year
                         except:
                             pass
                         composer.save()
+                    except:
+                        pass
                     featured_artists = []
                     for index, artist in enumerate(concert_featured_artist_first):
                         try:
                             featured_artist, created = Performer.objects.get_or_create(first_name=concert_featured_artist_first[index].strip(), last_name=concert_featured_artist_last[index].strip())
-                            if created:
-                                featured_artist.birth_year = 9999
-                                featured_artist.save()
                             featured_artists.append(featured_artist)
                         except:
-                            pass    
-                    song, created = Song.objects.get_or_create(title=song_title, composer=composer)
-                    venue, created = Venue.objects.get_or_create(name=venue_name)
-                    series, created = Series.objects.get_or_create(title=series_title)
-                    concert, created = Concert.objects.get_or_create(title=concert_title, series=series, season=concert_season, date_time=concert_date_time)
-                    concert.abstract = concert_abstract
-                    concert.description = concert_description
-                    concert.rough_date = concert_rough_date
-                    for artist in featured_artists:
-                        concert.featured_artist.add(artist)
+                            pass
+                    try:  
+                        song, created = Song.objects.get_or_create(title=song_title, composer=composer)
+                    except:
+                        pass
+                    # if venue_name and venue_name != '':
                     try:
-                        concert.photos_link = concert_photos_link
+                        venue, created = Venue.objects.get_or_create(name=venue_name)
+                    except:
+                        pass
+                    # if series_title and series_title != '':
+                    try:
+                        series, created = Series.objects.get_or_create(title=series_title)
+                    except:
+                        pass
+                    # if concert_title and series and concert_season and concert_date_time:
+                    try:
+                        concert, created = Concert.objects.get_or_create(title=concert_title, series=series, season=concert_season, date_time=concert_date_time)
+                        concert.abstract = concert_abstract
+                        concert.description = concert_description
+                        concert.rough_date = concert_rough_date
+                        for artist in featured_artists:
+                            concert.featured_artist.add(artist)
+                        try:
+                            concert.photos_link = concert_photos_link
+                        except:
+                            pass
+                        try:
+                            concert.video_link = concert_video_link
+                        except:
+                            pass
+                        
+                        concert.save()
                     except:
                         pass
                     try:
-                        concert.video_link = concert_video_link
+                        performed_song, created = PerformedSong.objects.get_or_create(song=song, concert=concert)
+                        try:
+                            performed_song.premiere = performedsong_premiere
+                            performed_song.save()
+                        except:
+                            pass
                     except:
                         pass
-                    
-                    concert.save()
                     try:
-                        performed_song = PerformedSong.objects.get(song=song, concert=concert)
-                    except PerformedSong.DoesNotExist:
-                        performed_song = PerformedSong(song=song, concert=concert, premiere=performedsong_premiere)
+                        performed_song.arranger.add(arranger)
+                        performed_song.guest_artist.add(guest_artist)
+                        performed_song.note = performedsong_note
                         performed_song.save()
-                    performed_song.arranger.add(arranger)
-                    performed_song.guest_artist.add(guest_artist)
-                    performed_song.note = performedsong_note
-                    performed_song.save()
-                    for index, instrument in enumerate(featured_artist_instrument):
-                        instrument = instrument.strip()
-                        if instrument != '':
-                            inst, created = Instrument.objects.get_or_create(instrument=instrument)
-                            fainstrument = FeaturedArtistInstrument.objects.get_or_create(performer=featured_artists[index], performed_song=performed_song, instrument=inst)
-                    if guest_artist_instrument != '':
-                        instrument, created = Instrument.objects.get_or_create(instrument=guest_artist_instrument) 
-                        gainstrument = GuestArtistInstrument.objects.get_or_create(performer=guest_artist, performed_song=performed_song, instrument=instrument)
-                    if soloist_instrument != '':
-                        instrument, created = Instrument.objects.get_or_create(instrument=soloist_instrument)
-                        soinstrument = SoloistInstrument.objects.get_or_create(performer=soloist, performed_song=performed_song, instrument=instrument) 
+                    except:
+                        pass
+                    try:
+                        for index, instrument in enumerate(featured_artist_instrument):
+                            instrument = instrument.strip()
+                            if instrument != '':
+                                inst, created = Instrument.objects.get_or_create(instrument=instrument)
+                                fainstrument = FeaturedArtistInstrument.objects.get_or_create(performer=featured_artists[index], performed_song=performed_song, instrument=inst)
+                    except:
+                        pass
+                    try:
+                        if guest_artist_instrument != '':
+                            instrument, created = Instrument.objects.get_or_create(instrument=guest_artist_instrument) 
+                            gainstrument = GuestArtistInstrument.objects.get_or_create(performer=guest_artist, performed_song=performed_song, instrument=instrument)
+                    except:
+                        pass
+                    try:
+                        if soloist_instrument != '':
+                            instrument, created = Instrument.objects.get_or_create(instrument=soloist_instrument)
+                            soinstrument = SoloistInstrument.objects.get_or_create(performer=soloist, performed_song=performed_song, instrument=instrument)
+                    except:
+                        pass
             return HttpResponseRedirect('/admin/repertoire/')
     else:
         form = UploadFileForm()
