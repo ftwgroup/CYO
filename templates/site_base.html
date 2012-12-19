@@ -63,9 +63,7 @@
         {%  block sidebar-common %}
         <img class="season-thumbnail" src="{{ STATIC_URL }}images/season17-sm.png">
         {% endblock %}
-        {% block mp3player %}
-            {% include "includes/music_player.html" %}
-        {% endblock %}
+
             <div class="row">
              <div class="column grid_242" id="sidebar-details">
 {% feincms_navigation of feincms_page as sublevel level=2,depth=1 %}
@@ -83,6 +81,9 @@
             {% block sidebar %}
                 {% feincms_render_region feincms_page "sidebar" request %}
             {% endblock %}
+             {% block mp3player %}
+                 {% include "includes/music_player.html" %}
+             {% endblock %}
             </div>
         </div>
     </div>
