@@ -9,5 +9,8 @@ to set up,
 
 when on server...
 turn on virtualenv...
-cd .virtualenvs/cyo
-source bin/activate
++cd .virtualenvs/cyo
++source bin/activate
+to restart...
++cd cyorchestra.org/tmp
++touch restart.txt
