@@ -1,48 +1,96 @@
-#search_form li {
-	display: inline;
+
+
+#h1_search{
+	padding-left: 1%;
 }
 .highlighted {
 	font-style: italic;
-	color: #3CF; /*FFDB01 for yellow*/
+	color: #3cf; /*FFDB01 for yellow*/
     font-weight: normal;
+}
+hr{
+	padding-left: 3%;
+	margin: 0% 3% 5% 3%;
+}
+#id_q{
+	margin-right: 67%;
+	margin-bottom: 3%;
+}
+.result_link a{
+    color: #d3d3d3;
+    font-family:'Univers', 'Open Sans Condensed', sans-serif;
+    font-size: 118%;
+    font-weight: normal;
+    padding-left: 5%;
+}
+#search_form{
+	font-family: 'Univers', 'Open Sans Condensed', sans-serif;
+	margin-top: 10px ;
+	margin-left: 3%;
+    background-color: #e6e7e9;
+    font-size: 18px;
+    width: 90%;
+    padding-left: 3%;
+}
+#searchForm{
+	margin-top: 6%;
+	margin-bottom: 5%;
+}
+#search_form li {
+	display: inline;
+	padding-top: 6%;
+}
+#search-list{
+	padding-top: 1%;
 }
 .search_result_container {
 	display: table;
 	table-layout: fixed;
 	width: 100%;
+	padding-left: 3%;
+	padding-right: 3%;
 }
-
+.search_result_container .search_result_left h1 {
+	font-size: 2.2em !important;
+}
 .search_result_content{
+	font-family: 'Univers', 'Open Sans Condensed', sans-serif;
     line-height: 1.5em;
+    margin: 1% 1% 0% 0%;
+    padding-left: 5%;
+    padding-right: 11%;
 }
 .search_result_left {
 	float: none;
 	display: table-cell;
-	color: #02B;
-	width: 80%;
-}
-.search_result_title {
-	font-size: 1.4em;
-    font-family:'Univers', 'Open Sans Condensed', sans-serif;
-    font-weight: normal;
-}
-.result_link a{
-    color: #d3d3d3;
-    font-weight: normal;
-}
-
-.search_result_container .search_result_left h1 {
-	font-size: 2.2em !important;
-}
-.search_result_left a:link, .search_result_left a:active, .search_result_left a:visited {
-	color: #02B;
+	color: #0835ff;
+	width: 60%;
 }
 .search_result_left a:hover {
 	color: #3CF;
 }
+.search_result_left a:link, .search_result_left a:active, .search_result_left a:visited {
+	color: #02B;
+	font-family: 'Univers', 'Roman Oblique', sans-serif;
+}
 .search_result_right {
 	display: table-cell;
 	text-align: right;
-	padding-right: 10px;
+	font-weight: 700;
+	padding-right: 7%;
+}
+.search_result_title {
+	font-size: 1.5em;
+    font-family:'Univers','Open Sans light Condensed', sans-serif;
+} 
+#submit-btn{
+	margin: 2% 0% 1% 0%;
+}
+ul#search-list li label{
+	margin-right: 11px;
+}
+ul#search-list li ul{
+	display: inline-block;
+	margin-right: 15%;
 }
 
