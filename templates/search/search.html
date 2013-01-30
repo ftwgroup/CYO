@@ -48,7 +48,7 @@
                     <div class="result_link"><a href="{{ result.object.get_absolute_url }}">www.cyorchestra.org{{ result.object.get_absolute_url }}</a></div>
                 </p>
             {% empty %}
-                <p>No results found.</p>
+                <p id="noResults">No results found.</p>
             {% endfor %}
             {% if page.has_previous or page.has_next %}
                 <div>

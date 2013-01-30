@@ -16,6 +16,9 @@ hr{
 	margin-right: 67%;
 	margin-bottom: 3%;
 }
+#noResults{
+	margin-left: 4%;
+}
 .result_link a{
     color: #d3d3d3;
     font-family:'Univers', 'Open Sans Condensed', sans-serif;
