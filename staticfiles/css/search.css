@@ -33,18 +33,17 @@ hr{
     background-color: #e6e7e9;
     font-size: 18px;
     width: 90%;
-    padding-left: 3%;
+    padding: 10px 0 10px 10px;
 }
-#searchForm{
-	margin-top: 6%;
-	margin-bottom: 5%;
+#search_form label{
+    margin-right: 10px;
+}
+#search_form ul {
+    display: inline-block;
 }
 #search_form li {
 	display: inline;
 	padding-top: 6%;
-}
-#search-list{
-	padding-top: 1%;
 }
 .search_result_container {
 	display: table;

@@ -7,17 +7,23 @@
 {% block main_content %}
     <h1 id="h1_search">Search</h1>
 
-    <div  id="search_form" method="get" action=".">
-        <form id="searchForm">
-            <ul id="search-list">
-            {{ form.as_ul }}
-                    <li>&nbsp;</li>
-                    <li>
-                        <input id="submit-btn" type="submit" value="Search">
-                    </li>
-                </ul>
-            </form>
-        </div>
+    <form  id="search_form" method="get" action=".">
+        {%  for field in form %}
+            <div class="fieldWrapper">
+            {{ field.label_tag }} {{ field }}
+            </div>
+        {% endfor %}
+
+{#        <form id="searchForm">#}
+{#            <ul id="search-list">#}
+{#            {{ form.as_ul }}#}
+{#                    <li>&nbsp;</li>#}
+{#                    <li>#}
+{#                        <input id="submit-btn" type="submit" value="Search">#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </form>#}
+        </form>
 
         {% if query %}
             <div class="search_result_container">
