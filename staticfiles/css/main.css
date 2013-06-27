@@ -4,12 +4,12 @@ strong{font-weight:700}
 body{background:#000;font-size:14px;font-family:Arial, sans-serif}
 ul{list-style-type:none}
 blockquote{margin:0 2em 0 3em}
-h1{font-size:2.5em;width:100%;font-family:'Univers', 'Open Sans Condensed', sans-serif;color:#000;font-weight:400;margin:.5em 0 0}
-h2{font-family:'Univers', 'Open Sans Condensed', sans-serif;font-size:2em;display:block}
+h1{font-size:2.5em;width:100%;font-family:'Univers', 'Open Sans light Condensed', sans-serif;color:#000;font-weight:400;margin:.5em 0 0}
+h2{font-family:'Univers', 'Open Sans light Condensed', sans-serif;font-size:2em;display:block}
 h3{font-size:1.5em;display:block}
 h4{font-size:1em;display:block}
 p{line-height:1.5em}
-a{color:#666;text-decoration:none;font-weight:700}
+a{color:#3CF;text-decoration:none;font-weight:400}
 button{font-weight:700;color:#fff;background:#222;border-top:1px solid #555;border-right:1px solid #333;border-bottom:1px solid #111;border-left:1px solid #333;padding:.5em 1em}
 ul.breadcrumbs{text-align:left;margin:1em 20px 0}
 ul.breadcrumbs > li{display:inline}
@@ -18,7 +18,7 @@ ul.breadcrumbs > li{display:inline}
 #sidebar h3 a{color:#3CF;background:#111}
 #sidebar #season{display:block;color:#3CF;margin:0 0 5px}
 #sidebar h2{font-size:1.4em;color:#ffdb01;text-transform:uppercase;margin:1em 0 0}
-#sidebar-details a > li{background:#111;width:100%;color:#eee;font-family:Univers,'Open Sans Condensed', sans-serif;font-weight:400;font-size:1.2em;margin:2px 0;padding:.3em .2em}
+#sidebar-details a > li{background:#111;width:100%;color:#eee;font-family:'Univers','Open Sans Condensed', sans-serif;font-weight:400;font-size:1.2em;margin:2px 0;padding:.3em .2em}
 #sidebar-details a > li:hover{background:#333}
 #sidebar-details h3{font-size:1.1em;color:#3CF;font-weight:700;margin:1em 0 .5em;padding:.2em 0 0}
 #sidebar-details p{margin-bottom:1em}
@@ -41,6 +41,7 @@ div#navigation li{width:auto;float:left;margin-top:1px;color:#666;list-style:non
 div#footer li{float:left;list-style:none}
 span#footer-extend{background:#111;float:right;margin-right:60px}
 #footer-extend a{color:#FFF}
+img#ftw-logo{width:32px;}
 #content_main h1{margin:0 0 0 20px}
 .yellowbox{font-weight:100;color:#333;background:#FFDB01;min-height:200px}
 .yellowbox div h2{font-family:'Univers', 'Open Sans Condensed', sans-serif;font-weight:400;color:#fff;font-size:2em;margin:.5em 0 0}
@@ -75,10 +76,11 @@ button a:hover,#navigation a:hover,#footer-extend a:hover{color:#FFDB01}
 #logo{background:url(/static/images/logo.png) no-repeat;height:100px}
 #homepage-content{background:#000}
 .main-content{background:#fff;}
-.main-content > h1{margin:48px 0 0 20px}
+.main-content > h1{margin:90px 0 0 20px}
 
 .main-content a:hover{ color:#3CF;}
 .concert_tabs a{color:#333}
 .concert_tabs a:hover{color:#999}
-.concert_tabs{font-family:Univers, 'Open Sans Condensed', sans-serif;text-transform:uppercase;font-size:1.1em;background:#FFDB01;float:right}
-.concert_tabs li{font-weight:700;list-style:none;float:left;border:#fff solid 1px;padding:.5em 1em}
+.concert_tabs{font-family:'Univers', 'Open Sans Condensed', sans-serif;text-transform:uppercase;font-size:1.1em;background:#FFDB01;float:right}
+.concert_tabs li{list-style:none;float:left;border:#fff solid 1px;padding:.5em 1em}
+.concert_tabs li a{font-weight:700;}
