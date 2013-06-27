@@ -151,7 +151,7 @@ INSTALLED_APPS = (
 )
 
 # setup haystack with whoosh
-HAYSTACK_SITECONF = 'search_sites'
+HAYSTACK_SITECONF = 'cyo.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH = os.path.join(PROJECT_ROOT, 'search_index')
 HAYSTACK_CUSTOM_HIGHLIGHTER = 'utils.SearchHighlighter'

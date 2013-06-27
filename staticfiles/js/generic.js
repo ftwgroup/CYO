@@ -1,15 +1,4 @@
 $(document).ready(function(){
-
-        //        Make 'search' vanish
-        $("input[name='q']").focus(function(){
-            if (this.value=='Search') this.value='';
-
-        }).blur(function(){
-                if (this.value=='') this.value='Search';
-            });
-
-        //Fancybox does not exist on the homepage so any functions placed after
-        //this will not work on the home page
         $("a.image_wrapped, a.image_downloadable").fancybox({
             openEffect: 'elastic',
             closeEffect: 'elastic',
@@ -33,6 +22,12 @@ $(document).ready(function(){
                     height	: 50
                 }
             }
+        });
+//        Make 'search' vanish
+        $("input[name='q']").focus(function(){
+            if (this.value=='Search') this.value='';
+        }).blur(function(){
+            if (this.value=='') this.value='Search';
         });
     }
 );
