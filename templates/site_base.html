@@ -94,13 +94,15 @@
         {% block footer %}
             <ul>
                 <li>&copy;2012 Contemporary Youth Orchestra |&nbsp;</li>
-                <li>(216) 321-3525 |&nbsp;</li>
+{#                <li>(216) 321-3525 |&nbsp;</li>#}
+                <li>(216) 407-4923 |&nbsp;</li>
                 <li><a href="/contact" class="hover-yellow">Contact</a> |&nbsp;</li>
                 <li><a href="/search" class="hover-yellow">Search</a></li>
                 <li><a href="http://www.facebook.com/ContemporaryYouthOrchestra" target="_blank"><img src="{{ STATIC_URL }}images/facebook.png"></a></li>
                 <li><a href="http://twitter.com/LizaGrossmanCYO" target="_blank"><img src="{{ STATIC_URL }}images/twitter.png"></a></li>
                 <li><a href="http://www.youtube.com/user/CYOrchestra?feature=watch" target="_blank"><img src="{{ STATIC_URL }}images/youtube.png"></a></li>
-                {% if user.is_authenticated %}<li> | <a href="/admin">Admin Section</a></li>{% endif %}
+                <li><a href="http://cyorchestra.zenfolio.com" target="_blank"><img width="32px" src="{{ STATIC_URL }}images/zenfolio.png"></a></li>
+                {% if user.is_authenticated %}<li> | <a href="/admin"><img width="32px" src="{{ STATIC_URL }}images/admin.png"></a></li>{% endif %}
             </ul>
         {% endblock %}
 {% block extend-footer %}<span id="footer-extend">Contribute, <a href="/donate" target="_blank">Donate to CYO!</a></span>{% endblock %}
